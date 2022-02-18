@@ -2,7 +2,6 @@ import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import { styled } from "@mui/system";
-import Image from "next/image";
 import Navbar from "./Navbar";
 import SideDrawer from "./SideDrawer";
 import Fab from "@mui/material/Fab";
