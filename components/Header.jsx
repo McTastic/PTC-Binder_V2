@@ -2,7 +2,7 @@ import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import { styled } from "@mui/system";
-import Navbar from "./Navbar";
+import Nav from "./Nav";
 import SideDrawer from "./SideDrawer";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
@@ -37,7 +37,7 @@ const Header = () => {
             sx={{ display: `flex`, justifyContent: `space-between` }}
           >
             <PokeBall />
-            <Navbar className={classes.grow} navLinks={navLinks} />
+            <Nav className={classes.grow} navLinks={navLinks} />
             <SideDrawer navLinks={navLinks} />
           </Container>
         </Toolbar>
