@@ -8,6 +8,17 @@
   "engine": {
     "node": "16.x"
   },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ]
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
