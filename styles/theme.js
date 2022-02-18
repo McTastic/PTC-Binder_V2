@@ -4,7 +4,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 let theme = createTheme({
   palette: {
     text: {
-      primary: "white",
+      primary: "#ffffff",
       secondary: "#cc0000",
     },
     background: {
@@ -15,10 +15,10 @@ let theme = createTheme({
     },
     secondary: { main: `#fafafa` },
     evenIcons: {
-      main: "red"
+      main: "#cc0000"
     },
     oddIcons: {
-      main: "white"
+      main: "#ffffff"
     }
   },
 });
