@@ -7,6 +7,7 @@ import createEmotionCache from "../styles/createEmotionCache";
 import Head from "next/head";
 import theme from "/styles/theme";
 import Header from "@components/Header";
+import SideBar from "@components/ClippedDrawer"
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -20,6 +21,7 @@ function MyApp(props) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <SideBar />
         <Header />
         <Component {...pageProps} />;
       </ThemeProvider>

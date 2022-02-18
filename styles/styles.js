@@ -28,6 +28,12 @@ const useStyles = makeStyles({
     marginTop: 20,
     textAlign: "center",
   },
+  evenIcons:{
+    color: "white"
+  },
+  oddIcons:{
+    color: "red"
+  }
 });
 
 export default useStyles;
