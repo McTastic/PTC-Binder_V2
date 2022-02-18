@@ -15,10 +15,10 @@ let theme = createTheme({
     },
     secondary: { main: `#fafafa` },
     evenIcons: {
-      main: "red",
+      main: "#cc0000",
     },
     oddIcons: {
-      main: "white",
+      main: "#ffffff",
     },
   },
 });
