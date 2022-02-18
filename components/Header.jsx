@@ -9,19 +9,18 @@ import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
 import BackToTop from "./BackToTop";
 import MyTheme from "../styles/theme";
 import PokeBall from "./PokeBall";
-import useStyles from "../styles/styles";
+// import useStyles from "../styles/styles";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 export const navLinks = [{ title: `home`, path: `/` }];
 
 const Header = () => {
-  const classes = useStyles();
+  //   const classes = useStyles();
   return (
     <>
       {/* <HideOnScroll > */}
       <AppBar
         position="fixed"
-        className={classes.navBar}
         sx={{
           backgroundColor: `rgba(7, 7, 7, 0.726)`,
           backdropFilter: `blur(5px)`,
@@ -36,11 +35,11 @@ const Header = () => {
             maxWidth="lg"
             sx={{ display: `flex`, justifyContent: `space-between` }}
           >
-            <PokeBall />
-            <Nav className={classes.grow} navLinks={navLinks} />
+            <Nav navLinks={navLinks} />
             <SideDrawer navLinks={navLinks} />
           </Container>
         </Toolbar>
+        {/* <PokeBall /> */}
       </AppBar>
       {/* </HideOnScroll> */}
       <Offset id="back-to-top-anchor" />
