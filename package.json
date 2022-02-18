@@ -2,6 +2,9 @@
   "name": "ptc-binder-v2",
   "version": "0.1.0",
   "private": true,
+  "cacheDirectories": [
+    ".next/cache"
+  ],
   "engine": {
     "node": "16.x"
   },
