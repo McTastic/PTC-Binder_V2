@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Typography } from "@mui/material";
-import Layout from "/components/layout";
+import Layout from "../components/layout";
 
 export default function Home() {
   return (

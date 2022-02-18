@@ -1,7 +1,7 @@
 import "/styles/globals.css";
 import "/styles/pokeBall.css";
 import { CacheProvider } from "@emotion/react";
-import createEmotionCache from "/styles/createEmotionCache";
+import createEmotionCache from "../styles/createEmotionCache";
 
 const clientSideEmotionCache = createEmotionCache();
 
