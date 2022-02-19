@@ -7,11 +7,13 @@ import createEmotionCache from "../styles/createEmotionCache";
 import Head from "next/head";
 import theme from "/styles/theme";
 import Header from "@components/Header";
-import SideBar from "@components/ClippedDrawer";
+import SideBar from "/components/ClippedDrawer";
 import { StoreProvider } from "/utils/globalStore";
 import { SnackbarProvider } from "notistack";
 
 const clientSideEmotionCache = createEmotionCache();
+
+export const navLinks = [{ title: `Home`, path: `/` },{title: "Binder",path:"/binder"},{title:"Search",path:"/search"},{title:"About", path:"/about"}];
 
 function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
@@ -30,7 +32,7 @@ function MyApp(props) {
           </Head>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <SideBar />
+            <SideBar navLinks={navLinks}/>
             <Header />
             <Component {...pageProps} />;
           </ThemeProvider>
