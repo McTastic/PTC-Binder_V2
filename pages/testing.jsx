@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 export default function ImgMediaCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin: "auto" }}>
       <CardMedia
         component="img"
         alt="green iguana"
