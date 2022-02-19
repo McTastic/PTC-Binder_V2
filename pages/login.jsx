@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import NextLink from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -28,10 +28,10 @@ export default function Login() {
 
   // Handiling routing
   const router = useRouter();
-  const { redirect } = router.query; //login
+  // const { redirect } = router.query; //login
 
   // Managing state will need to add context and userInfo later
-  const { state, dispatch } = useContext(Store);
+  const { dispatch } = useContext(Store);
 
   // Function on sunbmit
 
