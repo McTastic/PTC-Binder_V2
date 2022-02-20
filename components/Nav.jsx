@@ -25,7 +25,7 @@ const Navbar = ({ navLinks }) => {
           href="/login"
           variant="button"
           title="Login"
-          sx={{ color: `white`, opacity: 1 }}
+          sx={{ color: `#ffffff`, opacity: 1, margin:"auto" }}
         >
           Login
         </MuiNextLink>

@@ -10,6 +10,9 @@ import BackToTop from "./BackToTop";
 import MyTheme from "../styles/theme";
 import PokeBall from "./PokeBall";
 // import useStyles from "../styles/styles";
+import Avatar from '@mui/material/Avatar';
+import Typography from "@mui/material/Typography";
+import MuiNextLink from "./MuiNextLink";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -25,15 +28,27 @@ const Header = () => {
           backdropFilter: `blur(5px)`,
           height: "5em",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-end",
+          flexDirection:"row",
           alignItems: "stretch",
         }}
       >
         <Toolbar>
           <Container
-            maxWidth="lg"
-            sx={{ display: `flex`, justifyContent: `space-between` }}
+            maxWidth="xl"
+            sx={{ display: `flex`, justifyContent: `center` }}
           >
+            <MuiNextLink
+              key="login"
+              fontSize="1.5em"
+              color="#ffffff"
+              variant="button"
+              href="/login"
+            >
+              Login
+            </MuiNextLink>
+            <Avatar />
+
             {/* <Nav navLinks={navLinks} /> */}
             {/* <SideDrawer navLinks={navLinks} /> */}
           </Container>
