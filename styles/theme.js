@@ -5,7 +5,7 @@ let theme = createTheme({
   palette: {
     text: {
       primary: "#ffffff",
-      secondary: "#cc0000",
+      secondary: "#2b2929",
     },
     background: {
       default: "#0447b3",

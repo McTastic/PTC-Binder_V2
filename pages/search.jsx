@@ -4,10 +4,15 @@ import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 
 export default function TextFieldHiddenLabel() {
+  const submitForm = (event) =>{
+    event.preventDefault()
+    console.log("it works")
+  }
   return (
       <>
     <Stack
       component="form"
+      onSubmit={submitForm}
       sx={{
         width: '25ch',
         margin: "auto"
@@ -22,7 +27,10 @@ export default function TextFieldHiddenLabel() {
         defaultValue="Normal"
         variant="filled"
       />
-      <Button variant="contained">Contained</Button>
+      <Button 
+      variant="contained"
+      onClick={submitForm}
+      >Search</Button>
     </Stack>
     </>
   );

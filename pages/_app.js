@@ -33,8 +33,8 @@ function MyApp(props) {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <SideBar navLinks={navLinks}/>
-            <Header />
-            <Component {...pageProps} />;
+            {/* <Header /> */}
+            <Component {...pageProps} />
           </ThemeProvider>
         </SnackbarProvider>
       </CacheProvider>
