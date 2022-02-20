@@ -38,7 +38,7 @@ const Header = () => {
             {/* <SideDrawer navLinks={navLinks} /> */}
           </Container>
         </Toolbar>
-        {/* <PokeBall /> */}
+        <PokeBall />
       </AppBar>
       {/* </HideOnScroll> */}
       <Offset id="back-to-top-anchor" />
