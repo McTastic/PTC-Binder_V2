@@ -225,7 +225,7 @@ export default function Register() {
             </ListItem>
             <ListItem>
               Back to&nbsp;
-              <NextLink href={`/login/?redirect=${redirect || "/"}`} passHref>
+              <NextLink href={`/login`} passHref>
                 <Link>login</Link>
               </NextLink>
             </ListItem>
