@@ -57,11 +57,11 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
-      <Typography component="h1" variant="h1">
-        Login
-      </Typography>
       <Grid container display="flex" justifyContent={"center"}>
         <Grid item xs={12} lg={6}>
+          <Typography component="h1" variant="h1" textAlign={"center"}>
+            Login
+          </Typography>
           <List>
             <ListItem>
               <Controller
