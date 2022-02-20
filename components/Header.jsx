@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import { styled } from "@mui/system";
 import Nav from "./Nav";
-import SideDrawer from "./SideDrawer";
+// import SideDrawer from "./SideDrawer";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
 import BackToTop from "./BackToTop";
@@ -12,7 +12,6 @@ import PokeBall from "./PokeBall";
 // import useStyles from "../styles/styles";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
-export const navLinks = [{ title: `home`, path: `/` }];
 
 const Header = () => {
   //   const classes = useStyles();
@@ -35,8 +34,8 @@ const Header = () => {
             maxWidth="lg"
             sx={{ display: `flex`, justifyContent: `space-between` }}
           >
-            <Nav navLinks={navLinks} />
-            <SideDrawer navLinks={navLinks} />
+            {/* <Nav navLinks={navLinks} /> */}
+            {/* <SideDrawer navLinks={navLinks} /> */}
           </Container>
         </Toolbar>
         <PokeBall />
