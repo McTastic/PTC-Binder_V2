@@ -20,61 +20,7 @@ import MuiNextLink from "./MuiNextLink";
 import PokeBall from "./PokeBall";
 import useStyles from "styles/styles";
 import "../styles/navbar.module.css";
-
-// const drawerWidth = 240;
-
-// const ClippedDrawer = ({ navLinks }) => {
-//   const classes = useStyles();
-//   return (
-//     <Box sx={{ display: "flex" }}>
-//       <CssBaseline />
-//       <AppBar
-//         position="fixed"
-//         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-//       ></AppBar>
-//       <Drawer
-//         variant="permanent"
-//         sx={{
-//           width: drawerWidth,
-//           flexShrink: 0,
-//           [`& .MuiDrawer-paper`]: {
-//             width: drawerWidth,
-//             boxSizing: "border-box",
-//             backgroundColor: "rgb(6,24,54)",
-//           },
-//         }}
-//       >
-//         <Toolbar />
-//         <Box sx={{ overflow: "auto" }}>
-//           <List>
-//             {navLinks.map(({ title, path, onClick }, index) => (
-//               <ListItem key={index}>
-//                 <ListItemIcon>
-//                   {index % 2 === 0 ? (
-//                     <InboxIcon className="evenIcons" color="evenIcons" />
-//                   ) : (
-//                     <MailIcon className="oddIcons" color="oddIcons" />
-//                   )}
-//                 </ListItemIcon>
-//                 <ListItemText>
-//                   <MuiNextLink href={path} color="#ffffff">
-//                     {title}
-//                   </MuiNextLink>
-//                 </ListItemText>
-//               </ListItem>
-//             ))}
-//           </List>
-//           <Divider />
-//         </Box>
-//       </Drawer>
-//       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-//         <Toolbar />
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default ClippedDrawer;
+import { set } from "react-hook-form";
 
 const drawerWidth = 240;
 
@@ -90,7 +36,9 @@ function ResponsiveDrawer({ navLinks }) {
     <div>
       <Toolbar />
       <PokeBall />
-      <List>
+      <List
+      onClick={handleDrawerToggle}  //<--closes drawer when link clicked
+      >
         {navLinks.map(({ title, path, onClick }, index) => (
           <ListItem key={index}>
             <ListItemIcon>
