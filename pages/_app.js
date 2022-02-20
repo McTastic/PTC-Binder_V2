@@ -6,7 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import createEmotionCache from "../styles/createEmotionCache";
 import Head from "next/head";
 import theme from "/styles/theme";
-import Header from "@components/Header";
 import SideBar from "/components/ClippedDrawer";
 import { StoreProvider } from "/utils/globalStore";
 import { SnackbarProvider } from "notistack";

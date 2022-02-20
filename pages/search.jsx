@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 
 export default function TextFieldHiddenLabel() {
   const submitForm = (event) =>{
-    event.preventDefault()
+    event.preventDefault();
     console.log("it works")
   }
   return (

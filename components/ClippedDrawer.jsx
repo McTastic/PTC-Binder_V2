@@ -8,7 +8,6 @@ import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -18,6 +17,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import MuiNextLink from "./MuiNextLink";
+import PokeBall from "./PokeBall";
 import useStyles from "styles/styles";
 import "../styles/navbar.module.css";
 
@@ -89,6 +89,7 @@ function ResponsiveDrawer({ navLinks }) {
   const drawer = (
     <div>
       <Toolbar />
+      <PokeBall />
       <List>
         {navLinks.map(({ title, path, onClick }, index) => (
           <ListItem key={index}>
