@@ -1,11 +1,10 @@
 import * as React from "react";
-import Avatar from '@mui/material/Avatar';
+import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
-import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -21,6 +20,7 @@ import PokeBall from "./PokeBall";
 import useStyles from "styles/styles";
 import "../styles/navbar.module.css";
 import { set } from "react-hook-form";
+import Image from "next/image";
 
 const drawerWidth = 240;
 
@@ -37,7 +37,7 @@ function ResponsiveDrawer({ navLinks }) {
       <Toolbar />
       <PokeBall />
       <List
-      onClick={handleDrawerToggle}  //<--closes drawer when link clicked
+        onClick={handleDrawerToggle} //<--closes drawer when link clicked
       >
         {navLinks.map(({ title, path, onClick }, index) => (
           <ListItem key={index}>
@@ -63,10 +63,8 @@ function ResponsiveDrawer({ navLinks }) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  const classes = useStyles();
   return (
-    <Box sx={{ display: "flex", justifyContent:"flex-end" }}>
-      <CssBaseline />
+    <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
       <AppBar
         position="fixed"
         sx={{
@@ -75,9 +73,9 @@ function ResponsiveDrawer({ navLinks }) {
           backgroundColor: `rgba(7, 7, 7, 0.726)`,
           backdropFilter: `blur(5px)`,
           height: "5em",
-          "& .MuiContainer-root":{
-            justifyContent:"flex-end"
-          }
+          "& .MuiContainer-root": {
+            justifyContent: "flex-end",
+          },
         }}
       >
         <Container
@@ -85,22 +83,25 @@ function ResponsiveDrawer({ navLinks }) {
           sx={{ display: `flex`, justifyContent: `center` }}
         >
           <MuiNextLink
-            key="login"
             fontSize="1.5em"
             color="#ffffff"
             variant="button"
             href="/login"
             sx={{
-              marginTop:"1em",
-              zIndex:"999"
+              marginTop: "1em",
+              zIndex: "999",
             }}
           >
             Login
           </MuiNextLink>
-          <Avatar 
-          sx={{
-            margin:"1em 0 0 .5em"
-          }}
+          <Avatar
+            src="/images/default-pikachu.png"
+            alt="user profile picture"
+            sx={{
+              margin: "1em 0 0 .5em",
+              width: "2.5em",
+              height: "2.5em",
+            }}
           />
         </Container>
         <Toolbar>
@@ -109,7 +110,7 @@ function ResponsiveDrawer({ navLinks }) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" }, }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -134,7 +135,7 @@ function ResponsiveDrawer({ navLinks }) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: `rgba(7, 7, 7, 0.726)`
+              backgroundColor: `rgba(7, 7, 7, 0.726)`,
             },
           }}
         >
