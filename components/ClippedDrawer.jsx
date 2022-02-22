@@ -30,7 +30,7 @@ function ResponsiveDrawer({ navLinks }) {
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
   const { window } = navLinks;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
