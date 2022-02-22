@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import PropTypes from "prop-types";
@@ -15,16 +15,20 @@ import IconButton from "@mui/material/IconButton";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import MuiNextLink from "./MuiNextLink";
 import PokeBall from "./PokeBall";
-import useStyles from "styles/styles";
 import "../styles/navbar.module.css";
-import { set } from "react-hook-form";
-import Image from "next/image";
+import { Store } from "/utils/globalStore.js";
+import Cookies from "js-cookie";
+import Router from "next/router";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 function ResponsiveDrawer({ navLinks }) {
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state;
   const { window } = navLinks;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -59,7 +63,12 @@ function ResponsiveDrawer({ navLinks }) {
       <Divider />
     </div>
   );
-
+  const logoutHandler = () => {
+    dispatch({ type: "USER_LOGOUT" });
+    Cookies.remove("userInfo");
+    Cookies.remove("cartItems");
+    Router.push("/");
+  };
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -82,27 +91,53 @@ function ResponsiveDrawer({ navLinks }) {
           maxWidth="xl"
           sx={{ display: `flex`, justifyContent: `center` }}
         >
-          <MuiNextLink
-            fontSize="1.5em"
-            color="#ffffff"
-            variant="button"
-            href="/login"
-            sx={{
-              marginTop: "1em",
-              zIndex: "999",
-            }}
-          >
-            Login
-          </MuiNextLink>
-          <Avatar
-            src="/images/default-pikachu.png"
-            alt="user profile picture"
-            sx={{
-              margin: "1em 0 0 .5em",
-              width: "2.5em",
-              height: "2.5em",
-            }}
-          />
+          {userInfo ? (
+            <>
+              <Button onClick={logoutHandler}>
+                <Typography
+                  mt={2}
+                  fontSize="1.5em"
+                  color="#ffffff"
+                  variant="button"
+                >
+                  Logout
+                </Typography>
+              </Button>
+              <Avatar
+                src="/images/default-pikachu.png"
+                alt="user profile picture"
+                sx={{
+                  margin: "1em 0 0 .5em",
+                  width: "2.5em",
+                  height: "2.5em",
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <MuiNextLink
+                fontSize="1.5em"
+                color="#ffffff"
+                variant="button"
+                href="/login"
+                sx={{
+                  marginTop: "1em",
+                  zIndex: "999",
+                }}
+              >
+                Login
+              </MuiNextLink>
+              {/* <Avatar
+                src="/images/default-pikachu.png"
+                alt="user profile picture"
+                sx={{
+                  margin: "1em 0 0 .5em",
+                  width: "2.5em",
+                  height: "2.5em",
+                }}
+              /> */}
+            </>
+          )}
         </Container>
         <Toolbar>
           <IconButton
