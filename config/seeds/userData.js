@@ -8,6 +8,7 @@ const userData = {
       email: "admin@admin.com",
       password: bcrypt.hashSync("test123", 10),
       collection: [],
+      userImage: "/images/adminPic.jpg",
     },
     {
       firstName: "Jane",

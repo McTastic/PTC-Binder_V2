@@ -104,7 +104,7 @@ function ResponsiveDrawer({ navLinks }) {
                 </Typography>
               </Button>
               <Avatar
-                src="/images/default-pikachu.png"
+                src={userInfo.userImage}
                 alt="user profile picture"
                 sx={{
                   margin: "1em 0 0 .5em",
@@ -127,15 +127,6 @@ function ResponsiveDrawer({ navLinks }) {
               >
                 Login
               </MuiNextLink>
-              {/* <Avatar
-                src="/images/default-pikachu.png"
-                alt="user profile picture"
-                sx={{
-                  margin: "1em 0 0 .5em",
-                  width: "2.5em",
-                  height: "2.5em",
-                }}
-              /> */}
             </>
           )}
         </Container>

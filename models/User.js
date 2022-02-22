@@ -28,6 +28,8 @@ const userSchema = new mongoose.Schema(
     ],
     userImage: {
       type: String,
+      required: true,
+      default: "/images/default-pikachu.png",
     },
   },
   {
