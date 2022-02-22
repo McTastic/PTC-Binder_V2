@@ -101,54 +101,59 @@ function ResponsiveDrawer({ navLinks }) {
                   variant="button"
                   sx={{
                     zIndex: "999",
-                    textDecoration:"none",
+                    textDecoration: "none",
                     transition: "transform .5s",
-                    "&:hover":{
+                    "&:hover": {
                       color: "rgb(106, 226, 216)",
                       maxHeight: "2em",
                       textShadow: "-3px -3px 7px rgb(107, 181, 241)",
                       filter: "drop-shadow(3px 3px 3px rgb(107, 181, 241))",
                       transform: "scale(1.35)",
-                    }
+                    },
                   }}
                 >
                   Logout
                 </Typography>
               </Button>
-              <Avatar
-                src={userInfo.userImage}
-                alt="user profile picture"
-                sx={{
-                  margin: "1em 0 0 .5em",
-                  width: "2.5em",
-                  height: "2.5em"
-                }}
-              />
+              <MuiNextLink
+              href="/profile"
+              variant="button"
+              >
+                <Avatar
+                  src={userInfo.userImage}
+                  alt="user profile picture"
+                  sx={{
+                    margin: "1em 0 0 .5em",
+                    width: "2.5em",
+                    height: "2.5em",
+                  }}
+                />
+              </MuiNextLink>
             </>
           ) : (
             <>
-            <Button>
-              <MuiNextLink
-                fontSize="1.5em"
-                color="#ffffff"
-                variant="button"
-                href="/login"
-                sx={{
-                  marginTop: "1em",
-                  zIndex: "999",
-                  textDecoration:"none",
-                  transition: "transform .5s",
-                  "&:hover":{
-                    color: "rgb(106, 226, 216)",
-                    maxHeight: "2em",
-                    textShadow: "-3px -3px 7px rgb(107, 181, 241)",
-                    filter: "drop-shadow(3px 3px 3px rgb(107, 181, 241))",
-                    transform: "scale(1.35)",
-                  }
-                }}
-              >
-                Login
-              </MuiNextLink>
+              <Button>
+                <MuiNextLink
+                  fontSize="1.5em"
+                  color="#ffffff"
+                  variant="button"
+                  href="/login"
+                  sx={{
+                    marginTop: "1em",
+                    zIndex: "999",
+                    textDecoration: "none",
+                    transition: "transform .5s",
+                    "&:hover": {
+                      color: "rgb(106, 226, 216)",
+                      maxHeight: "2em",
+                      textShadow: "-3px -3px 7px rgb(107, 181, 241)",
+                      filter: "drop-shadow(3px 3px 3px rgb(107, 181, 241))",
+                      transform: "scale(1.35)",
+                    },
+                  }}
+                >
+                  Login
+                </MuiNextLink>
               </Button>
             </>
           )}
