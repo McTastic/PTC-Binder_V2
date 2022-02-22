@@ -148,10 +148,7 @@ function ResponsiveDrawer({ navLinks }) {
               >
                 Login
               </MuiNextLink>
-<<<<<<< HEAD
               </Button>
-=======
->>>>>>> b3d12e88cf8f7462878212f56299d103ca69d996
             </>
           )}
         </Container>
