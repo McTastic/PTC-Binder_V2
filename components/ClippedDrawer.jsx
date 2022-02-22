@@ -99,6 +99,17 @@ function ResponsiveDrawer({ navLinks }) {
                   fontSize="1.5em"
                   color="#ffffff"
                   variant="button"
+                  sx={{
+                    zIndex: "999",
+                    textDecoration:"none",
+                    "&:hover":{
+                      color: "rgb(106, 226, 216)",
+                      maxHeight: "2em",
+                      textShadow: "-3px -3px 7px rgb(107, 181, 241)",
+                      filter: "drop-shadow(3px 3px 3px rgb(107, 181, 241))",
+                      transform: "scale(1.35)",
+                    }
+                  }}
                 >
                   Logout
                 </Typography>
@@ -109,12 +120,13 @@ function ResponsiveDrawer({ navLinks }) {
                 sx={{
                   margin: "1em 0 0 .5em",
                   width: "2.5em",
-                  height: "2.5em",
+                  height: "2.5em"
                 }}
               />
             </>
           ) : (
             <>
+            <Button>
               <MuiNextLink
                 fontSize="1.5em"
                 color="#ffffff"
@@ -123,10 +135,20 @@ function ResponsiveDrawer({ navLinks }) {
                 sx={{
                   marginTop: "1em",
                   zIndex: "999",
+                  textDecoration:"none",
+                  transition: "transform .5s",
+                  "&:hover":{
+                    color: "rgb(106, 226, 216)",
+                    maxHeight: "2em",
+                    textShadow: "-3px -3px 7px rgb(107, 181, 241)",
+                    filter: "drop-shadow(3px 3px 3px rgb(107, 181, 241))",
+                    transform: "scale(1.35)",
+                  }
                 }}
               >
                 Login
               </MuiNextLink>
+              </Button>
             </>
           )}
         </Container>
