@@ -102,6 +102,7 @@ function ResponsiveDrawer({ navLinks }) {
                   sx={{
                     zIndex: "999",
                     textDecoration:"none",
+                    transition: "transform .5s",
                     "&:hover":{
                       color: "rgb(106, 226, 216)",
                       maxHeight: "2em",
