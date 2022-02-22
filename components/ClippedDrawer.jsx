@@ -115,10 +115,7 @@ function ResponsiveDrawer({ navLinks }) {
                   Logout
                 </Typography>
               </Button>
-              <MuiNextLink
-              href="/profile"
-              variant="button"
-              >
+              <MuiNextLink href="/profile" variant="button">
                 <Avatar
                   src={userInfo.userImage}
                   alt="user profile picture"
