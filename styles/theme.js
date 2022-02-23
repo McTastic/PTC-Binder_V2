@@ -20,6 +20,10 @@ let theme = createTheme({
     oddIcons: {
       main: "#ffffff",
     },
+    types: {
+      grass: "rgb(82, 241, 82)",
+      water: "rgb(107, 181, 241)"
+    }
   },
 });
 

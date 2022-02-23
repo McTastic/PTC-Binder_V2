@@ -37,7 +37,6 @@ function MyApp(props) {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <SideBar navLinks={navLinks} />
-            {/* <Header /> */}
             <Component {...pageProps} />
           </ThemeProvider>
         </SnackbarProvider>
