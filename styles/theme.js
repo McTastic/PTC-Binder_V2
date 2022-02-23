@@ -8,7 +8,7 @@ let theme = createTheme({
       secondary: "#2b2929",
     },
     background: {
-      default: "#0447b3",
+      default: "Putting here to remove default value",
     },
     primary: {
       main: `#2b2929`,
