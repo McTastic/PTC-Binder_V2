@@ -19,7 +19,7 @@ function reducer(state, action) {
     case "FETCH_REQUEST":
       return { ...state, loading: true, error: "" };
     case "FETCH_SUCCESS":
-      return { ...state, loading: false, results: action.payload, error: "" };
+      return { ...state, loading: false, data: action.payload, error: "" };
     case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
     default:
@@ -29,30 +29,30 @@ function reducer(state, action) {
 
 const ImgMediaCard = () => {
   const { state } = useContext(Store);
-  const [{ loading, results, error }, dispatch] = useReducer(reducer, {
+  const [{ loading, data, error }, dispatch] = useReducer(reducer, {
     loading: true,
-    results: {},
+    data: {},
     error: "",
   });
-  const { id, name, description, image } = results;
   const key = publicRuntimeConfig.POKE_KEY;
   useEffect(() => {
     const fetchResults = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(
+        const results = await axios.get(
           "https://api.pokemontcg.io/v2/cards/xy1-1",
           {
             headers: { "x-api-key": key },
           }
         );
-        dispatch({ type: "FETCH_SUCCESS", payload: data });
+        dispatch({ type: "FETCH_SUCCESS", payload: results });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err });
       }
     };
     fetchResults();
   }, []);
+
   return (
     <>
       {loading ? (
@@ -63,23 +63,38 @@ const ImgMediaCard = () => {
           {error}{" "}
         </Typography>
       ) : (
-        <Grid>
-          <Card sx={{ maxWidth: 345, margin: "auto" }}>
-            <CardMedia
-              component="img"
-              alt="green iguana"
-              height="140"
-              image={image}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {description}
-              </Typography>
-            </CardContent>
-          </Card>
+        <Grid container display="flex" justifyContent={"center"}>
+          <Grid item xs={12} md={6} lg={4}>
+            <Card sx={{ margin: "auto", width: "20em", height: "36em" }}>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                layout="responsive"
+                image={data.data.data.images.large}
+              />
+              <CardContent sx={{ width: "90%", height: "90%" }}>
+                <Typography
+                  gutterBottom
+                  color="text.secondary"
+                  variant="h5"
+                  component="div"
+                >
+                  {data.data.data.name}
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  m={5}
+                  sx={{
+                    fontSize: "2em",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                  }}
+                >
+                  {data.data.data.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
       )}
     </>
