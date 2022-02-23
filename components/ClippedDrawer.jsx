@@ -93,13 +93,17 @@ function ResponsiveDrawer({ navLinks }) {
         >
           {userInfo ? (
             <>
-              <Button onClick={logoutHandler}>
+              <Button
+                onClick={logoutHandler}
+                sx={{ mt: { xs: "2.35em", lg: "1.25em" } }}
+              >
                 <Typography
                   mt={2}
                   fontSize="1.5em"
                   color="#ffffff"
                   variant="button"
                   sx={{
+                    mt: { sm: "2em" },
                     zIndex: "999",
                     textDecoration: "none",
                     transition: "transform .5s",
@@ -129,14 +133,13 @@ function ResponsiveDrawer({ navLinks }) {
             </>
           ) : (
             <>
-              <Button>
+              <Button sx={{ mt: { xs: "2.35em", lg: "1.25em" } }}>
                 <MuiNextLink
                   fontSize="1.5em"
                   color="#ffffff"
                   variant="button"
                   href="/login"
                   sx={{
-                    marginTop: "1em",
                     zIndex: "999",
                     textDecoration: "none",
                     transition: "transform .5s",
@@ -161,7 +164,7 @@ function ResponsiveDrawer({ navLinks }) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mb: 3, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -182,7 +185,7 @@ function ResponsiveDrawer({ navLinks }) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "flex", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -196,6 +199,7 @@ function ResponsiveDrawer({ navLinks }) {
           variant="permanent"
           sx={{
             display: { xs: "none", sm: "block" },
+            overflow: "hidden",
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
