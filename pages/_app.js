@@ -12,7 +12,12 @@ import { SnackbarProvider } from "notistack";
 
 const clientSideEmotionCache = createEmotionCache();
 
-export const navLinks = [{ title: `Home`, path: `/` },{title: "Binder",path:"/binder"},{title:"Search",path:"/search"},{title:"About", path:"/about"}];
+export const navLinks = [
+  { title: `Home`, path: `/` },
+  { title: "Binder", path: "/binder" },
+  { title: "Search", path: "/search" },
+  { title: "About", path: "/about" },
+];
 
 function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
@@ -31,7 +36,7 @@ function MyApp(props) {
           </Head>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <SideBar navLinks={navLinks}/>
+            <SideBar navLinks={navLinks} />
             {/* <Header /> */}
             <Component {...pageProps} />
           </ThemeProvider>
