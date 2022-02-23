@@ -9,9 +9,10 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 
 function ImgMediaCard() {
+  console.log(process.env.JWT_SECRET);
   useEffect(() => {
     axios.get("/api/search/cards").then((res) => {
-      console.log(res);
+      // console.log(res);
     });
   }, []);
   return (

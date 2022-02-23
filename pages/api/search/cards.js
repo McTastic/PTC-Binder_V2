@@ -7,7 +7,7 @@ handler.get(async (req, res) => {
   try {
     const result = await axios.get(`https://api.pokemontcg.io/v2/cards/xy1-1`, {
       headers: {
-        "X-API-Key": `Bearer ${process.env.POKE_KEY}`,
+        "x-api-key": process.env.POKE_KEY,
       },
     });
     // console.log(result);
