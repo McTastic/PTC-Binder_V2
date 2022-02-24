@@ -35,9 +35,9 @@ let theme = createTheme({
       bug: "lime",
       rock: "rgb(197, 168, 130)",
       ghost: "lavender",
-      dark: "black",
+      darkness: "black",
       dragon: "blue",
-      steel: "grey",
+      metal: "grey",
       fairy: "lightpink"
     },
   },

@@ -48,8 +48,8 @@ const ImgMediaCard = () => {
 
   return (
     <>
-      <Grid container display="flex" justifyContent={"center"}>
-        <Grid item xs={12} md={6} lg={4}>
+      <Grid container display="flex" justifyContent="center">
+        <Grid>
           {loading ? (
             <CircularProgress />
           ) : error ? (
@@ -58,16 +58,17 @@ const ImgMediaCard = () => {
               {error}{" "}
             </Typography>
           ) : (
-            <>
+            <Grid container item sm={12} md={6} lg={6} sx={{m:"auto"}}>
               {data.data.data.map((card, index) => (
-                <ResultCard
-                  key={index}
-                  id={card.id}
-                  image={card.images.large}
-                  type={card.types[0].toLowerCase()}
-                />
+                <Grid key={index}>
+                  <ResultCard
+                    id={card.id}
+                    image={card.images.large}
+                    type={card.types[0].toLowerCase()}
+                  />
+                </Grid>
               ))}
-            </>
+            </Grid>
           )}
         </Grid>
       </Grid>
