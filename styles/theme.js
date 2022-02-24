@@ -24,6 +24,7 @@ let theme = createTheme({
       grass: "rgb(82, 241, 82)",
       water: "rgb(107, 181, 241)",
       fire: "rgb(250, 77, 8)",
+      lightning: "yellow",
     },
   },
 });
