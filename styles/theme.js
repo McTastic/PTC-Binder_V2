@@ -22,8 +22,9 @@ let theme = createTheme({
     },
     types: {
       grass: "rgb(82, 241, 82)",
-      water: "rgb(107, 181, 241)"
-    }
+      water: "rgb(107, 181, 241)",
+      fire: "rgb(250, 77, 8)",
+    },
   },
 });
 
