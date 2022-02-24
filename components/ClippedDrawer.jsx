@@ -95,7 +95,7 @@ function ResponsiveDrawer({ navLinks }) {
             <>
               <Button
                 onClick={logoutHandler}
-                sx={{ mt: { xs: "2.35em", lg: "1.25em" } }}
+                sx={{ mt: { xs: "2.35em", lg: "-1.5em" } }}
               >
                 <Typography
                   mt={2}
@@ -133,7 +133,7 @@ function ResponsiveDrawer({ navLinks }) {
             </>
           ) : (
             <>
-              <Button sx={{ mt: { xs: "2.35em", lg: "1.25em" } }}>
+              <Button sx={{ mt: { xs: "2.35em", lg: "1.35em" } }}>
                 <MuiNextLink
                   fontSize="1.5em"
                   color="#ffffff"
