@@ -4,6 +4,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     POKE_KEY: process.env.POKE_KEY,
   },
+  serverRuntimeConfig: {
+    POKE_KEY: process.env.POKE_KEY,
+  },
 };
 
 module.exports = nextConfig;
