@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, CardMedia, CardContent } from "@mui/material";
+import theme from "/styles/theme.js";
 
 export default function ResultCard(props) {
   return (
@@ -13,7 +14,7 @@ export default function ResultCard(props) {
           backgroundColor: "rgba(107, 181, 241, .5)",
           transition: "opacity .5s, height .5s",
           "&:hover": {
-            // boxShadow: `2px 2px 20px 5px ${props.aura}`,
+            boxShadow: `2px 2px 20px 5px ${theme.palette.types[props.type]}`,
             height: "23em",
             button: {
               opacity: "1",

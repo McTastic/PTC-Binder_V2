@@ -42,7 +42,7 @@ const ImgMediaCard = () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const results = await axios.get(
-          "https://api.pokemontcg.io/v2/cards/xy1-1",
+          "https://api.pokemontcg.io/v2/cards/base4-4",
           {
             headers: { "x-api-key": key },
           }
@@ -70,7 +70,7 @@ const ImgMediaCard = () => {
             <ResultCard
               id={data.data.data.id}
               image={data.data.data.images.large}
-              type={data.data.data.type}
+              type={data.data.data.types[0].toLowerCase()}
             />
             // <Card
             //   sx={{
