@@ -1,19 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  Link,
-  List,
-  ListItem,
-  TextField,
-  useTheme,
-  CircularProgress,
-} from "@mui/material";
+import { Button, Card, CardMedia, CardContent } from "@mui/material";
 
 export default function ResultCard(props) {
   return (
