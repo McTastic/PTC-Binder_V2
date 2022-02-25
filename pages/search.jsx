@@ -19,11 +19,9 @@ export default function TextFieldHiddenLabel() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
 
-  const submitForm = async ({ query }) => {
+  const submitForm = async ({ search }) => {
     try {
-      const { data } = await axios.get("/api/search/cards", {
-        headers: { query: query },
-      });
+      const { data } = await axios.get(`/api/search/${search}`);
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -44,7 +42,7 @@ export default function TextFieldHiddenLabel() {
         autoComplete="off"
       >
         <Controller
-          name="query"
+          name="search"
           control={control}
           defaultValue=""
           render={({ field }) => (

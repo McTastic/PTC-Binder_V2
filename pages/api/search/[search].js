@@ -8,7 +8,7 @@ const key = serverRuntimeConfig.POKE_KEY;
 const handler = nc();
 
 handler.get(async (req, res) => {
-  const userInput = req.headers.query;
+  const userInput = req.query.search;
   try {
     const result = await axios.get(
       `https://api.pokemontcg.io/v2/cards/?q=name:${userInput}`,
