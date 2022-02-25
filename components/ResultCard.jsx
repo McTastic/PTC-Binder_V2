@@ -15,9 +15,10 @@ export default function ResultCard(props) {
         width: "10em",
         m: ".5em",
         backgroundColor: "rgba(107, 181, 241, .5)",
-        transition: "position .5s, opacity .5s, height .5s ease-out",
+        transition: "transform .5s, position .5s, opacity .5s, height .5s ease-out",
         "&:hover": {
           boxShadow: `2px 2px 20px 5px ${theme.palette.types[props.type]}`,
+          transform: "scale(1.1)",
           button: {
             opacity: "1",
             display: "block",

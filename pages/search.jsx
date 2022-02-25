@@ -106,7 +106,8 @@ export default function TextFieldHiddenLabel() {
                 <ResultCard
                   id={card.id}
                   image={card.images.large}
-                  type={card.types[0].toLowerCase()}
+                  type={card?.types?.length >0 ? card.types[0].toLowerCase():"none"}
+                  // type={card.types[0].toLowerCase()}
                   name={card.name}
                 />
               </Grid>
