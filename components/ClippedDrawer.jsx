@@ -199,7 +199,6 @@ function ResponsiveDrawer({ navLinks }) {
           variant="permanent"
           sx={{
             display: { xs: "none", sm: "block" },
-            overflow: "hidden",
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
