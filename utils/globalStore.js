@@ -7,6 +7,9 @@ export const Store = createContext();
 
 const initialState = {
   // if a user exists in the cookies, then we will set the userInfo to the userInfo stored in the cookies otherwise we will set it to null.
+  binder: {
+    cards: Cookies.get("cards") ? JSON.parse(Cookies.get("cards")) : [],
+  },
   userInfo: Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo"))
     : null,
@@ -20,6 +23,21 @@ function reducer(state, action) {
     case "USER_LOGOUT": {
       return { ...state, userInfo: null };
     }
+    case "ADD_TO_BINDER": {
+      const newCard = action.payload;
+      const duplicateCard = state.binder.cards.find(
+        (card) => card._id === newCard._id
+      );
+      const cards = duplicateCard
+        ? state.binder.cards.map((card) =>
+            card.id === duplicateCard.id ? newCard : card
+          )
+        : [...state.binder.cards, newCard];
+      Cookies.set("cards", JSON.stringify(cards));
+      return { ...state, binder: { ...state.binder, cards } };
+    }
+    default:
+      return state;
   }
 }
 
