@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext, useState, useReducer } from "react";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
+import { useSnackbar } from "notistack";
 
 export default function TextFieldHiddenLabel() {
   const {
@@ -13,27 +14,19 @@ export default function TextFieldHiddenLabel() {
     control,
     formState: { errors },
   } = useForm();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
-  const { userInfo } = state;
 
   const submitForm = async ({ query }) => {
     try {
-      const { data } = await axios.post("/api/users/register", {
-        firstName,
-        lastName,
-        email,
-        password,
+      const { data } = await axios.get("/api/search/cards", {
+        headers: { query: query },
       });
-      dispatch({ type: "USER_LOGIN", payload: data });
-      Cookies.set("userInfo", JSON.stringify(data));
-      router.push("/");
-    } catch (error) {
-      enqueueSnackbar(
-        err.response.data ? err.response.data.message : err.message,
-        { variant: "error" }
-      );
+      console.log(data);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -41,7 +34,7 @@ export default function TextFieldHiddenLabel() {
     <>
       <Stack
         component="form"
-        onSubmit={submitForm}
+        onSubmit={handleSubmit(submitForm)}
         sx={{
           width: "25ch",
           margin: "auto",
@@ -50,13 +43,23 @@ export default function TextFieldHiddenLabel() {
         noValidate
         autoComplete="off"
       >
-        <TextField
-          hiddenLabel
-          id="filled-hidden-label-normal"
-          defaultValue="Normal"
-          variant="filled"
-        />
-        <Button variant="contained" onClick={submitForm}>
+        <Controller
+          name="query"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              variant="outlined"
+              fullWidth
+              id="search"
+              label="Search"
+              inputProps={{ type: "text" }}
+              {...field}
+            ></TextField>
+          )}
+        ></Controller>
+
+        <Button variant="contained" type="submit" fullWidth color="primary">
           Search
         </Button>
       </Stack>
