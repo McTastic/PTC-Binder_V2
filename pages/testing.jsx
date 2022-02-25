@@ -30,13 +30,13 @@ const ImgMediaCard = () => {
     data: {},
     error: "",
   });
-  const key = publicRuntimeConfig.POKE_KEY;
+  // const key = publicRuntimeConfig.POKE_KEY;
   useEffect(() => {
     const fetchResults = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const results = await axios.get("/api/search/cards", {
-          headers: { "X-Api-Key": key },
+          // headers: { "X-Api-Key": key },
         });
         dispatch({ type: "FETCH_SUCCESS", payload: results });
       } catch (err) {
