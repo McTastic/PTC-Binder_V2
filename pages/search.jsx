@@ -19,9 +19,6 @@ export default function TextFieldHiddenLabel() {
   const { userInfo } = state;
 
   const submitForm = async ({ query }) => {
-    if (password !== confirmPassword) {
-      enqueueSnackbar("Passwords must match", { variant: "error" });
-    }
     try {
       const { data } = await axios.post("/api/users/register", {
         firstName,

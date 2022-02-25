@@ -6,7 +6,7 @@ const { serverRuntimeConfig } = getConfig();
 const key = serverRuntimeConfig.POKE_KEY;
 
 const handler = nc();
-const userInput = "squirtle";
+const userInput = "mew";
 const currentPage = 1;
 
 handler.get(async (req, res) => {
