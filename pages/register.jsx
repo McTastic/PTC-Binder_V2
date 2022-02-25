@@ -52,7 +52,7 @@ export default function Register() {
       dispatch({ type: "USER_LOGIN", payload: data });
       Cookies.set("userInfo", JSON.stringify(data));
       router.push("/");
-    } catch (error) {
+    } catch (err) {
       enqueueSnackbar(
         err.response.data ? err.response.data.message : err.message,
         { variant: "error" }
