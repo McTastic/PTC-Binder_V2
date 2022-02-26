@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
@@ -19,10 +18,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MuiNextLink from "./MuiNextLink";
 import PokeBall from "./PokeBall";
-import "../styles/navbar.module.css";
+// import "../styles/navbar.module.css";
 import { Store } from "/utils/globalStore.js";
 import Cookies from "js-cookie";
 import Router from "next/router";
+import SideDrawer from "./SideDrawer";
 
 const drawerWidth = 220;
 
@@ -159,7 +159,7 @@ function ResponsiveDrawer({ navLinks }) {
           )}
         </Container>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -167,7 +167,7 @@ function ResponsiveDrawer({ navLinks }) {
             sx={{ mb: 3, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Box
@@ -210,6 +210,7 @@ function ResponsiveDrawer({ navLinks }) {
           {drawer}
         </Drawer>
       </Box>
+      <SideDrawer navLinks={navLinks} />
       <Box
         component="main"
         sx={{
@@ -223,13 +224,5 @@ function ResponsiveDrawer({ navLinks }) {
     </Box>
   );
 }
-
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default ResponsiveDrawer;

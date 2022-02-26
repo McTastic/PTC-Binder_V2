@@ -1,10 +1,13 @@
 import Box from "@mui/material/Box";
+import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/icons-material/Menu";
 import MuiNextLink from "./MuiNextLink";
 import { useState } from "react";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
 
 const SideDrawer = ({ navLinks }) => {
   const [state, setState] = useState({
@@ -23,28 +26,29 @@ const SideDrawer = ({ navLinks }) => {
   };
 
   const list = (anchor) => (
-    <Box
-      sx={{ width: 250, marginTop: `auto`, marginBottom: `auto` }}
+    <List
+      sx={{ width: 175, marginTop: `auto`, marginBottom: `auto` }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       {navLinks.map(({ title, path }, i) => (
-        <Typography
-          variannt="button"
-          key={`${title}${i}`}
-          sx={{
-            ml: 5,
-            my: 2,
-            textTransform: `uppercase`,
-          }}
-        >
-          <MuiNextLink sx={{ color: "common.white" }} href={path}>
-            {title}
-          </MuiNextLink>
-        </Typography>
+        <ListItem key={i}>
+          <ListItemIcon>
+            {i % 2 === 0 ? (
+              <InboxIcon className="evenIcons" color="evenIcons" />
+            ) : (
+              <MailIcon className="oddIcons" color="oddIcons" />
+            )}
+          </ListItemIcon>
+          <ListItemText>
+            <MuiNextLink href={path} color="#ffffff">
+              {title}
+            </MuiNextLink>
+          </ListItemText>
+        </ListItem>
       ))}
-    </Box>
+    </List>
   );
 
   return (
@@ -54,6 +58,8 @@ const SideDrawer = ({ navLinks }) => {
         aria-label="menu"
         onClick={toggleDrawer("right", true)}
         sx={{
+          marginLeft: "0.02em",
+          marginTop: "4em",
           color: `common.white`,
           display: { xs: `inline`, md: `none` },
         }}
@@ -61,12 +67,16 @@ const SideDrawer = ({ navLinks }) => {
         <Menu fontSize="large" />
       </IconButton>
       <Drawer
-        anchor="right"
+        anchor="left"
         open={state.right}
         onClose={toggleDrawer("right", false)}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
         sx={{
-          ".MuiDrawer-paper": {
-            bgcolor: "primary.main",
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            backgroundColor: `rgba(7, 7, 7, 0.726)`,
           },
         }}
       >
