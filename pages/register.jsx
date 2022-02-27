@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 import { Store } from "/utils/globalStore";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
-import { useSnackbar } from "notistack";
 
 export default function Register() {
   const {
@@ -22,7 +21,6 @@ export default function Register() {
     control,
     formState: { errors },
   } = useForm();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
@@ -40,7 +38,8 @@ export default function Register() {
     confirmPassword,
   }) => {
     if (password !== confirmPassword) {
-      enqueueSnackbar("Passwords must match", { variant: "error" });
+      console.log("passwords do not match");
+      return;
     }
     try {
       const { data } = await axios.post("/api/users/register", {
@@ -53,10 +52,7 @@ export default function Register() {
       Cookies.set("userInfo", JSON.stringify(data));
       router.push("/");
     } catch (err) {
-      enqueueSnackbar(
-        err.response.data ? err.response.data.message : err.message,
-        { variant: "error" }
-      );
+      console.log(err);
     }
   };
   return (

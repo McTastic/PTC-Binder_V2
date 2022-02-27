@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 import { Store } from "../utils/globalStore";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
-import { useSnackbar } from "notistack";
 
 export default function Login() {
   //  Form controls from react-hook-form
@@ -24,7 +23,6 @@ export default function Login() {
     formState: { errors },
   } = useForm();
   //  Error and success messageing
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   // Handiling routing
   const router = useRouter();
@@ -36,7 +34,6 @@ export default function Login() {
   // Function on sunbmit
 
   const submitHandler = async ({ email, password }) => {
-    closeSnackbar();
     try {
       const { data } = await axios.post("/api/users/login", {
         email,
@@ -48,10 +45,7 @@ export default function Login() {
       // right now we redirect to the home page. we might want to redirect to a profile page if we make one.
       router.push("/");
     } catch (err) {
-      enqueueSnackbar(
-        err.response.data ? err.response.data.message : err.message,
-        { variant: "error" }
-      );
+      console.log(err);
     }
   };
 
