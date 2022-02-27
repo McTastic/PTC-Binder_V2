@@ -9,13 +9,33 @@ const handler = nc();
 handler.use(isAuth);
 
 handler.post(async (req, res) => {
-  await dbConnect();
-  const newCard = new Card({
-    ...req.body,
-    user: req.user._id,
-  });
-  const card = await newCard.save();
-  res.status(201).send(card);
+  try {
+    await dbConnect();
+    const newCard = new Card({
+      ...req.body,
+    });
+    await newCard.save();
+    const updateUser = await User.findOneAndUpdate(
+      {
+        _id: req.user._id,
+      },
+      {
+        $push: {
+          cardCollection: newCard._id,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    const addCardSuccess = await updateUser.save();
+    res
+      .status(201)
+      .send({ message: "Card added successfully", addCardSuccess });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 export default handler;

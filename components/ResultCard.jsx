@@ -13,9 +13,9 @@ export default function ResultCard(props) {
 
   const addHandler = async () => {
     try {
-      const cardInBinder = state.binder.cards.find(
-        (newCard) => newCard._id === card._id
-      );
+      // const cardInBinder = state.binder.cards.find(
+      //   (newCard) => newCard._id === card._id
+      // );
       const { data } = await axios.post(
         "/api/binder/add",
         {
