@@ -10,10 +10,11 @@ export default function ResultCard(props) {
       item
       id={`${props.id}-card`}
       position="relative"
+      className="pokeCard"
       sx={{
-        height: "15em",
-        width: "10em",
-        m: ".5em",
+        height: {xs:"24em",lg:"15em"},
+        width: {xs:"16em",lg:"10em"},
+        m:{xs: ".5em 1em .5em 1em",lg:".5em"},
         backgroundColor: "rgba(107, 181, 241, .5)",
         transition: "transform .5s, position .5s, opacity .5s, height .5s ease-out",
         "&:hover": {

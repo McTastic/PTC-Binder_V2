@@ -30,14 +30,14 @@ function ResponsiveDrawer({ navLinks }) {
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
   const { window } = navLinks;
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <div>
+    <div className="sideBar">
       <Toolbar />
       <PokeBall />
       <List
@@ -69,8 +69,8 @@ function ResponsiveDrawer({ navLinks }) {
     Cookies.remove("cartItems");
     Router.push("/");
   };
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+  // const container =
+  //   window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
@@ -95,16 +95,14 @@ function ResponsiveDrawer({ navLinks }) {
             <>
               <Button
                 onClick={logoutHandler}
-                sx={{ mt: { xs: "2.35em", lg: "-1.5em" } }}
+                sx={{ mt: { xs: "2.35em", xl: "-.15em" } }}
               >
                 <Typography
-                  mt={2}
                   fontSize="1.5em"
                   color="#ffffff"
                   variant="button"
                   sx={{
-                    mt: { sm: "2em" },
-                    zIndex: "999",
+                    zIndex: {xs:"999",lg:"0"},
                     textDecoration: "none",
                     transition: "transform .5s",
                     "&:hover": {
@@ -124,6 +122,7 @@ function ResponsiveDrawer({ navLinks }) {
                   src={userInfo.userImage}
                   alt="user profile picture"
                   sx={{
+                    zIndex:{sm:"999",lg:"0"},
                     margin: "1em 0 0 .5em",
                     width: "2.5em",
                     height: "2.5em",
@@ -140,7 +139,7 @@ function ResponsiveDrawer({ navLinks }) {
                   variant="button"
                   href="/login"
                   sx={{
-                    zIndex: "999",
+                    zIndex: {xs:"999",lg:"0"},
                     textDecoration: "none",
                     transition: "transform .5s",
                     "&:hover": {
@@ -177,7 +176,6 @@ function ResponsiveDrawer({ navLinks }) {
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -198,7 +196,7 @@ function ResponsiveDrawer({ navLinks }) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
+            display: { xs: "none", sm: "block", },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

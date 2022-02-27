@@ -1,6 +1,9 @@
 html,
 body {
-  background: #0447b3;
+  /* background: url(https://cdn.wallpapersafari.com/39/85/TEhKor.jpg); */
+
+  background: url(https://wallpaperaccess.com/full/1385482.jpg);  
+  background-size: cover;
   height: 100vh;
   background-attachment: fixed;
   padding: 0;
@@ -8,12 +11,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 /* *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

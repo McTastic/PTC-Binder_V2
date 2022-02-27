@@ -102,7 +102,7 @@ export default function TextFieldHiddenLabel() {
         results?.data?.length > 0 && (
           <Grid container>
             {results.data.map((card, i) => (
-              <Grid item key={i} ml={4}>
+              <Grid item key={i} ml={5}>
                 <ResultCard
                   id={card.id}
                   image={card.images.large}
