@@ -88,18 +88,36 @@ export default function TextFieldHiddenLabel() {
           Search
         </Button>
       </Stack>
-      {loading ? (
+      {/* {loading ? (
         <CircularProgress />
       ) : error ? (
         <Typography variant="h6" color="error">
           {" "}
           {error}{" "}
         </Typography>
-      ) : (
-        results?.data?.length > 0 && (
-          <Grid container>
-            {results.data.map((card, i) => (
-              <Grid item key={i} ml={4}>
+      ) : ( */}
+      <Grid container>
+        {results?.data?.length > 0 &&
+          results.data.map((card, i) => (
+            <Grid item key={i} ml={4}>
+              {loading ? (
+                <Grid
+                  item
+                  id={`blank-card`}
+                  position="relative"
+                  sx={{
+                    height: "15em",
+                    width: "10em",
+                    m: ".5em",
+                    backgroundColor: "rgba(107, 181, 241, .5)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <CircularProgress position="relative" m="auto" />
+                </Grid>
+              ) : (
                 <ResultCard
                   id={card.id}
                   image={card.images.large}
@@ -111,11 +129,10 @@ export default function TextFieldHiddenLabel() {
                   // type={card.types[0].toLowerCase()}
                   name={card.name}
                 />
-              </Grid>
-            ))}
-          </Grid>
-        )
-      )}
+              )}
+            </Grid>
+          ))}
+      </Grid>
     </>
   );
 }
