@@ -2,7 +2,7 @@ html,
 body {
   /* background: url(https://cdn.wallpapersafari.com/39/85/TEhKor.jpg); */
 
-  background: url(https://wallpaperaccess.com/full/1385482.jpg);  
+  background: url(../public/images/background-pic.webp);  
   background-size: cover;
   height: 100vh;
   background-attachment: fixed;

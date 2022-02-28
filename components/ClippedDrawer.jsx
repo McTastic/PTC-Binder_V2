@@ -86,19 +86,23 @@ function ResponsiveDrawer({ navLinks }) {
       >
         <Container
           maxWidth="xl"
-          sx={{ display: `flex`, justifyContent: `center` }}
+          sx={{ 
+            display: `flex`, 
+            justifyContent: `center`
+           }}
         >
           {userInfo ? (
             <>
               <Button
                 onClick={logoutHandler}
-                sx={{ mt: { xs: "2.35em", xl: "-.15em" } }}
               >
                 <Typography
+                  className="logoutBtn"
                   fontSize="1.5em"
                   color="#ffffff"
                   variant="button"
                   sx={{
+                    mt: { xs: "2.35em", xl: "1em" },
                     zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
                     transition: "transform .5s",
@@ -129,13 +133,14 @@ function ResponsiveDrawer({ navLinks }) {
             </>
           ) : (
             <>
-              <Button sx={{ mt: { xs: "2.35em", lg: "1.35em" } }}>
+              <Button >
                 <MuiNextLink
                   fontSize="1.5em"
                   color="#ffffff"
                   variant="button"
                   href="/login"
                   sx={{
+                    mt: { xs: "2.35em", xl: "1em" },
                     zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
                     transition: "transform .5s",
