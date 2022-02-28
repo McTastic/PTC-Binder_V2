@@ -158,15 +158,7 @@ function ResponsiveDrawer({ navLinks }) {
           )}
         </Container>
         <Toolbar>
-          {/* <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mb: 3, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton> */}
+        <SideDrawer navLinks={navLinks} />
         </Toolbar>
       </AppBar>
       <Box
@@ -174,26 +166,6 @@ function ResponsiveDrawer({ navLinks }) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        {/* <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "flex", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-              backgroundColor: `rgba(7, 7, 7, 0.726)`,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer> */}
         <Drawer
           variant="permanent"
           sx={{
@@ -209,7 +181,6 @@ function ResponsiveDrawer({ navLinks }) {
           {drawer}
         </Drawer>
       </Box>
-      <SideDrawer navLinks={navLinks} />
       <Box
         component="main"
         sx={{
