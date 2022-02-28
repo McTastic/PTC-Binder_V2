@@ -43,4 +43,12 @@ async function dbConnect() {
   return cached.conn;
 }
 
-module.exports = dbConnect;
+function convertDocToObject(doc) {
+  doc._id = doc._id.toString();
+  doc.createdAt = doc.createdAt.toString();
+  doc.updatedAt = doc.updatedAt.toString();
+  return doc;
+}
+
+const config = { dbConnect, convertDocToObject };
+export default config;

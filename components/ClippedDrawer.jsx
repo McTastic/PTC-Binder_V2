@@ -86,16 +86,14 @@ function ResponsiveDrawer({ navLinks }) {
       >
         <Container
           maxWidth="xl"
-          sx={{ 
-            display: `flex`, 
-            justifyContent: `center`
-           }}
+          sx={{
+            display: `flex`,
+            justifyContent: `center`,
+          }}
         >
           {userInfo ? (
             <>
-              <Button
-                onClick={logoutHandler}
-              >
+              <Button onClick={logoutHandler}>
                 <Typography
                   className="logoutBtn"
                   fontSize="1.5em"
@@ -133,7 +131,7 @@ function ResponsiveDrawer({ navLinks }) {
             </>
           ) : (
             <>
-              <Button >
+              <Button>
                 <MuiNextLink
                   fontSize="1.5em"
                   color="#ffffff"
