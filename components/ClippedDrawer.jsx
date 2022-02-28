@@ -126,7 +126,7 @@ function ResponsiveDrawer({ navLinks }) {
                   alt="user profile picture"
                   sx={{
                     zIndex: { sm: "999", lg: "0" },
-                    margin: {xs:"1em 0 0 1em",lg:"1em 0 0 .5em"},
+                    mt: {xs: ".75em",xl: "1em"},
                     width: "2.5em",
                     height: "2.5em",
                   }}
