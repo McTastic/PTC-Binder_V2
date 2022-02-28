@@ -2,14 +2,11 @@ import React, { useContext, useState, useReducer } from "react";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-import { useRouter } from "next/router";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
-import { useSnackbar } from "notistack";
 import ResultCard from "@components/ResultCard";
 import { CircularProgress } from "@mui/material";
 
@@ -51,7 +48,7 @@ export default function TextFieldHiddenLabel() {
         data: "search",
       });
       setResults({ ...data });
-      console.log(results);
+      // console.log(results);
     } catch (err) {
       dispatch({ type: "FETCH_FAIL", payload: err });
       console.log(err);
@@ -91,30 +88,51 @@ export default function TextFieldHiddenLabel() {
           Search
         </Button>
       </Stack>
-      {loading ? (
+      {/* {loading ? (
         <CircularProgress />
       ) : error ? (
         <Typography variant="h6" color="error">
           {" "}
           {error}{" "}
         </Typography>
-      ) : (
-        results?.data?.length > 0 && (
-          <Grid container>
-            {results.data.map((card, i) => (
-              <Grid item key={i} ml={5}>
+      ) : ( */}
+      <Grid container>
+        {results?.data?.length > 0 &&
+          results.data.map((card, i) => (
+            <Grid item key={i} ml={4}>
+              {loading ? (
+                <Grid
+                  item
+                  id={`blank-card`}
+                  position="relative"
+                  sx={{
+                    height: "15em",
+                    width: "10em",
+                    m: ".5em",
+                    backgroundColor: "rgba(107, 181, 241, .5)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <CircularProgress position="relative" m="auto" />
+                </Grid>
+              ) : (
                 <ResultCard
                   id={card.id}
                   image={card.images.large}
-                  type={card?.types?.length >0 ? card.types[0].toLowerCase():"none"}
+                  type={
+                    card?.types?.length > 0
+                      ? card.types[0].toLowerCase()
+                      : "none"
+                  }
                   // type={card.types[0].toLowerCase()}
                   name={card.name}
                 />
-              </Grid>
-            ))}
-          </Grid>
-        )
-      )}
+              )}
+            </Grid>
+          ))}
+      </Grid>
     </>
   );
 }

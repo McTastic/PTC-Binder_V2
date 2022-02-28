@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
@@ -11,18 +10,16 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import IconButton from "@mui/material/IconButton";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MuiNextLink from "./MuiNextLink";
 import PokeBall from "./PokeBall";
-import "../styles/navbar.module.css";
 import { Store } from "/utils/globalStore.js";
 import Cookies from "js-cookie";
 import Router from "next/router";
+import SideDrawer from "./SideDrawer";
 
 const drawerWidth = 220;
 
@@ -102,7 +99,7 @@ function ResponsiveDrawer({ navLinks }) {
                   color="#ffffff"
                   variant="button"
                   sx={{
-                    zIndex: {xs:"999",lg:"0"},
+                    zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
                     transition: "transform .5s",
                     "&:hover": {
@@ -122,7 +119,7 @@ function ResponsiveDrawer({ navLinks }) {
                   src={userInfo.userImage}
                   alt="user profile picture"
                   sx={{
-                    zIndex:{sm:"999",lg:"0"},
+                    zIndex: { sm: "999", lg: "0" },
                     margin: "1em 0 0 .5em",
                     width: "2.5em",
                     height: "2.5em",
@@ -139,7 +136,7 @@ function ResponsiveDrawer({ navLinks }) {
                   variant="button"
                   href="/login"
                   sx={{
-                    zIndex: {xs:"999",lg:"0"},
+                    zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
                     transition: "transform .5s",
                     "&:hover": {
@@ -158,7 +155,7 @@ function ResponsiveDrawer({ navLinks }) {
           )}
         </Container>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -166,7 +163,7 @@ function ResponsiveDrawer({ navLinks }) {
             sx={{ mb: 3, display: { sm: "none" } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Box
@@ -175,7 +172,8 @@ function ResponsiveDrawer({ navLinks }) {
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
+        {/* <Drawer
+          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -192,11 +190,11 @@ function ResponsiveDrawer({ navLinks }) {
           }}
         >
           {drawer}
-        </Drawer>
+        </Drawer> */}
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block", },
+            display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -208,6 +206,7 @@ function ResponsiveDrawer({ navLinks }) {
           {drawer}
         </Drawer>
       </Box>
+      <SideDrawer navLinks={navLinks} />
       <Box
         component="main"
         sx={{
@@ -221,13 +220,5 @@ function ResponsiveDrawer({ navLinks }) {
     </Box>
   );
 }
-
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default ResponsiveDrawer;
