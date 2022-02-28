@@ -70,10 +70,11 @@ function ResponsiveDrawer({ navLinks }) {
   //   window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+    <Box sx={{ display: "flex", justifyContent: "flex-end", }}>
       <AppBar
         position="fixed"
         sx={{
+          display:"flex",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           backgroundColor: `rgba(7, 7, 7, 0.726)`,
@@ -98,11 +99,12 @@ function ResponsiveDrawer({ navLinks }) {
               >
                 <Typography
                   className="logoutBtn"
-                  fontSize="1.5em"
+
                   color="#ffffff"
                   variant="button"
                   sx={{
-                    mt: { xs: "2.35em", xl: "1em" },
+                    fontSize:{xs:"1.25em",md:"1.5em"},
+                    mt: { xs: "1.35em", xl: "1em" },
                     zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
                     transition: "transform .5s",
@@ -124,7 +126,7 @@ function ResponsiveDrawer({ navLinks }) {
                   alt="user profile picture"
                   sx={{
                     zIndex: { sm: "999", lg: "0" },
-                    margin: "1em 0 0 .5em",
+                    margin: {xs:"1em 0 0 1em",lg:"1em 0 0 .5em"},
                     width: "2.5em",
                     height: "2.5em",
                   }}
@@ -140,7 +142,7 @@ function ResponsiveDrawer({ navLinks }) {
                   variant="button"
                   href="/login"
                   sx={{
-                    mt: { xs: "2.35em", xl: "1em" },
+                    mt: { xs: ".75em", xl: "1em" },
                     zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
                     transition: "transform .5s",
