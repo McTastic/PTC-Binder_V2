@@ -41,7 +41,7 @@ export default function TextFieldHiddenLabel() {
   const submitForm = async ({ search }) => {
     try {
       dispatch({ type: "FETCH_REQUEST" });
-      const { data } = await axios.get(`/api/search/${search}`, {});
+      const { data } = await axios.get(`/api/search/${search}`);
       dispatch({ type: "FETCH_SUCCESS", payload: data });
       // console.log(data);
       reset({
@@ -88,14 +88,6 @@ export default function TextFieldHiddenLabel() {
           Search
         </Button>
       </Stack>
-      {/* {loading ? (
-        <CircularProgress />
-      ) : error ? (
-        <Typography variant="h6" color="error">
-          {" "}
-          {error}{" "}
-        </Typography>
-      ) : ( */}
       <Grid container>
         {results?.data?.length > 0 &&
           results.data.map((card, i) => (
