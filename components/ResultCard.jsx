@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Store } from "../utils/globalStore";
 import { useContext } from "react";
 import axios from "axios";
+import PokeModal from "./pokeModal";
 
 export default function ResultCard(props) {
   const { state, dispatch } = useContext(Store);
@@ -35,6 +36,7 @@ export default function ResultCard(props) {
     }
   };
   return (
+    <>
     <Grid
       item
       id={`${props.id}-card`}
@@ -69,6 +71,7 @@ export default function ResultCard(props) {
           }}
         /> */}
       <Image
+        // onClick={} <<< somehow do modal 
         src={props.image}
         alt={`${props.name} card`}
         height="15em"
@@ -96,5 +99,6 @@ export default function ResultCard(props) {
       </Button>
       {/* </CardContent> */}
     </Grid>
+    </>
   );
 }

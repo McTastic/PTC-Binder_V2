@@ -9,6 +9,7 @@ import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
 import { CircularProgress } from "@mui/material";
+import PokeModal from "@components/pokeModal";
 
 function reducer(state, action) {
   switch (action.type) {
