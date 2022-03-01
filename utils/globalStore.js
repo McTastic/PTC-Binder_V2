@@ -7,6 +7,7 @@ export const Store = createContext();
 
 const initialState = {
   // if a user exists in the cookies, then we will set the userInfo to the userInfo stored in the cookies otherwise we will set it to null.
+  modalControl: false,
   binder: {
     cards: Cookies.get("cards") ? JSON.parse(Cookies.get("cards")) : [],
   },
@@ -17,6 +18,9 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case "TOGGLE_MODAL": {
+      return { ...state, modalControl: !state.modalControl };
+    }
     case "USER_LOGIN": {
       return { ...state, userInfo: action.payload };
     }
