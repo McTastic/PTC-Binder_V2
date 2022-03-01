@@ -70,11 +70,11 @@ function ResponsiveDrawer({ navLinks }) {
   //   window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "flex-end", }}>
+    <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
       <AppBar
         position="fixed"
         sx={{
-          display:"flex",
+          display: "flex",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           backgroundColor: `rgba(7, 7, 7, 0.726)`,
@@ -87,23 +87,20 @@ function ResponsiveDrawer({ navLinks }) {
       >
         <Container
           maxWidth="xl"
-          sx={{ 
-            display: `flex`, 
-            justifyContent: `center`
-           }}
+          sx={{
+            display: `flex`,
+            justifyContent: `center`,
+          }}
         >
           {userInfo ? (
             <>
-              <Button
-                onClick={logoutHandler}
-              >
+              <Button onClick={logoutHandler}>
                 <Typography
                   className="logoutBtn"
-
                   color="#ffffff"
                   variant="button"
                   sx={{
-                    fontSize:{xs:"1.25em",md:"1.5em"},
+                    fontSize: { xs: "1.25em", md: "1.5em" },
                     mt: { xs: "1.35em", xl: "1em" },
                     zIndex: { xs: "999", lg: "0" },
                     textDecoration: "none",
@@ -126,7 +123,7 @@ function ResponsiveDrawer({ navLinks }) {
                   alt="user profile picture"
                   sx={{
                     zIndex: { sm: "999", lg: "0" },
-                    mt: {xs: ".75em",xl: "1em"},
+                    mt: { xs: ".75em", xl: "1em" },
                     width: "2.5em",
                     height: "2.5em",
                   }}
@@ -135,7 +132,7 @@ function ResponsiveDrawer({ navLinks }) {
             </>
           ) : (
             <>
-              <Button >
+              <Button>
                 <MuiNextLink
                   fontSize="1.5em"
                   color="#ffffff"
@@ -162,7 +159,7 @@ function ResponsiveDrawer({ navLinks }) {
           )}
         </Container>
         <Toolbar>
-        <SideDrawer navLinks={navLinks} />
+          <SideDrawer navLinks={navLinks} />
         </Toolbar>
       </AppBar>
       <Box

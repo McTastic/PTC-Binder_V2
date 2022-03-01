@@ -23,8 +23,10 @@ function reducer(state, action) {
       state;
   }
 }
-
 export default function TextFieldHiddenLabel() {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const {
     handleSubmit,
     control,
@@ -38,11 +40,12 @@ export default function TextFieldHiddenLabel() {
   });
   const { state } = useContext(Store);
   const [results, setResults] = useState([]);
+  const { modalControl } = state;
 
   const submitForm = async ({ search }) => {
     try {
       dispatch({ type: "FETCH_REQUEST" });
-      const { data } = await axios.get(`/api/search/${search}`, {});
+      const { data } = await axios.get(`/api/search/${search}`);
       dispatch({ type: "FETCH_SUCCESS", payload: data });
       // console.log(data);
       reset({
@@ -89,14 +92,6 @@ export default function TextFieldHiddenLabel() {
           Search
         </Button>
       </Stack>
-      {/* {loading ? (
-        <CircularProgress />
-      ) : error ? (
-        <Typography variant="h6" color="error">
-          {" "}
-          {error}{" "}
-        </Typography>
-      ) : ( */}
       <Grid container>
         {results?.data?.length > 0 &&
           results.data.map((card, i) => (
@@ -127,13 +122,20 @@ export default function TextFieldHiddenLabel() {
                       ? card.types[0].toLowerCase()
                       : "none"
                   }
-                  // type={card.types[0].toLowerCase()}
                   name={card.name}
                 />
               )}
             </Grid>
           ))}
       </Grid>
+      <PokeModal
+        open={modalControl}
+        handleClose={handleClose}
+        // id={card.id}
+        // image={card.images.large}
+        // type={card?.types?.length > 0 ? card.types[0].toLowerCase() : "none"}
+        // name={card.name}
+      />
     </>
   );
 }

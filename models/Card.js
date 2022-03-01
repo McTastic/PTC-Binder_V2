@@ -14,6 +14,10 @@ const cardSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    card_type: {
+      type: String,
+      required: true,
+    },
   },
 
   {

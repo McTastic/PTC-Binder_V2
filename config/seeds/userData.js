@@ -7,7 +7,7 @@ const userData = {
       lastName: "Doe",
       email: "admin@admin.com",
       password: bcrypt.hashSync("test123", 10),
-      collection: [],
+      cardCollection: [],
       userImage: "/images/adminPic.jpg",
     },
     {
@@ -15,7 +15,7 @@ const userData = {
       lastName: "Doe",
       email: "e@e.com",
       password: bcrypt.hashSync("test123", 10),
-      collection: [],
+      cardCollection: [],
     },
   ],
 };
