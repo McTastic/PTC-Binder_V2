@@ -34,7 +34,7 @@ export default function TransitionsModal(props) {
         open={modalControl}
         onClose={modalCloseHandler}
         onBackdropClick={modalCloseHandler}
-        closeAfterTransition
+        // closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,

@@ -127,13 +127,15 @@ export default function TextFieldHiddenLabel() {
             </Grid>
           ))}
       </Grid>
-      <PokeModal
+      {modalControl && (
+        <PokeModal
 
-      // id={card.id}
-      // image={card.images.large}
-      // type={card?.types?.length > 0 ? card.types[0].toLowerCase() : "none"}
-      // name={card.name}
-      />
+        // id={card.id}
+        // image={card.images.large}
+        // type={card?.types?.length > 0 ? card.types[0].toLowerCase() : "none"}
+        // name={card.name}
+        />
+      )}
     </>
   );
 }
