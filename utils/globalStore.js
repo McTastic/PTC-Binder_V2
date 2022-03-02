@@ -14,6 +14,8 @@ const initialState = {
   userInfo: Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo"))
     : null,
+
+  modalData: {},
 };
 
 function reducer(state, action) {
@@ -23,6 +25,9 @@ function reducer(state, action) {
     }
     case "CLOSE_MODAL": {
       return { ...state, modalControl: false, loading: false };
+    }
+    case "SET_MODAL_DATA": {
+      return { ...state, modalData: action.payload };
     }
     case "USER_LOGIN": {
       return { ...state, userInfo: action.payload };

@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Store } from "/utils/globalStore.js";
+import Image from "next/image";
 
 const style = {
   position: "absolute",
@@ -21,20 +22,20 @@ const style = {
 
 export default function TransitionsModal(props) {
   const { state, dispatch } = useContext(Store);
-  const { modalControl } = state;
+  const { modalControl, modalData } = state;
   const modalCloseHandler = () => {
     dispatch({ type: "CLOSE_MODAL" });
+    dispatch({ type: "SET_MODAL_DATA", payload: {} });
   };
+  // console.log(modalData);
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={modalControl}
         onClose={modalCloseHandler}
         onBackdropClick={modalCloseHandler}
-        // closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
@@ -42,21 +43,35 @@ export default function TransitionsModal(props) {
       >
         <Fade in={true}>
           <Box sx={style}>
-            <Typography
-              id="transition-modal-title"
-              variant="h6"
-              component="h2"
-              color="text.secondary"
-            >
-              Text in a modal
-            </Typography>
-            <Typography
-              id="transition-modal-description"
-              color="text.secondary"
-              sx={{ mt: 2 }}
-            >
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            {modalData?.data ? (
+              <>
+                <Typography
+                  id="transition-modal-title"
+                  variant="h6"
+                  component="h2"
+                  color="text.secondary"
+                >
+                  {modalData.data.name}
+                </Typography>
+                <Image
+                  src={modalData.data.images.large}
+                  alt={`${modalData.data.name} card`}
+                  width={200}
+                  height={300}
+                />
+                <Typography
+                  id="transition-modal-description"
+                  color="text.secondary"
+                  sx={{ mt: 2 }}
+                >
+                  {modalData.data.flavorText
+                    ? modalData.data.flavorText
+                    : "No Description Available"}
+                </Typography>
+              </>
+            ) : (
+              <Typography>Loading...</Typography>
+            )}
             <Button onClick={modalCloseHandler}>
               <Typography>Close</Typography>
             </Button>
@@ -66,3 +81,5 @@ export default function TransitionsModal(props) {
     </div>
   );
 }
+
+// export default dynamic(() => Promise.resolve(TransitionsModal), { ssr: false });
