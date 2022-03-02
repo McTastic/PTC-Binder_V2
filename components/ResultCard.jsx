@@ -10,19 +10,11 @@ import axios from "axios";
 export default function ResultCard(props) {
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const { modalControl } = state;
 
-  useEffect(() => {
-    setOpen(modalControl);
-  }, [modalControl]);
-
-  const mondalControlHandler = () => {
-    dispatch({ type: "TOGGLE_MODAL" });
+  const modalOpenHandler = () => {
+    dispatch({ type: "OPEN_MODAL" });
   };
 
   const addHandler = async () => {
@@ -80,7 +72,7 @@ export default function ResultCard(props) {
           height="15em"
           width="10em"
           layout="responsive"
-          onClick={() => mondalControlHandler()}
+          onClick={modalOpenHandler}
         />
         <Button
           variant="contained"

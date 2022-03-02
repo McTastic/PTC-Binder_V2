@@ -10,6 +10,7 @@ import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
 import { CircularProgress } from "@mui/material";
 import PokeModal from "@components/pokeModal";
+import TestModal from "@components/testModal";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -24,9 +25,6 @@ function reducer(state, action) {
   }
 }
 export default function TextFieldHiddenLabel() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const {
     handleSubmit,
     control,
@@ -39,6 +37,7 @@ export default function TextFieldHiddenLabel() {
     error: "",
   });
   const { state } = useContext(Store);
+
   const [results, setResults] = useState([]);
   const { modalControl } = state;
 
@@ -129,12 +128,11 @@ export default function TextFieldHiddenLabel() {
           ))}
       </Grid>
       <PokeModal
-        open={modalControl}
-        handleClose={handleClose}
-        // id={card.id}
-        // image={card.images.large}
-        // type={card?.types?.length > 0 ? card.types[0].toLowerCase() : "none"}
-        // name={card.name}
+
+      // id={card.id}
+      // image={card.images.large}
+      // type={card?.types?.length > 0 ? card.types[0].toLowerCase() : "none"}
+      // name={card.name}
       />
     </>
   );

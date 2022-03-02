@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import { Store } from "/utils/globalStore.js";
 
 const style = {
@@ -19,34 +20,48 @@ const style = {
 };
 
 export default function TransitionsModal(props) {
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
+  const { state, dispatch } = useContext(Store);
+  const { modalControl } = state;
+  const modalCloseHandler = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={props.open}
-        onClose={props.handleClose}
+        open={modalControl}
+        onClose={modalCloseHandler}
+        onBackdropClick={modalCloseHandler}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}
       >
-        {/* <Fade in={}> */}
-        <Box sx={style}>
-          <Typography id="transition-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-        {/* </Fade> */}
+        <Fade in={true}>
+          <Box sx={style}>
+            <Typography
+              id="transition-modal-title"
+              variant="h6"
+              component="h2"
+              color="text.secondary"
+            >
+              Text in a modal
+            </Typography>
+            <Typography
+              id="transition-modal-description"
+              color="text.secondary"
+              sx={{ mt: 2 }}
+            >
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+            <Button onClick={modalCloseHandler}>
+              <Typography>Close</Typography>
+            </Button>
+          </Box>
+        </Fade>
       </Modal>
     </div>
   );
