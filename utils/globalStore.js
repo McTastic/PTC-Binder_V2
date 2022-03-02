@@ -14,12 +14,20 @@ const initialState = {
   userInfo: Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo"))
     : null,
+
+  modalData: {},
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "TOGGLE_MODAL": {
-      return { ...state, modalControl: !state.modalControl };
+    case "OPEN_MODAL": {
+      return { ...state, modalControl: true };
+    }
+    case "CLOSE_MODAL": {
+      return { ...state, modalControl: false, loading: false };
+    }
+    case "SET_MODAL_DATA": {
+      return { ...state, modalData: action.payload };
     }
     case "USER_LOGIN": {
       return { ...state, userInfo: action.payload };

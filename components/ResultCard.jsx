@@ -5,31 +5,28 @@ import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import { Store } from "../utils/globalStore";
 import axios from "axios";
-// import PokeModal from "./pokeModal";
 
 export default function ResultCard(props) {
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
-  const [open, setOpen] = useState(false);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const { modalControl } = state;
-
-  useEffect(() => {
-    setOpen(modalControl);
-  }, [modalControl]);
-
-  const mondalControlHandler = () => {
-    dispatch({ type: "TOGGLE_MODAL" });
+  const modalOpenHandler = () => {
+    dispatch({ type: "OPEN_MODAL" });
+    getModalData();
   };
 
+  const getModalData = async () => {
+    try {
+      const { data } = await axios.get(`/api/search/id/${props.id}`);
+      dispatch({ type: "FETCH_SUCCESS", payload: data });
+      dispatch({ type: "SET_MODAL_DATA", payload: data });
+    } catch (err) {
+      dispatch({ type: "FETCH_FAIL", payload: err });
+      console.log(err);
+    }
+  };
   const addHandler = async () => {
     try {
-      // const cardInBinder = state.binder.cards.find(
-      //   (newCard) => newCard._id === card._id
-      // );
       const { data } = await axios.post(
         "/api/binder/add",
         {
@@ -80,7 +77,7 @@ export default function ResultCard(props) {
           height="15em"
           width="10em"
           layout="responsive"
-          onClick={() => mondalControlHandler()}
+          onClick={modalOpenHandler}
         />
         <Button
           variant="contained"

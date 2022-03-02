@@ -24,9 +24,6 @@ function reducer(state, action) {
   }
 }
 export default function TextFieldHiddenLabel() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const {
     handleSubmit,
     control,
@@ -39,6 +36,7 @@ export default function TextFieldHiddenLabel() {
     error: "",
   });
   const { state } = useContext(Store);
+
   const [results, setResults] = useState([]);
   const { modalControl } = state;
 
@@ -128,14 +126,7 @@ export default function TextFieldHiddenLabel() {
             </Grid>
           ))}
       </Grid>
-      <PokeModal
-        open={modalControl}
-        handleClose={handleClose}
-        // id={card.id}
-        // image={card.images.large}
-        // type={card?.types?.length > 0 ? card.types[0].toLowerCase() : "none"}
-        // name={card.name}
-      />
+      {modalControl && <PokeModal />}
     </>
   );
 }
