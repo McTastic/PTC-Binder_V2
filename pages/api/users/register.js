@@ -23,6 +23,7 @@ handler.post(async (req, res) => {
     lastName: user.lastName,
     email: user.email,
     userImage: user.userImage,
+    cardCollection: user.cardCollection,
   });
 });
 

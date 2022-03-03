@@ -18,6 +18,7 @@ handler.post(async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       userImage: user.userImage,
+      cardCollection: user.cardCollection,
     });
   } else {
     res.status(401).send({ message: "Invalid email or password" });
