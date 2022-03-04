@@ -76,7 +76,6 @@ const BinderPage = () => {
     getCards();
   }, [userInfo]);
 
-  console.log(cardCollection);
   return (
     <>
       <Grid

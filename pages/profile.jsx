@@ -28,8 +28,6 @@ const Profile = () => {
       >
         {userInfo && (
           <Card
-            justifyContent="center"
-            alignItems="flex-start"
             sx={{
               boxShadow: "5px 5px 15px black",
               border: "10px solid #D7BB03",
