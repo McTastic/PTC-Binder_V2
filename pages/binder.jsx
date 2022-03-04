@@ -35,11 +35,29 @@ const BinderPage = () => {
   });
   const { modalControl } = state;
 
+  const deleteCard = async (_id) => {
+    try{
+    const { data } = await axios.delete(
+      "/api/binder/delete",
+      {
+        _id: props._id
+      },
+      {
+        headers: {
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+    );
+  } catch(error){
+    console.log(error)
+  }
+};
+
   const [cardCollection, setCardCollection] = useState([]);
 
   useEffect(() => {
     if (!userInfo) {
-      Router.push("/");
+      Router.push("/login");
     }
     const getCards = async () => {
       try {
@@ -61,9 +79,31 @@ const BinderPage = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <Grid container display="flex" justifyContent="center">
         <Typography variant="h4">My Binder</Typography>
         <Grid container item spacing={1} ml={40}>
+=======
+      <Grid
+        container
+        item
+        sm={12}
+        lg={6}
+        display="flex"
+        justifyContent="flex-end"
+      >
+        <Typography mr="2em" variant="h3">
+          My Binder
+        </Typography>
+        <Grid
+          container
+          item
+          spacing={1}
+          sx={{
+            ml: { xs: "2em", sm: "20em", md: "30em" },
+          }}
+        >
+>>>>>>> main
           {cardCollection?.length > 0 &&
             cardCollection.map((card, i) => (
               <Grid item xs={12} md={4} lg={4} key={i}>

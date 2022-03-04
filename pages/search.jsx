@@ -10,6 +10,7 @@ import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
 import { CircularProgress } from "@mui/material";
 import PokeModal from "@components/pokeModal";
+import PokeLoader from "@components//PokeLoader";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -109,7 +110,7 @@ export default function TextFieldHiddenLabel() {
                     alignItems: "center",
                   }}
                 >
-                  <CircularProgress position="relative" m="auto" />
+                  <PokeLoader/>
                 </Grid>
               ) : (
                 <ResultCard
