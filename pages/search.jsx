@@ -110,7 +110,6 @@ export default function TextFieldHiddenLabel() {
                     alignItems: "center",
                   }}
                 >
-                  <PokeLoader/>
                 </Grid>
               ) : (
                 <ResultCard
