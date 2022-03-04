@@ -4,6 +4,7 @@ import theme from "/styles/theme.js";
 import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import { Store } from "../utils/globalStore";
+import PokeLoader from "@components/PokeLoader";
 import axios from "axios";
 
 export default function ResultCard(props) {
@@ -70,6 +71,7 @@ export default function ResultCard(props) {
           },
         }}
       >
+        <PokeLoader/>
         <Image
           src={props.image}
           alt={`${props.name} card`}
