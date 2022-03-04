@@ -56,7 +56,7 @@ const BinderPage = () => {
   const [cardCollection, setCardCollection] = useState([]);
   useEffect(() => {
     if (!userInfo) {
-      Router.push("/");
+      Router.push("/login");
     }
     const getCards = async () => {
       try {
