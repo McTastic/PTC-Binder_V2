@@ -5,6 +5,7 @@ import ResultCard from "@components/ResultCard";
 import Router from "next/router";
 import dynamic from "next/dynamic";
 import axios from "axios";
+import PokeModal from "@components/pokeModal";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -32,6 +33,7 @@ const BinderPage = () => {
     cardCollection: {},
     error: "",
   });
+  const { modalControl } = state;
 
   const [cardCollection, setCardCollection] = useState([]);
   useEffect(() => {
@@ -58,12 +60,13 @@ const BinderPage = () => {
 
   console.log(cardCollection);
   return (
-    <Grid container spacing={3} display="flex" justifyContent="center">
-      <Typography variant="h4">Binder</Typography>
-      <Grid container item xs={12} spacing={3} ml={40}>
+    <>
+    <Grid container display="flex" justifyContent="center">
+      <Typography variant="h4">My Binder</Typography>
+      <Grid container item spacing={1} ml={40}>
         {cardCollection?.length > 0 &&
           cardCollection.map((card, i) => (
-            <Grid item xs={12} key={i} ml={4}>
+            <Grid item xs={12} md={4} lg={4} key={i}>
               {loading ? (
                 <Grid
                   item
@@ -93,6 +96,8 @@ const BinderPage = () => {
           ))}
       </Grid>
     </Grid>
+    {modalControl && <PokeModal />}
+    </>
   );
 };
 
