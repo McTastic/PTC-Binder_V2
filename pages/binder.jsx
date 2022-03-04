@@ -35,6 +35,24 @@ const BinderPage = () => {
   });
   const { modalControl } = state;
 
+  const deleteCard = async (_id) => {
+    try{
+    const { data } = await axios.delete(
+      "/api/binder/delete",
+      {
+        _id: props._id
+      },
+      {
+        headers: {
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+    );
+  } catch(error){
+    console.log(error)
+  }
+};
+
   const [cardCollection, setCardCollection] = useState([]);
   useEffect(() => {
     if (!userInfo) {
@@ -61,42 +79,58 @@ const BinderPage = () => {
   console.log(cardCollection);
   return (
     <>
-    <Grid container display="flex" justifyContent="center">
-      <Typography variant="h4">My Binder</Typography>
-      <Grid container item spacing={1} ml={40}>
-        {cardCollection?.length > 0 &&
-          cardCollection.map((card, i) => (
-            <Grid item xs={12} md={4} lg={4} key={i}>
-              {loading ? (
-                <Grid
-                  item
-                  id={`blank-card`}
-                  position="relative"
-                  sx={{
-                    height: "15em",
-                    width: "10em",
-                    m: ".5em",
-                    backgroundColor: "rgba(107, 181, 241, .5)",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <CircularProgress position="relative" m="auto" />
-                </Grid>
-              ) : (
-                <ResultCard
-                  id={card.api_id}
-                  image={card.image_url}
-                  type={card.card_type}
-                  name={card.name}
-                />
-              )}
-            </Grid>
-          ))}
+      <Grid
+        container
+        item
+        sm={12}
+        lg={6}
+        display="flex"
+        justifyContent="flex-end"
+      >
+        <Typography mr="2em" variant="h3">
+          My Binder
+        </Typography>
+        <Grid
+          container
+          item
+          spacing={1}
+          sx={{
+            ml: { xs: "2em", sm: "20em", md: "30em" },
+          }}
+        >
+          {cardCollection?.length > 0 &&
+            cardCollection.map((card, i) => (
+              <Grid item xs={12} md={4} lg={4} key={i}>
+                {loading ? (
+                  <Grid
+                    item
+                    id={`blank-card`}
+                    position="relative"
+                    sx={{
+                      height: "15em",
+                      width: "10em",
+                      m: ".5em",
+                      backgroundColor: "rgba(107, 181, 241, .5)",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <CircularProgress position="relative" m="auto" />
+                  </Grid>
+                ) : (
+                  <ResultCard
+                    id={card.api_id}
+                    image={card.image_url}
+                    type={card.card_type}
+                    name={card.name}
+                  />
+                )}
+              </Grid>
+            ))}
+        </Grid>
       </Grid>
-    </Grid>
-    {modalControl && <PokeModal />}
+      {modalControl && <PokeModal />}
     </>
   );
 };
