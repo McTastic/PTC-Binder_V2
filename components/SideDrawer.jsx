@@ -1,6 +1,4 @@
-import Box from "@mui/material/Box";
 import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
-import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/icons-material/Menu";

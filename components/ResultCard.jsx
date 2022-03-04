@@ -71,7 +71,6 @@ export default function ResultCard(props) {
         }}
       >
         <Image
-          // onClick={} <<< somehow do modal
           src={props.image}
           alt={`${props.name} card`}
           height="15em"
