@@ -2,15 +2,12 @@ import React, { useContext, useState, useReducer } from "react";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
-import { CircularProgress } from "@mui/material";
 import PokeModal from "@components/pokeModal";
-import PokeLoader from "@components//PokeLoader";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -109,8 +106,7 @@ export default function TextFieldHiddenLabel() {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                >
-                </Grid>
+                ></Grid>
               ) : (
                 <ResultCard
                   id={card.id}
