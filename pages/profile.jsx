@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Store } from "/utils/globalStore";
-import { Card, Typography, Grid, Avatar } from "@mui/material";
+import { Card, Typography, Grid, Box } from "@mui/material";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { Box } from "@mui/system";
 import Router from "next/router";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const Profile = () => {
   const { state, dispatch } = useContext(Store);
@@ -14,6 +14,10 @@ const Profile = () => {
       Router.push("/");
     }
   }, [userInfo]);
+
+  const updateHandler = () => {
+    console.log("update");
+  };
   return (
     <Grid container display="flex" justifyContent="center">
       <Grid
@@ -27,56 +31,63 @@ const Profile = () => {
         height="28em"
       >
         {userInfo && (
-          <Card
-            sx={{
-              boxShadow: "5px 5px 15px black",
-              border: "10px solid #D7BB03",
-              height: "auto",
-              width: "25em",
-              padding: ".5em",
-              background: `url("/images/profileBackground.png")`,
-            }}
-          >
-            {/* <Avatar sx={{ m: "0 auto 1em auto", width: "5em", height: "5em" }}> */}
-            <Box
+          <>
+            <Card
               sx={{
-                border: "8px solid",
-                borderImage:
-                  "linear-gradient(45deg, #e0c653, #FDE08D, #dfc428) 1",
-                boxShadow: "3px 3px 5px  black",
+                boxShadow: "5px 5px 15px black",
+                border: "10px solid #D7BB03",
+                height: "auto",
+                width: "25em",
+                padding: ".5em",
+                background: `url("/images/profileBackground.png")`,
               }}
             >
-              <Image
-                src={userInfo.userImage}
-                alt={`${userInfo.firstName}'s profile picture`}
-                layout="responsive"
-                height="1"
-                width="2"
-                className="profileImg"
-              />
-            </Box>
-            {/* </Avatar> */}
-            <Typography
-              color="text.secondary"
-              sx={{
-                fontSize: "2em",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-            >
-              {userInfo.firstName} {userInfo.lastName}
-            </Typography>
-            <Typography
-              color="text.secondary"
-              sx={{
-                fontSize: "1em",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-            >
-              {userInfo.email}
-            </Typography>
-          </Card>
+              <Box
+                sx={{
+                  border: "8px solid",
+                  borderImage:
+                    "linear-gradient(45deg, #e0c653, #FDE08D, #dfc428) 1",
+                  boxShadow: "3px 3px 5px  black",
+                }}
+              >
+                <Image
+                  src={userInfo.userImage}
+                  alt={`${userInfo.firstName}'s profile picture`}
+                  layout="responsive"
+                  height="1"
+                  width="2"
+                  className="profileImg"
+                />
+                <Box position="absolute" top={325} right={685}>
+                  <SettingsIcon
+                    fontSize="large"
+                    onClick={updateHandler}
+                    sx={{ cursor: "pointer" }}
+                  />
+                </Box>
+              </Box>
+              <Typography
+                color="text.secondary"
+                sx={{
+                  fontSize: "2em",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                {userInfo.firstName} {userInfo.lastName}
+              </Typography>
+              <Typography
+                color="text.secondary"
+                sx={{
+                  fontSize: "1em",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                {userInfo.email}
+              </Typography>
+            </Card>
+          </>
         )}
       </Grid>
     </Grid>
