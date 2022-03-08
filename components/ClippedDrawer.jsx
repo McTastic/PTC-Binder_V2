@@ -56,6 +56,18 @@ function ResponsiveDrawer({ navLinks }) {
             </ListItemText>
           </ListItem>
         ))}
+        {userInfo && (
+          <ListItem>
+            <ListItemIcon>
+              <MailIcon className="oddIcons" color="oddIcons" />
+            </ListItemIcon>
+            <ListItemText>
+              <MuiNextLink href="/binder" color="#ffffff">
+                Binder
+              </MuiNextLink>
+            </ListItemText>
+          </ListItem>
+        )}
       </List>
       <Divider />
     </div>
