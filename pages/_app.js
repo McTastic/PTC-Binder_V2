@@ -15,7 +15,7 @@ const clientSideEmotionCache = createEmotionCache();
 
 export const navLinks = [
   { title: `Home`, path: `/` },
-  { title: "Binder", path: "/binder" },
+  // { title: "Binder", path: "/binder" },
   { title: "Search", path: "/search" },
   { title: "About", path: "/about" },
 ];
