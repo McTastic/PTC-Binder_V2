@@ -93,7 +93,7 @@ const BinderPage = () => {
         container
         item
         sm={12}
-        lg={6}
+        lg={7}
         display="flex"
         justifyContent="flex-end"
       >
@@ -110,7 +110,7 @@ const BinderPage = () => {
         >
           {cardCollection?.length > 0 &&
             cardCollection.map((card, i) => (
-              <Grid item xs={12} md={4} lg={4} key={i}>
+              <Grid item xs={12} md={6} lg={4} key={i}>
                 {loading ? (
                   <Grid
                     item
