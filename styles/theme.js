@@ -25,7 +25,7 @@ let theme = createTheme({
       water: "rgb(107, 181, 241)",
       fire: "rgb(250, 77, 8)",
       lightning: "yellow",
-      normal: "rgb(187,187,187)",
+      colorless: "rgb(187,187,187)",
       ice: "aqua",
       fighting: "#C22E28",
       poison: "purple",
