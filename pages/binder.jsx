@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useReducer, useContext } from "react";
 import { Typography, Grid, Button, CircularProgress } from "@mui/material";
 import { Store } from "/utils/globalStore.js";
-import ResultCard from "@components/ResultCard";
+import BinderCard from "@components/BinderCard";
 import Router from "next/router";
 import dynamic from "next/dynamic";
 import axios from "axios";
@@ -26,6 +26,8 @@ function reducer(state, action) {
 }
 
 const BinderPage = () => {
+  const [cardCollection, setCardCollection] = useState([]);
+
   const { state } = useContext(Store);
   const { userInfo } = state || {};
   const [{ loading, error }, dispatch] = useReducer(reducer, {
@@ -35,25 +37,6 @@ const BinderPage = () => {
   });
   const { modalControl } = state;
 
-  const deleteCard = async (_id) => {
-    try{
-    const { data } = await axios.delete(
-      "/api/binder/delete",
-      {
-        _id: props._id
-      },
-      {
-        headers: {
-          authorization: `Bearer ${userInfo.token}`,
-        },
-      }
-    );
-  } catch(error){
-    console.log(error)
-  }
-};
-
-  const [cardCollection, setCardCollection] = useState([]);
   useEffect(() => {
     if (!userInfo) {
       Router.push("/login");
@@ -76,6 +59,34 @@ const BinderPage = () => {
     getCards();
   }, [userInfo]);
 
+  const deleteCard = async (id) => {
+    try {
+      const { data } = await axios.delete(`/api/binder/delete/${id}`, {
+        headers: {
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+      const getCards = async () => {
+        try {
+          dispatch({ type: "FETCH_REQUEST" });
+          const { data } = await axios.get("/api/binder/cards", {
+            headers: {
+              authorization: `Bearer ${userInfo.token}`,
+            },
+          });
+          dispatch({ type: "FETCH_SUCCESS", payload: data.cardCollection });
+          setCardCollection(data.cardCollection);
+        } catch (err) {
+          dispatch({ type: "FETCH_FAIL", payload: err.message });
+          console.log(err);
+        }
+      };
+      getCards();
+    } catch (err) {
+      dispatch({ type: "FETCH_FAIL", payload: err.message });
+      console.log(err);
+    }
+  };
   return (
     <>
       <Grid
@@ -118,7 +129,9 @@ const BinderPage = () => {
                     <CircularProgress position="relative" m="auto" />
                   </Grid>
                 ) : (
-                  <ResultCard
+                  <BinderCard
+                    _id={card._id}
+                    handleDelete={deleteCard}
                     id={card.api_id}
                     image={card.image_url}
                     type={card.card_type}
