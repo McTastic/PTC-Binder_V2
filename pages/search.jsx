@@ -8,9 +8,9 @@ import axios from "axios";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import PokeModal from "@components/pokeModal";
-import PokeLoader from "@components//PokeLoader";
+import theme from "/styles/theme.js";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -83,6 +83,13 @@ export default function TextFieldHiddenLabel() {
               label="Search"
               inputProps={{ type: "text" }}
               {...field}
+              sx={{
+                mt: "2em",
+                background: "black",
+                "& .MuiFormLabel-root": {
+                  color: "white",
+                },
+              }}
             ></TextField>
           )}
         ></Controller>
@@ -109,8 +116,7 @@ export default function TextFieldHiddenLabel() {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                >
-                </Grid>
+                ></Grid>
               ) : (
                 <ResultCard
                   id={card.id}
