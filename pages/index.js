@@ -1,4 +1,5 @@
 import { Typography, Grid } from "@mui/material";
+import Carousel from "@components/carousel";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         }}
       >
         <Typography variant="h3">Home page coming soon!</Typography>
+        <Carousel/>
       </Grid>
     </Grid>
   );

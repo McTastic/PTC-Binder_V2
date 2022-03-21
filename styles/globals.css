@@ -20,3 +20,6 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 } */
+.MuiMobileStepper-dot{
+  color: #96095b
+}
