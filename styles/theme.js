@@ -2,6 +2,17 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 // Create a theme instance.
 let theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "#77A6CC",
+          disabled: "#5A5A5A"
+        },
+      },
+    },
+
+  },
   palette: {
     text: {
       primary: "#ffffff",
@@ -10,10 +21,7 @@ let theme = createTheme({
     background: {
       default: "Putting here to remove default value",
     },
-    primary: {
-      main: `#2b2929`,
-    },
-    secondary: { main: `#fafafa` },
+    secondary: { main: `#96095b` },
     evenIcons: {
       main: "#cc0000",
     },
@@ -38,7 +46,7 @@ let theme = createTheme({
       darkness: "black",
       dragon: "#6F35FC",
       metal: "#B7B7CE",
-      fairy: "rgb(244,189,201)"
+      fairy: "rgb(244,189,201)",
     },
   },
 });
