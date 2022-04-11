@@ -13,7 +13,7 @@ export default function Home() {
           ml: { xs: "2em", sm: "15em", md: "20em", lg: "40em" },
         }}
       >
-        <Typography variant="h3">Home page coming soon!</Typography>
+        <Typography variant="h3">Home page in progress!</Typography>
         <Carousel/>
       </Grid>
     </Grid>
