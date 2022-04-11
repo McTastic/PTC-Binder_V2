@@ -54,7 +54,7 @@ export default function App() {
           src="/images/addCard.gif"
           alt="gif of adding a card to binder"
           />
-          Find any cards that you wish to add to your collection and simply click the "Add" button to add them.
+          Find any cards that you wish to add to your collection and simply click the {`"Add"`} button to add them.
         </SwiperSlide>
         <SwiperSlide>
           <Image 
