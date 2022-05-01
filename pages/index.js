@@ -1,4 +1,4 @@
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, Box, Container } from "@mui/material";
 import Carousel from "@components/carousel";
 
 export default function Home() {
@@ -13,8 +13,47 @@ export default function Home() {
           ml: { xs: "2em", sm: "15em", md: "20em", lg: "40em" },
         }}
       >
-        <Typography variant="h3">Home page in progress!</Typography>
-        <Carousel/>
+        <Container
+        sx={{
+          display: "flex",
+          flexDirection:{xs:"column", xl:"row"},
+          justifyContent: "center",
+          alignItems:"center",
+          backgroundColor: "rgb(6,24,54)",
+          boxShadow: "10px -5px 4px white, -10px 5px 4px red",
+          // border: "solid red 3px",
+          margin: "1rem"
+        }}
+        >
+        <Typography 
+        variant="h3"
+        marginRight={4}
+        sx={{
+          textShadow:"2px 2px 6px",
+          fontWeight: "bold"
+        }}
+        >
+          Welcome to PTC Binder!</Typography>
+        <Typography 
+        variant="p"
+        sx={{
+          // add custome css here 
+        }}
+        >Please feel free to take a look around! Here you can search for any existing Pokemon<sup>&reg;</sup> card and add it to a virtual database for tracking! Please see the carousel below for some instructions on how to use our site. Thank you and have a great day!</Typography>
+        </Container>
+        <Box
+          sx={{
+            // backgroundColor:"rgb(164,68,44);",
+
+            backgroundColor: "#2b4162",
+            backgroundImage: "linear-gradient(315deg, #2b4162 0%, #12100e 74%)",
+            borderRadius: "15%",
+            height: "55vh",
+            width: {xs:"75vw",xl:"35vw"},
+          }}
+        >
+          <Carousel />
+        </Box>
       </Grid>
     </Grid>
   );

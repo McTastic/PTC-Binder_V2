@@ -1,9 +1,29 @@
 .swiperSlide {
-    background-color: rgba(255, 249, 249, 0.804);
-    backdrop-filter: blur(5px)
-  }
-  .swiperImage {
-      padding: 5em;
-      background-position: center;
-      background-size: cover;
-  }
+  /* background-color: rgb(221, 12, 72); */
+  background-color: #3f0d12;
+  background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+  border-radius: 50%;
+  box-shadow: 5px 5px 12px 12px rgba(7, 1, 28, 0.918);
+}
+.swiperImage {
+  border-radius: 25%;
+}
+.swiperSlide p {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  /* background-color: rgb(37, 35, 63); */
+  border: double rgb(243, 238, 238) 6px;
+  background-color: #ca7968;
+  background-image: linear-gradient(315deg, #ca7968 0%, #0c0c0c 74%);
+}
+.thing {
+  color: rgb(76, 31, 11);
+}
+
+/* @media screen and (max-width: 600px) {
+    .swiperSlide{
+        display: flex;
+        flex-direction: column;
+    }
+} */

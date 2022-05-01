@@ -13,6 +13,7 @@ import "swiper/css/effect-fade";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
 
 import Image from "next/image";
+import { Opacity } from "@mui/icons-material";
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        // navigation={true}
         modules={[Autoplay, EffectFade, Pagination, Navigation]}
         className="mySwiper"
       >
@@ -37,39 +38,54 @@ export default function App() {
         >
           <Image
             objectFit="cover"
-            height={1000}
-            width={1200}
+            height={300}
+            width={300}
             objectPosition="top"
             className={swiperStyles.swiperImage}
             src="/images/searchPic.png"
             alt="search box"
           />
-          Search for a Pokemon to see a full list of all cards
+          <p>Search for a Pokemon to see a full list of all cards</p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+        className={swiperStyles.swiperSlide}
+        >
           <Image
-          height={1000}
-          width={1200}
+          height={600}
+          width={600}
+          className={swiperStyles.swiperImage}
           objectFit="cover"
           src="/images/addCard.gif"
           alt="gif of adding a card to binder"
           />
-          Find any cards that you wish to add to your collection and simply click the {`"Add"`} button to add them.
+          <p>Find any cards that you wish to add to your collection and simply click the {`"Add"`} button to add them.</p>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide
+        className={swiperStyles.swiperSlide}
+        >
           <Image 
-          width={300}
-          height={200}
+          objectFit="cover"
+          width={1000}
+          height={1000}
+          className={swiperStyles.swiperImage}
           src="/images/binderScreenshot.png"
           alt="image of binder showing added cards"
           />
+          <p>Select {"Binder"} from the menu on the left to see all cards currently in your collection. You can remove cards if they were added by mistake or are no longer in your collection. </p>
         </SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide
+        className={swiperStyles.swiperSlide}
+        >
+          <Image
+          layout="fixed"
+          width={1500}
+          height={300}
+          className={swiperStyles.swiperImage}
+          src="/images/profile.jpg"
+          alt="image of profile page with basic account info"
+          />
+          <p>When signed in, you can click your avatar at the top-right of the screen to view your account details. Here you will see your name and email address associated with your account. More changes to this page coming soon! </p>
+        </SwiperSlide>
       </Swiper>
     </>
   );
