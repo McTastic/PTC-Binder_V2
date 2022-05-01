@@ -8,7 +8,7 @@ const nextConfig = {
     POKE_KEY: process.env.POKE_KEY,
   },
   images: {
-    domains: ["images.pokemontcg.io"],
+    domains: ["images.pokemontcg.io", "avatars.githubusercontent.com"],
   },
 };
 
