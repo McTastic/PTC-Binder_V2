@@ -25,6 +25,13 @@ export default function About() {
           width={200}
           src="https://avatars.githubusercontent.com/u/86852570?v=4"
         />
+        <Typography 
+        align="center"
+        sx={{
+            fontSize:"22px",
+            fontWeight:"bold",
+        }}
+        >Sean McCarthy</Typography>
         <Box
           sx={{
             display: "flex",
@@ -93,6 +100,13 @@ export default function About() {
           width={200}
           src="https://avatars.githubusercontent.com/u/83666127?v=4"
         />
+        <Typography 
+        align="center"
+        sx={{
+            fontSize:"22px",
+            fontWeight:"bold",
+        }}
+        >Ryan McCarthy</Typography>
         <Box
           sx={{
             display: "flex",
