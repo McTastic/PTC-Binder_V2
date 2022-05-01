@@ -25,13 +25,15 @@ export default function About() {
           width={200}
           src="https://avatars.githubusercontent.com/u/86852570?v=4"
         />
-        <Typography 
-        align="center"
-        sx={{
-            fontSize:"22px",
-            fontWeight:"bold",
-        }}
-        >Sean McCarthy</Typography>
+        <Typography
+          align="center"
+          sx={{
+            fontSize: "22px",
+            fontWeight: "bold",
+          }}
+        >
+          Sean McCarthy
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -48,10 +50,10 @@ export default function About() {
               href="https://www.linkedin.com/in/smccarthydev/"
               sx={{
                 textDecoration: "none",
-                "&:hover":{
-                    transform: "scale(1.2)",
-                    fontWeight: "bold"
-                }
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  fontWeight: "bold",
+                },
               }}
             >
               Linkedin
@@ -60,10 +62,10 @@ export default function About() {
               href="https://github.com/McTastic"
               sx={{
                 textDecoration: "none",
-                "&:hover":{
-                    transform: "scale(1.2)",
-                    fontWeight: "bold"
-                }
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  fontWeight: "bold",
+                },
               }}
             >
               GitHub
@@ -72,11 +74,11 @@ export default function About() {
               href="https://mctastic.github.io/PortfolioV2_React/"
               sx={{
                 textDecoration: "none",
-                marginRight:"1em",
-                "&:hover":{
-                    transform: "scale(1.2)",
-                    fontWeight: "bold"
-                }
+                marginRight: "1em",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  fontWeight: "bold",
+                },
               }}
             >
               Portfolio
@@ -88,8 +90,8 @@ export default function About() {
               flexDirection: "column",
             }}
           >
-            <GitHubIcon />
             <LinkedInIcon />
+            <GitHubIcon />
             <LanguageSharpIcon />
           </Box>
         </Box>
@@ -100,13 +102,15 @@ export default function About() {
           width={200}
           src="https://avatars.githubusercontent.com/u/83666127?v=4"
         />
-        <Typography 
-        align="center"
-        sx={{
-            fontSize:"22px",
-            fontWeight:"bold",
-        }}
-        >Ryan McCarthy</Typography>
+        <Typography
+          align="center"
+          sx={{
+            fontSize: "22px",
+            fontWeight: "bold",
+          }}
+        >
+          Ryan McCarthy
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -114,45 +118,45 @@ export default function About() {
           }}
         >
           <Box
-          sx={{
-              display:"flex",
-              flexDirection:"column",
-          }}
-          >
-            <MuiNextLink 
-            href="https://www.linkedin.com/in/ryan-mccarthy-20950291/"
             sx={{
-                textDecoration:"none",
-                "&:hover":{
-                    transform: "scale(1.2)",
-                    fontWeight: "bold"
-                }
+              display: "flex",
+              flexDirection: "column",
             }}
+          >
+            <MuiNextLink
+              href="https://www.linkedin.com/in/ryan-mccarthy-20950291/"
+              sx={{
+                textDecoration: "none",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  fontWeight: "bold",
+                },
+              }}
             >
               Linkedin
             </MuiNextLink>
-            <MuiNextLink 
-            href="https://github.com/rmmccar92"
-            sx={{
-                textDecoration:"none",
-                "&:hover":{
-                    transform: "scale(1.2)",
-                    fontWeight: "bold"
-                }
-            }}
+            <MuiNextLink
+              href="https://github.com/rmmccar92"
+              sx={{
+                textDecoration: "none",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  fontWeight: "bold",
+                },
+              }}
             >
               GitHub
             </MuiNextLink>
-            <MuiNextLink 
-            href="https://rmmccar92.github.io/React_Portfolio/"
-            sx={{
-                textDecoration:"none",
-                marginRight:"1em",
-                "&:hover":{
-                    transform: "scale(1.2)",
-                    fontWeight: "bold"
-                }
-            }}
+            <MuiNextLink
+              href="https://rmmccar92.github.io/React_Portfolio/"
+              sx={{
+                textDecoration: "none",
+                marginRight: "1em",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  fontWeight: "bold",
+                },
+              }}
             >
               Portfolio
             </MuiNextLink>
@@ -163,8 +167,8 @@ export default function About() {
               flexDirection: "column",
             }}
           >
-            <GitHubIcon />
             <LinkedInIcon />
+            <GitHubIcon />
             <LanguageSharpIcon />
           </Box>
         </Box>
