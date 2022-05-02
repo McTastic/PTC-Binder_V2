@@ -4,7 +4,6 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LanguageSharpIcon from "@mui/icons-material/LanguageSharp";
 import MuiNextLink from "@components/MuiNextLink";
-import { fontSize, fontWeight } from "@mui/system";
 
 export default function About() {
   return (

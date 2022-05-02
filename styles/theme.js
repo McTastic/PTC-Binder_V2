@@ -11,7 +11,6 @@ let theme = createTheme({
         },
       },
     },
-
   },
   palette: {
     text: {
@@ -49,6 +48,11 @@ let theme = createTheme({
       fairy: "rgb(244,189,201)",
     },
   },
+  typography:{
+    fontFamily:[
+      "Barlow Condensed","sans-serif"
+    ].join(",")
+  }
 });
 
 theme = responsiveFontSizes(theme);

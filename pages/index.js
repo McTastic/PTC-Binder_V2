@@ -29,7 +29,6 @@ export default function Home() {
         variant="h3"
         marginRight={4}
         sx={{
-          textShadow:"2px 2px 6px",
           fontWeight: "bold"
         }}
         >
@@ -43,11 +42,9 @@ export default function Home() {
         </Container>
         <Box
           sx={{
-            // backgroundColor:"rgb(164,68,44);",
-
-            backgroundColor: "#2b4162",
-            backgroundImage: "linear-gradient(315deg, #2b4162 0%, #12100e 74%)",
-            borderRadius: "15%",
+            backgroundColor: "rgb(6,24,54)",
+            marginTop:"3em",
+            boxShadow: "10px -5px 4px white, -10px 5px 4px red",
             height: "55vh",
             width: {xs:"75vw",xl:"35vw"},
           }}

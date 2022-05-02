@@ -10,11 +10,7 @@ export default function PokeLoaderTest() {
         justifyContent:"center",
         alignItems:"center",
       }}>
-      <div className="pokeLoader"
-      style={{
-        position: "relative"
-      }}
-      ></div>
+
       </Grid>
       </Grid>
     );
