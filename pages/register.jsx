@@ -58,7 +58,12 @@ export default function Register() {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <Grid container display="flex" justifyContent={"center"}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={8} sm={6} lg={4}
+        sx={{
+          backgroundColor:"rgb(6,24,54)",
+          boxShadow: "10px -5px 4px white, -10px 5px 4px red",
+        }}
+        >
           <Typography component="h1" variant="h1" textAlign={"center"}>
             Register
           </Typography>
@@ -88,6 +93,9 @@ export default function Register() {
                     label="First Name"
                     inputProps={{ type: "text" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
@@ -117,6 +125,9 @@ export default function Register() {
                     label="Last Name"
                     inputProps={{ type: "text" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
@@ -147,6 +158,9 @@ export default function Register() {
                     label="Email"
                     inputProps={{ type: "email" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
@@ -176,6 +190,9 @@ export default function Register() {
                     label="Password"
                     inputProps={{ type: "password" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
@@ -205,15 +222,21 @@ export default function Register() {
                     label="Confirm Password"
                     inputProps={{ type: "password" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
             </ListItem>
-            <ListItem>
+            <ListItem 
+            sx={{
+              marginLeft: {xs:"5em",sm:"10em",lg:"15em"}
+            }}
+            >
               <Button
                 variant="contained"
                 type="submit"
-                fullWidth
                 color="primary"
               >
                 Register

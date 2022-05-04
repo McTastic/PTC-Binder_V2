@@ -1,5 +1,6 @@
 import {
   Button,
+  Box,
   Grid,
   Link,
   List,
@@ -51,13 +52,17 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
-      <Grid container display="flex" justifyContent={"center"}>
-        <Grid item xs={12} lg={6}>
+      <Grid container display="flex" justifyContent="center">
+        <Grid item xs={8} lg={4} sx={{
+          backgroundColor:"rgb(6,24,54)",
+          boxShadow: "10px -5px 4px white, -10px 5px 4px red",
+        }}>
           <Typography component="h1" variant="h1" textAlign={"center"}>
             Login
           </Typography>
           <List>
-            <ListItem>
+            <ListItem
+            >
               <Controller
                 name="email"
                 control={control}
@@ -83,6 +88,9 @@ export default function Login() {
                     label="Email"
                     inputProps={{ type: "email" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
@@ -112,15 +120,20 @@ export default function Login() {
                     label="Password"
                     inputProps={{ type: "password" }}
                     {...field}
+                    sx={{
+                      backgroundColor:"rgba(60, 200, 255,.5)"
+                    }}
                   ></TextField>
                 )}
               ></Controller>
             </ListItem>
-            <ListItem>
+            <ListItem sx={{
+              marginLeft: {xs:"5em",sm:"10em",lg:"15em"}
+            }}>
               <Button
                 variant="contained"
+                size="large"
                 type="submit"
-                fullWidth
                 color="primary"
               >
                 Login

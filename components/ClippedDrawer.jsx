@@ -110,7 +110,7 @@ function ResponsiveDrawer({ navLinks }) {
         position="fixed"
         sx={{
           display: "flex",
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           backgroundColor: `rgba(7, 7, 7, 0.726)`,
           backdropFilter: `blur(5px)`,
@@ -205,7 +205,7 @@ function ResponsiveDrawer({ navLinks }) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
+            display: { xs: "none", md: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
