@@ -36,7 +36,7 @@ export default function Home() {
         <Typography 
         variant="p"
         sx={{
-          // add custome css here 
+          letterSpacing:"1px",
         }}
         >Please feel free to take a look around! Here you can search for any existing Pokemon<sup>&reg;</sup> card and add it to a virtual database for tracking! Please see the carousel below for some instructions on how to use our site. Thank you and have a great day!</Typography>
         </Container>

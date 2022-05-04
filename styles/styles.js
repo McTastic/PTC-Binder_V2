@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
   evenIcons:{
-    color: "white"
+    color: "white",
   },
   oddIcons:{
     color: "red"

@@ -49,8 +49,31 @@ function ResponsiveDrawer({ navLinks }) {
                 <MailIcon className="oddIcons" color="oddIcons" />
               )}
             </ListItemIcon>
-            <ListItemText>
-              <MuiNextLink href={path} color="#ffffff">
+            <ListItemText
+            align="center"
+            // sx={{
+            //   transition:"scale .7s ease-in-out",
+            //   "&:hover":{
+            //     transform: "scale(1.25)",
+            //   }
+            // }}
+            >
+              <MuiNextLink 
+              fontSize="2em" 
+              letterSpacing="2px"
+              href={path} 
+              color="#ffffff"
+              sx={{
+                textDecoration:"none",
+                transition:"font-size .5s, color .5s, text-shadow .5s",
+                "&:hover":{
+                  color: "rgb(120, 200, 255)",
+                  maxHeight: "2em",
+                  textShadow: "-10px -10px 50px  rgb(107, 181, 241)",
+                  filter: "drop-shadow(10px 10px 50px rgb(107, 181, 241))",
+                }
+              }}
+              >
                 {title}
               </MuiNextLink>
             </ListItemText>
