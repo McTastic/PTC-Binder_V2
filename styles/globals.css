@@ -4,14 +4,16 @@ body {
 
   /* background: url(../public/images/background-pic.webp);  
   background-size: cover; */
-  background: rgb(14, 17, 55);
+  background: url(../public/images/ptc_binder_bg_3.png);
+  background-size: cover;
+  /* background: rgb(14, 17, 55);
   background: linear-gradient(
     180deg,
     rgba(14, 17, 55, 1) 0%,
     rgba(18, 22, 72, 1) 17%,
     rgba(23, 28, 89, 1) 38%,
     rgba(30, 37, 116, 1) 68%
-  );
+  ); */
   height: 100vh;
   background-attachment: fixed;
   padding: 0;
@@ -25,4 +27,8 @@ a {
 }
 .MuiMobileStepper-dot {
   color: #96095b;
+}
+.aboutImage{
+  border-top-left-radius: 3%;
+  border-bottom-right-radius: 3%;
 }
