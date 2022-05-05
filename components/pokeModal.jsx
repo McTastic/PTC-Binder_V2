@@ -12,11 +12,15 @@ const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
+  display: "flex",
+  flexDirection:"column",
+  justifyContent:"center",
+  alignItems:"center",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
+  bgcolor: "rgb(6,24,54)",
+  // border: "2px solid #000",
+  boxShadow: "10px -5px 4px white, -10px 5px 4px red",
   p: 4,
 };
 
@@ -47,9 +51,9 @@ export default function TransitionsModal(props) {
               <>
                 <Typography
                   id="transition-modal-title"
-                  variant="h6"
-                  component="h2"
-                  color="text.secondary"
+                  variant="h4"
+                  component="h4"
+                  color="text.primary"
                 >
                   {modalData.data.name}
                 </Typography>
@@ -61,7 +65,8 @@ export default function TransitionsModal(props) {
                 />
                 <Typography
                   id="transition-modal-description"
-                  color="text.secondary"
+                  color="text.primary"
+                  letterSpacing="1px"
                   sx={{ mt: 2 }}
                 >
                   {modalData.data.flavorText
@@ -73,7 +78,13 @@ export default function TransitionsModal(props) {
               <Typography>Loading...</Typography>
             )}
             <Button onClick={modalCloseHandler}>
-              <Typography>Close</Typography>
+              <Typography
+              sx={{
+                "&:hover":{
+                  color: "red"
+                }
+              }}
+              >Close</Typography>
             </Button>
           </Box>
         </Fade>

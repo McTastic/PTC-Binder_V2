@@ -6,7 +6,7 @@ let theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          color: "#77A6CC",
+          color: "#ffff",
           disabled: "#5A5A5A"
         },
       },
@@ -14,8 +14,8 @@ let theme = createTheme({
   },
   palette: {
     text: {
-      primary: "#ffffff",
-      secondary: "#2b2929",
+      primary: "#fafafa",
+      secondary: "#E0E0E0",
     },
     background: {
       default: "Putting here to remove default value",
