@@ -69,7 +69,7 @@ export default function TextFieldHiddenLabel() {
         flexDirection="row"
         onSubmit={handleSubmit(submitForm)}
         sx={{
-          width: "75ch",
+          width: {xs: "45ch",md:"75ch"},
           margin: "auto",
           "&:hover": {
             outline: "none",
