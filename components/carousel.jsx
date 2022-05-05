@@ -38,8 +38,6 @@ export default function App() {
         >
           <Image
             layout="fill"
-
-      
             objectPosition="top"
             className={swiperStyles.swiperImage}
             src="/images/searchPic.png"
@@ -52,8 +50,6 @@ export default function App() {
         >
           <Image
           layout="fill"
-          height={500}
-          width={500}
           className={swiperStyles.swiperImage}
           src="/images/addCard.gif"
           alt="gif of adding a card to binder"
@@ -65,8 +61,6 @@ export default function App() {
         >
           <Image 
           layout="fill"
-          width={1000}
-          height={1000}
           className={swiperStyles.swiperImage}
           src="/images/binderScreenshot.png"
           alt="image of binder showing added cards"
@@ -78,8 +72,6 @@ export default function App() {
         >
           <Image
           layout="fill"
-          width={1300}
-          height={350}
           className={swiperStyles.swiperImage}
           src="/images/profile.jpg"
           alt="image of profile page with basic account info"
