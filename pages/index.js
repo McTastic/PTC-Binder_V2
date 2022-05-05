@@ -28,9 +28,9 @@ export default function Home() {
         >
         <Typography 
         variant="h3"
-        marginRight={4}
         sx={{
-          fontWeight: "bold"
+          fontWeight: "bold",
+          marginRight:{md:"1em"}
         }}
         >
           Welcome to PTC Binder!</Typography>
@@ -38,6 +38,8 @@ export default function Home() {
         variant="p"
         sx={{
           letterSpacing:"1px",
+          fontSize:"20px",
+          fontFamily:"Helvetica"
         }}
         >Please feel free to take a look around! Here you can search for any existing Pokemon<sup>&reg;</sup> card and add it to a virtual database for tracking! Please see the carousel below for some instructions on how to use our site. Thank you and have a great day!</Typography>
         </Container>
