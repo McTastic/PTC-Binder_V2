@@ -1,14 +1,18 @@
+import React, { useContext, useState } from "react";
 import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/icons-material/Menu";
 import MuiNextLink from "./MuiNextLink";
-import { useState } from "react";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { Store } from "/utils/globalStore.js";
 
 const SideDrawer = ({ navLinks }) => {
-  const [state, setState] = useState({
+  const { state } = useContext(Store);
+  const { userInfo } = state;
+  const [drawerState, setDrawerState] = useState({
     right: false,
   });
 
@@ -20,7 +24,7 @@ const SideDrawer = ({ navLinks }) => {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setDrawerState({ ...drawerState, [anchor]: open });
   };
 
   const list = (anchor) => (
@@ -46,6 +50,18 @@ const SideDrawer = ({ navLinks }) => {
           </ListItemText>
         </ListItem>
       ))}
+      {userInfo && (
+        <ListItem>
+          <ListItemIcon>
+            <HomeOutlinedIcon className="oddIcons" color="oddIcons" />
+          </ListItemIcon>
+          <ListItemText>
+            <MuiNextLink href="/binder" color="#ffffff">
+              Binder
+            </MuiNextLink>
+          </ListItemText>
+        </ListItem>
+      )}
     </List>
   );
 
@@ -65,7 +81,7 @@ const SideDrawer = ({ navLinks }) => {
       </IconButton>
       <Drawer
         anchor="left"
-        open={state.right}
+        open={drawerState.right}
         onClose={toggleDrawer("right", false)}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
