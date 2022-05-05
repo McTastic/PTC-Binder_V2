@@ -38,7 +38,7 @@ export default function App() {
         >
           <Image
             layout="fill"
-            objectPosition="top"
+            objectPosition="absolute"
             className={swiperStyles.swiperImage}
             src="/images/searchPic.png"
             alt="search box"

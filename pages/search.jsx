@@ -10,6 +10,8 @@ import ResultCard from "@components/ResultCard";
 import { Box, CircularProgress } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import theme from "/styles/theme.js";
+import IconButton from '@mui/material/IconButton';
+import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTone';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -61,10 +63,18 @@ export default function TextFieldHiddenLabel() {
     <>
       <Stack
         component="form"
+        justifyContent="center"
+        alignContent="center"
+        alignItems="center"
+        flexDirection="row"
         onSubmit={handleSubmit(submitForm)}
         sx={{
-          width: "25ch",
+          width: "75ch",
           margin: "auto",
+          "&:hover": {
+            outline: "none",
+            borderColor: "none",
+          },
         }}
         spacing={2}
         noValidate
@@ -84,20 +94,37 @@ export default function TextFieldHiddenLabel() {
               {...field}
               sx={{
                 mt: "2em",
-                background: "black",
+                backgroundColor: "rgba(60, 200, 255,.5)",
+                borderRadius: "1.625rem",
+                marginBottom:"2em",
                 "& .MuiFormLabel-root": {
                   color: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& > fieldset": {
+                    borderRadius: "1.675rem",
+                  },
+                },
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "light-blue",
+                  },
+                },
+                "& .MuiOutlinedInput-root:hover": {
+                  "& > fieldset": {
+                    borderColor: "blue",
+                  },
                 },
               }}
             ></TextField>
           )}
         ></Controller>
 
-        <Button variant="contained" type="submit" fullWidth color="primary">
-          Search
-        </Button>
+        <IconButton  type="submit"  color="error">
+          <CatchingPokemonTwoToneIcon sx={{fontSize:"50px", position: "relative", bottom: "9px"}} />
+        </IconButton>
       </Stack>
-      <Grid container>
+      <Grid container item>
         {results?.data?.length > 0 &&
           results.data.map((card, i) => (
             <Grid item key={i} ml={4}>

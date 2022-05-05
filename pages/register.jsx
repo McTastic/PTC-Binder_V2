@@ -58,13 +58,21 @@ export default function Register() {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <Grid container display="flex" justifyContent={"center"}>
-        <Grid item xs={8} sm={6} lg={4}
-        sx={{
-          backgroundColor:"rgb(6,24,54)",
-          boxShadow: "10px -5px 4px white, -10px 5px 4px red",
-        }}
+        <Grid
+          item
+          xs={8}
+          sm={6}
+          lg={4}
+          sx={{
+            backgroundColor: "rgb(6,24,54)",
+            boxShadow: "10px -5px 4px white, -10px 5px 4px red",
+          }}
         >
-          <Typography component="h1" variant="h1" textAlign={"center"}>
+          <Typography
+            component="h1"
+            textAlign={"center"}
+            sx={{ fontSize: "75px" }}
+          >
             Register
           </Typography>
           <List>
@@ -92,9 +100,10 @@ export default function Register() {
                     id="firstName"
                     label="First Name"
                     inputProps={{ type: "text" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -124,9 +133,10 @@ export default function Register() {
                     id="lastName"
                     label="Last Name"
                     inputProps={{ type: "text" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -157,9 +167,10 @@ export default function Register() {
                     id="email"
                     label="Email"
                     inputProps={{ type: "email" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -189,9 +200,10 @@ export default function Register() {
                     id="password"
                     label="Password"
                     inputProps={{ type: "password" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -221,9 +233,10 @@ export default function Register() {
                     id="confirmPassword"
                     label="Confirm Password"
                     inputProps={{ type: "password" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -235,12 +248,12 @@ export default function Register() {
                 type="submit"
                 color="primary"
                 style={{
-                  fontSize:"1.25em",
-                  margin:"auto",
+                  fontSize: "1.25em",
+                  margin: "auto",
                   width: "10em",
                   color: "black",
-                  letterSpacing:"2px",
-                  backgroundColor:"rgb(5,200,200)"
+                  letterSpacing: "2px",
+                  backgroundColor: "rgb(5,200,200)",
                 }}
               >
                 Register

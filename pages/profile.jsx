@@ -67,24 +67,43 @@ const Profile = () => {
                 </Box>
               </Box>
               <Typography
-                color="text.secondary"
+                color="black"
                 sx={{
+                  marginTop: ".5em",
+                  paddingTop: "0",
                   fontSize: "2em",
                   fontWeight: "bold",
                   textAlign: "center",
+                  backgroundColor: "rgba(0,0,0,.2)",
+                  backdropFilter: "blur(8px)",
                 }}
               >
                 {userInfo.firstName} {userInfo.lastName}
               </Typography>
               <Typography
-                color="text.secondary"
+                color="black"
                 sx={{
                   fontSize: "1em",
                   fontWeight: "bold",
                   textAlign: "center",
+                  backgroundColor: "rgba(0,0,0,.2)",
+                  backdropFilter: "blur(8px)",
                 }}
               >
                 {userInfo.email}
+              </Typography>
+              <Typography
+                color="black"
+                fontSize="20px"
+                align="center"
+                padding="1em 0 2em 0"
+                sx={{
+                  backgroundColor: "rgba(0,0,0,.2)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                {userInfo.firstName} has been a valued member of our site
+                since...
               </Typography>
             </Card>
           </>

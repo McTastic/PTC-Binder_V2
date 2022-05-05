@@ -53,16 +53,24 @@ export default function Login() {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <Grid container display="flex" justifyContent="center">
-        <Grid item xs={8} lg={4} sx={{
-          backgroundColor:"rgb(6,24,54)",
-          boxShadow: "10px -5px 4px white, -10px 5px 4px red",
-        }}>
-          <Typography component="h1" variant="h1" textAlign={"center"}>
+        <Grid
+          item
+          xs={8}
+          lg={4}
+          sx={{
+            backgroundColor: "rgb(6,24,54)",
+            boxShadow: "10px -5px 4px white, -10px 5px 4px red",
+          }}
+        >
+          <Typography
+            component="h1"
+            textAlign={"center"}
+            sx={{ fontSize: "75px" }}
+          >
             Login
           </Typography>
           <List>
-            <ListItem
-            >
+            <ListItem>
               <Controller
                 name="email"
                 control={control}
@@ -87,9 +95,10 @@ export default function Login() {
                     id="email"
                     label="Email"
                     inputProps={{ type: "email" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -119,9 +128,10 @@ export default function Login() {
                     id="password"
                     label="Password"
                     inputProps={{ type: "password" }}
+                    InputLabelProps={{ style: { fontSize: 22 } }}
                     {...field}
                     sx={{
-                      backgroundColor:"rgba(60, 200, 255,.5)"
+                      backgroundColor: "rgba(60, 200, 255,.5)",
                     }}
                   ></TextField>
                 )}
@@ -134,12 +144,12 @@ export default function Login() {
                 type="submit"
                 color="primary"
                 style={{
-                  fontSize:"1.25em",
-                  margin:"auto",
+                  fontSize: "1.25em",
+                  margin: "auto",
                   width: "10em",
                   color: "black",
-                  letterSpacing:"2px",
-                  backgroundColor:"rgb(5,200,200)"
+                  letterSpacing: "2px",
+                  backgroundColor: "rgb(5,200,200)",
                 }}
               >
                 Login

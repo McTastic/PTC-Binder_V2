@@ -16,6 +16,7 @@ let theme = createTheme({
     text: {
       primary: "#fafafa",
       secondary: "#E0E0E0",
+      red:"#FF0000",
     },
     background: {
       default: "Putting here to remove default value",
