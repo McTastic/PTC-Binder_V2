@@ -40,7 +40,7 @@ const SideDrawer = ({ navLinks }) => {
             )}
           </ListItemIcon>
           <ListItemText>
-            <MuiNextLink href={path} color="#ffffff">
+            <MuiNextLink fontSize="2em" href={path} color="#ffffff">
               {title}
             </MuiNextLink>
           </ListItemText>

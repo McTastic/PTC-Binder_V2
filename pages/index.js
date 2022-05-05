@@ -6,11 +6,12 @@ export default function Home() {
     <Grid container spacing={3}>
       <Grid
         item
-        xs={12}
+        xs={10}
         md={6}
-        lg={4}
+        lg={6}
+        align="center"
         sx={{
-          ml: { xs: "2em", sm: "15em", md: "20em", lg: "40em" },
+          ml: { xs: "1em", sm: "15em", md: "20em", lg: "40em" },
         }}
       >
         <Container
@@ -44,9 +45,10 @@ export default function Home() {
           sx={{
             backgroundColor: "rgb(6,24,54)",
             marginTop:"3em",
+            marginBottom:"5em",
             boxShadow: "10px -5px 4px white, -10px 5px 4px red",
-            height: "55vh",
-            width: {xs:"75vw",xl:"35vw"},
+            height: {xs:"75vh",md:"55vh"},
+            width: {xs:"90vw",xl:"35vw"},
           }}
         >
           <Carousel />

@@ -12,6 +12,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBookmarkOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
@@ -68,7 +69,7 @@ function ResponsiveDrawer({ navLinks }) {
               color="#ffffff"
               sx={{
                 textDecoration:"none",
-                transition:"font-size .5s, color .5s, text-shadow .5s",
+                transition:"color .5s, text-shadow .5s",
                 "&:hover":{
                   color: "rgb(120, 200, 255)",
                   maxHeight: "2em",
@@ -85,10 +86,26 @@ function ResponsiveDrawer({ navLinks }) {
         {userInfo && (
           <ListItem>
             <ListItemIcon>
-              <HomeOutlinedIcon className="oddIcons" color="oddIcons" />
+              <CollectionsBookmarkOutlinedIcon fontSize="large" className="oddIcons" color="oddIcons" />
             </ListItemIcon>
             <ListItemText>
-              <MuiNextLink href="/binder" color="#ffffff">
+              <MuiNextLink 
+              fontSize="2em" 
+              href="/binder" 
+              color="#ffffff"
+              marginLeft={3}
+              letterSpacing="2px"
+              sx={{
+                textDecoration:"none",
+                transition:"color .5s, text-shadow .5s",
+                "&:hover":{
+                  color: "rgb(120, 200, 255)",
+                  maxHeight: "2em",
+                  textShadow: "-10px -10px 50px  rgb(107, 181, 241)",
+                  filter: "drop-shadow(10px 10px 50px rgb(107, 181, 241))",
+                }
+              }}
+              >
                 Binder
               </MuiNextLink>
             </ListItemText>
