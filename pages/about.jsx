@@ -4,6 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LanguageSharpIcon from "@mui/icons-material/LanguageSharp";
 import MuiNextLink from "@components/MuiNextLink";
+import { fontSize } from "@mui/system";
 
 export default function About() {
   return (
@@ -57,7 +58,7 @@ export default function About() {
         <Typography
           align="center"
           sx={{
-            fontSize: "22px",
+            fontSize: {xs:"40px",lg:"22px"},
             fontWeight: "bold",
           }}
         >
@@ -73,7 +74,8 @@ export default function About() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              marginRight:"2em"
+              marginRight:"2em",
+              fontSize: {xs:"30px",lg:"16px"}
             }}
           >
             <MuiNextLink
@@ -117,11 +119,12 @@ export default function About() {
             sx={{
               display: "flex",
               flexDirection: "column",
+              marginTop:{xs:".25em",lg:"0"}
             }}
           >
-            <LinkedInIcon />
-            <GitHubIcon />
-            <LanguageSharpIcon />
+            <LinkedInIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
+            <GitHubIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}}/>
+            <LanguageSharpIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}}/>
           </Box>
         </Box>
         </Box>
@@ -161,7 +164,7 @@ export default function About() {
           <Typography
             align="center"
             sx={{
-              fontSize: "22px",
+              fontSize: {xs:"40px",lg:"22px"},
               fontWeight: "bold",
             }}
           >
@@ -177,7 +180,8 @@ export default function About() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                marginRight:"2em"
+                marginRight:"2em",
+                fontSize: {xs:"30px",lg:"16px"}
               }}
             >
               <MuiNextLink
@@ -221,11 +225,12 @@ export default function About() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                marginTop:{xs:".25em",lg:"0"}
               }}
             >
-              <LinkedInIcon />
-              <GitHubIcon />
-              <LanguageSharpIcon />
+              <LinkedInIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
+              <GitHubIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
+              <LanguageSharpIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
             </Box>
           </Box>
         </Box>
