@@ -127,14 +127,20 @@ export default function Login() {
                 )}
               ></Controller>
             </ListItem>
-            <ListItem sx={{
-              marginLeft: {xs:"5em",sm:"10em",lg:"15em"}
-            }}>
+            <ListItem>
               <Button
                 variant="contained"
                 size="large"
                 type="submit"
                 color="primary"
+                style={{
+                  fontSize:"1.25em",
+                  margin:"auto",
+                  width: "10em",
+                  color: "black",
+                  letterSpacing:"2px",
+                  backgroundColor:"rgb(5,200,200)"
+                }}
               >
                 Login
               </Button>

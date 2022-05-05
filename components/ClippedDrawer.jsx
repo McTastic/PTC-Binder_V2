@@ -10,6 +10,9 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Typography from "@mui/material/Typography";
@@ -44,9 +47,9 @@ function ResponsiveDrawer({ navLinks }) {
           <ListItem key={index}>
             <ListItemIcon>
               {index % 2 === 0 ? (
-                <InboxIcon className="evenIcons" color="evenIcons" />
+                <HomeOutlinedIcon fontSize="large" className="evenIcons" color="evenIcons" />
               ) : (
-                <MailIcon className="oddIcons" color="oddIcons" />
+                <SearchOutlinedIcon fontSize="large" className="oddIcons" color="oddIcons" />
               )}
             </ListItemIcon>
             <ListItemText
@@ -82,7 +85,7 @@ function ResponsiveDrawer({ navLinks }) {
         {userInfo && (
           <ListItem>
             <ListItemIcon>
-              <MailIcon className="oddIcons" color="oddIcons" />
+              <HomeOutlinedIcon className="oddIcons" color="oddIcons" />
             </ListItemIcon>
             <ListItemText>
               <MuiNextLink href="/binder" color="#ffffff">
