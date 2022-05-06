@@ -1,5 +1,4 @@
 import { Typography, Grid, Box, Container } from "@mui/material";
-import Carousel from "@components/carousel";
 import PokeBall from "@components/PokeBall";
 
 export default function Home() {
