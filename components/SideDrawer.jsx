@@ -131,7 +131,7 @@ const SideDrawer = ({ navLinks }) => {
         aria-label="menu"
         onClick={toggleDrawer("right", true)}
         sx={{
-          marginTop:"21px",
+          mt: "10px",
           color: `common.white`,
           display: { xs: `inline`, md: `none` },
         }}

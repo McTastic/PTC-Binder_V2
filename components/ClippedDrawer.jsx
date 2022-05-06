@@ -171,15 +171,37 @@ function ResponsiveDrawer({ navLinks }) {
                 color="#ffffff"
                 variant="button"
                 sx={{
-                  fontSize: { xs: "1.25em", md: "3em" },
-                  marginRight:"15px",
+                  position: "relative",
+                  left: {xs:"2em",md: "unset"},
+                  fontSize: { xs: "1.8em", md: "3em" },
                   zIndex: { xs: "999", lg: "0" },
                   textDecoration: "none",
                   transition: "transform .5s",
                   "&:hover": {
                     transform: "scale(1.15)",
-                    background:"none",
                   },
+                  "&:after":{
+                    content: "''",
+                    display: "block",
+                    position: "absolute",
+                    borderRadius: "4em",
+                    left: "0",
+                    top:"0",
+                    width: "100%",
+                    height: "100%",
+                    opacity: "0",
+                    transition: "all 0.25s",
+                    boxShadow: {xs:"1px 1px 10px 40px blue",md:"unset"},
+                  },
+                  "&:active:after":{
+                    boxShadow:{xs: "1px 1px 5px 5px blue",md:"unset"},
+                    position: {xs:"absolute",md:"unset"},
+                    borderRadius: {xs:"4em",md:"unset"},
+                    left: "0",
+                    top:"0",
+                    opacity: "1",
+                    transition: "0s"
+                  }
                 }}
               >
                 Logout
@@ -190,6 +212,8 @@ function ResponsiveDrawer({ navLinks }) {
                 src={userInfo.userImage}
                 alt="user profile picture"
                 sx={{
+                  position: "relative",
+                  left: {xs:"3em",md: "unset"},
                   zIndex: { sm: "999", lg: "0" },
                   mt: { xs: ".75em", xl: "1em" },
                   width: "2.5em",
@@ -202,18 +226,43 @@ function ResponsiveDrawer({ navLinks }) {
           <>
             <Button disableRipple>
               <MuiNextLink
-                fontSize="3em"
                 color="#ffffff"
                 variant="button"
                 href="/login"
                 sx={{
+                  position: "relative",
+                  left: {xs:"2em",md: "unset"},
                   zIndex: { xs: "999", lg: "0" },
+                  fontSize: { xs: "1.8em", md: "3em" },
+                  letterSpacing:"1px",
                   textDecoration: "none",
                   transition: "transform .5s",
                   "&:hover": {
                     maxHeight: "2em",
                     transform: "scale(1.15)",
                   },
+                  "&:after":{
+                    content: "''",
+                    display: "block",
+                    position: "absolute",
+                    borderRadius: "4em",
+                    left: "0",
+                    top:"0",
+                    width: "100%",
+                    height: "100%",
+                    opacity: "0",
+                    transition: "all 0.25s",
+                    boxShadow: {xs:"1px 1px 10px 40px blue",md:"unset"},
+                  },
+                  "&:active:after":{
+                    boxShadow:{xs: "1px 1px 5px 5px blue",md:"unset"},
+                    position: {xs:"absolute",md:"unset"},
+                    borderRadius: {xs:"4em",md:"unset"},
+                    left: "0",
+                    top:"0",
+                    opacity: "1",
+                    transition: "0s"
+                  }
                 }}
               >
                 Login
@@ -234,7 +283,7 @@ function ResponsiveDrawer({ navLinks }) {
               sx={{
                 fontSize: "1.5em",
                 display: { xs: "none", md: "block" },
-                ml:"3em",
+                ml:{xs:"0",lg:"3em"},
               }}
             />
           </IconButton>
