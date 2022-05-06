@@ -1,13 +1,14 @@
 .center-on-page {
-  position: absolute;
-  top: 120px;
-  left: 50%;
+  position: relative;
+  bottom: 20em;
+  left: 43%;
   transform: translate(-50%, -50%);
 }
 /* Poké Styles */
 .pokeball {
   position: relative;
-  margin: 50em auto 0 auto;
+  transform:rotate(15deg);
+  margin: auto;
   width: 150px;
   height: 150px;
   background: #fff;
@@ -88,5 +89,17 @@
   }
   100% {
     top: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .center-on-page{
+    bottom: unset;
+    top: 10em
+  }
+}
+@media screen and (max-width: 1200px) {
+  .center-on-page{
+    bottom: unset;
+    top: 10em
   }
 }

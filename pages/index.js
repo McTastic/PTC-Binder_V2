@@ -1,63 +1,64 @@
 import { Typography, Grid, Box, Container } from "@mui/material";
 import Carousel from "@components/carousel";
+import PokeBall from "@components/PokeBall";
 
 export default function Home() {
   return (
-    <Grid container spacing={3}>
+    <Grid item >
       <Grid
         item
         xs={10}
         md={6}
-        lg={6}
-        align="center"
+        lg={5}
+        align="left"
         sx={{
-          ml: { xs: "1em", sm: "15em", md: "20em", lg: "40em" },
+          ml:{md:"6em"},
+          mt:{md: "2em"}
         }}
       >
         <Container
-        sx={{
-          display: "flex",
-          flexDirection:{xs:"column", xl:"row"},
-          justifyContent: "center",
-          alignItems:"center",
-          backgroundColor: "rgb(6,24,54)",
-          boxShadow: "10px -5px 4px white, -10px 5px 4px red",
-          // border: "solid red 3px",
-          margin: "1rem"
-        }}
-        >
-        <Typography 
-        variant="h3"
-        sx={{
-          fontWeight: "bold",
-          marginRight:{md:"1em"}
-        }}
-        >
-          Welcome to PTC Binder!</Typography>
-        <Typography 
-        variant="p"
-        sx={{
-          letterSpacing:"1px",
-          fontSize:"20px",
-          fontFamily:"Helvetica"
-        }}
-        >Please feel free to take a look around! Here you can search for any existing Pokemon<sup>&reg;</sup> card and add it to a virtual database for tracking! Please see the carousel below for some instructions on how to use our site. Thank you and have a great day!</Typography>
-        </Container>
-        <Box
           sx={{
-            backgroundColor: "rgb(6,24,54)",
-            position: "relative",
-            zIndex:"999",
-            marginTop:"3em",
-            marginBottom:"5em",
-            boxShadow: "10px -5px 4px white, -10px 5px 4px red, 0 0 200px rgba(0,0,0,0.9) inset",
-            height: {xs:"75vh",md:"55vh"},
-            width: {xs:"90vw",xl:"35vw"},
+            // backgroundColor: "rgba(6,24,54,.1)",
+            // boxShadow: "40px -15px 4px white, -40px 15px 4px red",
+            // border: "solid red 3px",
           }}
         >
-          <Carousel />
-        </Box>
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: "bold",
+            }}
+          >
+            PTC Binder
+          </Typography>
+          <Typography
+            variant="h1"
+            sx={{
+              letterSpacing: "1px",
+              marginTop:"1em",
+              marginBottom:".25em",
+            }}
+          >
+            Your digital<br/>
+            <span
+              style={{
+                padding:"0 5px 0 5px",
+                backgroundImage: "linear-gradient(.2turn,rgb(255, 230, 75),rgb(249,210,1),rgb(255, 230, 75))",
+                backgroundSize: "100% 0.2em",
+                backgroundPosition: "0 95%",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              Pok&eacute;mon
+            </span>
+            <sup style={{fontSize:"40px"}}>&reg;</sup> trading card database.
+          </Typography>
+          <Typography variant="p" sx={{color:"rgba(180,180,180,.6)", fontSize:"26px"}}>
+            Let us keep things organized for you
+          </Typography>
+        </Container>
       </Grid>
+      <PokeBall />
     </Grid>
   );
 }

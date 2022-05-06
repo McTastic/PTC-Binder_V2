@@ -7,7 +7,10 @@ let theme = createTheme({
       styleOverrides: {
         root: {
           color: "#ffff",
-          disabled: "#5A5A5A"
+          disabled: "#5A5A5A",
+          "&:hover":{
+            background:"none"
+          }
         },
       },
     },

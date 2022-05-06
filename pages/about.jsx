@@ -4,7 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import LanguageSharpIcon from "@mui/icons-material/LanguageSharp";
 import MuiNextLink from "@components/MuiNextLink";
-import { fontSize } from "@mui/system";
+import Carousel from "@components/carousel"
 
 export default function About() {
   return (
@@ -235,6 +235,20 @@ export default function About() {
           </Box>
         </Box>
       </Grid>
+      {/* <Box
+          sx={{
+            backgroundColor: "rgb(6,24,54)",
+            position: "relative",
+            zIndex:"999",
+            marginTop:"3em",
+            marginBottom:"5em",
+            boxShadow: "10px -5px 4px white, -10px 5px 4px red, 0 0 200px rgba(0,0,0,0.9) inset",
+            height: {xs:"75vh",md:"55vh"},
+            width: {xs:"90vw",xl:"35vw"},
+          }}
+        >
+          <Carousel />
+        </Box> */}
     </Grid>
   );
 }
