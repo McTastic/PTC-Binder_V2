@@ -57,7 +57,10 @@ function ResponsiveDrawer({ navLinks }) {
           />
         </IconButton>
       </Toolbar>
-      <List sx={{ mt: "3em" }}>
+      <List 
+      onClick={handlePersistentDrawerToggle} //<--closes drawer when link clicked
+      sx={{ mt: "3em" }}
+      >
         {navLinks.map(({ title, path, onClick }, index) => (
           <ListItem key={index}>
             <ListItemIcon>
