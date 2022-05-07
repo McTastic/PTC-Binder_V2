@@ -273,10 +273,7 @@ function ClippedDrawer({ navLinks }) {
                     opacity: {md:"1"},
                     transform:{md:"scale(1)"},
                   },
-                  "&:focus::after":{
-                    opacity: {md:"1"},
-                    transform: {md:"scale(1)"},
-                  }
+
                 }}
               >
                 Login
