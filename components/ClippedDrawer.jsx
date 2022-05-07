@@ -222,7 +222,6 @@ function ClippedDrawer({ navLinks }) {
           </>
         ) : (
           <>
-            <Button disableRipple>
               <MuiNextLink
                 color="#ffffff"
                 variant="button"
@@ -231,24 +230,21 @@ function ClippedDrawer({ navLinks }) {
                   position: "relative",
                   left: { xs: "2em", md: "unset" },
                   zIndex: { xs: "999", lg: "0" },
-                  fontSize: { xs: "1.8em", md: "3em" },
+                  fontSize: { xs: "1.8em", md: "2em" },
                   letterSpacing: "1px",
+                  mt: "3px",
                   textDecoration: "none",
                   transition: "transform .5s",
-                  "&:hover": {
-                    maxHeight: "2em",
-                    transform: "scale(1.15)",
-                  },
                   "&:after": {
                     content: "''",
                     display: "block",
                     position: "absolute",
                     borderRadius: "4em",
-                    left: "0",
-                    top: "0",
-                    width: "100%",
-                    height: "100%",
-                    opacity: "0",
+                    left: {xs:"0",md:"unset"},
+                    top: {xs:"0",md:"unset"},
+                    width: {xs:"100%",md:"unset"},
+                    height: {xs:"100%",md:"unset"},
+                    opacity: {xs:"0",md:"unset"},
                     transition: "all 0.25s",
                     boxShadow: { xs: "1px 1px 10px 40px blue", md: "unset" },
                   },
@@ -256,16 +252,36 @@ function ClippedDrawer({ navLinks }) {
                     boxShadow: { xs: "1px 1px 5px 5px blue", md: "unset" },
                     position: { xs: "absolute", md: "unset" },
                     borderRadius: { xs: "4em", md: "unset" },
-                    left: "0",
-                    top: "0",
-                    opacity: "1",
-                    transition: "0s",
+                    left: {xs:"0",md:"unset"},
+                    top: {xs:"0",md:"unset"},
+                    opacity: {xs:"1",md:"unset"},
+                    transition: {xs:"0s",md:"unset"},
                   },
+                  "&::after":{
+                    content: {md:"''"},
+                    position: {md:"absolute"},
+                    bottom: {md:"0"},
+                    left: {md:"0"},
+                    width: {md:"100%"},
+                    height: {md:".1em"},
+                    transform: {md:"scale(0)"},
+                    transformOrigin: {md:"center"},
+                    backgroundColor:{md:"yellow"},
+                    opacity: {md:"0"},
+                    transition:{md:"opacity 300ms, transform 300ms"},
+                  },
+                  "&:hover::after":{
+                    opacity: {md:"1"},
+                    transform:{md:"scale(1)"},
+                  },
+                  "&:focus::after":{
+                    opacity: {md:"1"},
+                    transform: {md:"scale(1)"},
+                  }
                 }}
               >
                 Login
               </MuiNextLink>
-            </Button>
           </>
         )}
         <Toolbar>
@@ -281,7 +297,7 @@ function ClippedDrawer({ navLinks }) {
               sx={{
                 fontSize: "1.5em",
                 display: { xs: "none", md: "block" },
-                ml: { xs: "0", lg: "3em" },
+                ml: { xs: "0", lg: "2em" },
               }}
             />
           </IconButton>

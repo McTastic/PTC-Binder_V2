@@ -8,9 +8,6 @@ let theme = createTheme({
         root: {
           color: "#ffff",
           disabled: "#5A5A5A",
-          "&:hover":{
-            background:"none"
-          }
         },
       },
     },

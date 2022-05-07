@@ -3,7 +3,7 @@ import { Button, Grid } from "@mui/material";
 import theme from "/styles/theme.js";
 import Image from "next/image";
 import { Store } from "../utils/globalStore";
-// import PokeLoader from "@components/PokeLoader";
+import PokeLoader from "@components/PokeLoader";
 import axios from "axios";
 
 export default function ResultCard(props) {
@@ -70,7 +70,7 @@ export default function ResultCard(props) {
           },
         }}
       >
-        {/* <PokeLoader/> */}
+        <PokeLoader/>
         <Image
           src={props.image}
           alt={`${props.name} card`}
@@ -83,15 +83,19 @@ export default function ResultCard(props) {
           variant="contained"
           onClick={addHandler}
           id={`${props.id}-button`}
-          fullWidth
           sx={{
             opacity: "0",
             transition: "opacity .5s",
             position: "relative",
-            top: "-3em",
+            top: "-2.95em",
+            left:"3.6em",
+            // background:"linear-gradient(305deg, #fbb034 0%, #ffdd00 74%)",
+            // "&:hover":{
+            //   background:"linear-gradient(305deg, #fbb034 0%, #ffdd00 74%)",
+            // }
           }}
         >
-          Add
+          add
         </Button>
       </Grid>
     </>

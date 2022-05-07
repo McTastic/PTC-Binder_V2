@@ -71,7 +71,15 @@ export default function Register() {
           <Typography
             component="h1"
             textAlign={"center"}
-            sx={{ fontSize: "75px" }}
+            sx={{ 
+              fontSize: "75px",
+              padding: "0 5px 0 5px",
+              backgroundImage:
+                "linear-gradient(.2turn,rgb(255, 230, 75),rgb(249,210,1),rgb(255, 230, 75))",
+              backgroundSize: "38% 0.2em",
+              backgroundPosition: "center 80%",
+              backgroundRepeat: "no-repeat",
+            }}
           >
             Register
           </Typography>
@@ -253,7 +261,8 @@ export default function Register() {
                   width: "10em",
                   color: "black",
                   letterSpacing: "2px",
-                  backgroundColor: "rgb(5,200,200)",
+                  background:
+                  "linear-gradient(305deg, #fbb034 0%, #ffdd00 74%)",
                 }}
               >
                 Register
