@@ -24,6 +24,7 @@ import { Store } from "/utils/globalStore.js";
 import Cookies from "js-cookie";
 import Router from "next/router";
 import SideDrawer from "./SideDrawer";
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 const drawerWidth = 220;
 
@@ -35,6 +36,9 @@ function ClippedDrawer({ navLinks }) {
   const handlePersistentDrawerToggle = () => {
     setOpen(!open);
   };
+  const handleClose =() =>{
+    setOpen(false)
+  }
 
   const drawer = (
     <div className="sideBar" style={{ marginTop: "1em" }}>
@@ -91,12 +95,9 @@ function ClippedDrawer({ navLinks }) {
                 color="#ffffff"
                 sx={{
                   textDecoration: "none",
-                  transition: "color .5s, text-shadow .5s",
+                  transition: "color .25s",
                   "&:hover": {
-                    color: "rgb(120, 200, 255)",
-                    maxHeight: "2em",
-                    textShadow: "-10px -10px 50px  rgb(107, 181, 241)",
-                    filter: "drop-shadow(10px 10px 50px rgb(107, 181, 241))",
+                    color: "yellow",
                   },
                 }}
               >
@@ -125,10 +126,7 @@ function ClippedDrawer({ navLinks }) {
                   textDecoration: "none",
                   transition: "color .5s, text-shadow .5s",
                   "&:hover": {
-                    color: "rgb(120, 200, 255)",
-                    maxHeight: "2em",
-                    textShadow: "-10px -10px 50px  rgb(107, 181, 241)",
-                    filter: "drop-shadow(10px 10px 50px rgb(107, 181, 241))",
+                    color: "yellow",
                   },
                 }}
               >
@@ -149,6 +147,7 @@ function ClippedDrawer({ navLinks }) {
   };
 
   return (
+    <ClickAwayListener onClickAway={handleClose}>
     <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
       <Container
         position="fixed"
@@ -322,6 +321,7 @@ function ClippedDrawer({ navLinks }) {
         {drawer}
       </Drawer>
     </Box>
+    </ClickAwayListener>
   );
 }
 
