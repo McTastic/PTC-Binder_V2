@@ -267,13 +267,12 @@ function ClippedDrawer({ navLinks }) {
                     transformOrigin: {md:"center"},
                     backgroundColor:{md:"yellow"},
                     opacity: {md:"0"},
-                    transition:{md:"opacity 300ms, transform 300ms"},
+                    transition:{md:"opacity 1000ms, transform 400ms"},
                   },
                   "&:hover::after":{
                     opacity: {md:"1"},
                     transform:{md:"scale(1)"},
                   },
-
                 }}
               >
                 Login
