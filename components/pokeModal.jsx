@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Backdrop, Box, Modal, Fade, Typography, Button } from "@mui/material";
+// import Box from "@mui/material/Box";
+// import Modal from "@mui/material/Modal";
+// import Fade from "@mui/material/Fade";
+// import Typography from "@mui/material/Typography";
+// import Button from "@mui/material/Button";
 import { Store } from "/utils/globalStore.js";
 import Image from "next/image";
 
@@ -13,9 +13,9 @@ const style = {
   top: "50%",
   left: "50%",
   display: "flex",
-  flexDirection:"column",
-  justifyContent:"center",
-  alignItems:"center",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "rgb(6,24,54)",
@@ -79,12 +79,14 @@ export default function TransitionsModal(props) {
             )}
             <Button onClick={modalCloseHandler}>
               <Typography
-              sx={{
-                "&:hover":{
-                  color: "red"
-                }
-              }}
-              >Close</Typography>
+                sx={{
+                  "&:hover": {
+                    color: "red",
+                  },
+                }}
+              >
+                Close
+              </Typography>
             </Button>
           </Box>
         </Fade>

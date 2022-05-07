@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Button } from "@mui/material";
+import React, { useContext } from "react";
+import { Button, Grid } from "@mui/material";
 import theme from "/styles/theme.js";
-import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import { Store } from "../utils/globalStore";
-import PokeLoader from "@components/PokeLoader";
+// import PokeLoader from "@components/PokeLoader";
 import axios from "axios";
 
 export default function ResultCard(props) {
@@ -71,7 +70,7 @@ export default function ResultCard(props) {
           },
         }}
       >
-        <PokeLoader/>
+        {/* <PokeLoader/> */}
         <Image
           src={props.image}
           alt={`${props.name} card`}

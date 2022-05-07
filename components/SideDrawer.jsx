@@ -1,7 +1,14 @@
 import React, { useContext, useState } from "react";
-import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Drawer,
+  IconButton,
+} from "@mui/material";
+// import Drawer from "@mui/material/Drawer";
+// import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/icons-material/Menu";
 import MuiNextLink from "./MuiNextLink";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
@@ -44,35 +51,35 @@ const SideDrawer = ({ navLinks }) => {
             )}
           </ListItemIcon>
           <ListItemText>
-            <MuiNextLink 
-            fontSize="2em" 
-            href={path} 
-            color="#ffffff"
-            sx={{
-              textDecoration:"none",
-              "&:after":{
-                content: "''",
-                display: "block",
-                position: "absolute",
-                borderRadius: "4em",
-                left: "0",
-                top:"0",
-                width: "100%",
-                height: "100%",
-                opacity: "0",
-                transition: "all 0.25s",
-                boxShadow: "1px 1px 10px 40px blue"
-              },
-              "&:active:after":{
-                boxShadow: "1px 1px 5px 5px blue",
-                position: "absolute",
-                borderRadius: "4em",
-                left: "0",
-                top:"0",
-                opacity: "1",
-                transition: "0s"
-              }
-            }}
+            <MuiNextLink
+              fontSize="2em"
+              href={path}
+              color="#ffffff"
+              sx={{
+                textDecoration: "none",
+                "&:after": {
+                  content: "''",
+                  display: "block",
+                  position: "absolute",
+                  borderRadius: "4em",
+                  left: "0",
+                  top: "0",
+                  width: "100%",
+                  height: "100%",
+                  opacity: "0",
+                  transition: "all 0.25s",
+                  boxShadow: "1px 1px 10px 40px blue",
+                },
+                "&:active:after": {
+                  boxShadow: "1px 1px 5px 5px blue",
+                  position: "absolute",
+                  borderRadius: "4em",
+                  left: "0",
+                  top: "0",
+                  opacity: "1",
+                  transition: "0s",
+                },
+              }}
             >
               {title}
             </MuiNextLink>
@@ -85,36 +92,36 @@ const SideDrawer = ({ navLinks }) => {
             <HomeOutlinedIcon className="oddIcons" color="oddIcons" />
           </ListItemIcon>
           <ListItemText>
-            <MuiNextLink 
-            href="/binder" 
-            color="#ffffff"
-            letterSpacing="2px"
-            fontSize="2em"
-            sx={{
-              textDecoration:"none",
-              "&:after":{
-                content: "''",
-                display: "block",
-                position: "absolute",
-                borderRadius: "4em",
-                left: "0",
-                top:"0",
-                width: "100%",
-                height: "100%",
-                opacity: "0",
-                transition: "all 0.25s",
-                boxShadow: "1px 1px 10px 40px blue"
-              },
-              "&:active:after":{
-                boxShadow: "1px 1px 5px 5px blue",
-                position: "absolute",
-                borderRadius: "4em",
-                left: "0",
-                top:"0",
-                opacity: "1",
-                transition: "0s"
-              }
-            }}
+            <MuiNextLink
+              href="/binder"
+              color="#ffffff"
+              letterSpacing="2px"
+              fontSize="2em"
+              sx={{
+                textDecoration: "none",
+                "&:after": {
+                  content: "''",
+                  display: "block",
+                  position: "absolute",
+                  borderRadius: "4em",
+                  left: "0",
+                  top: "0",
+                  width: "100%",
+                  height: "100%",
+                  opacity: "0",
+                  transition: "all 0.25s",
+                  boxShadow: "1px 1px 10px 40px blue",
+                },
+                "&:active:after": {
+                  boxShadow: "1px 1px 5px 5px blue",
+                  position: "absolute",
+                  borderRadius: "4em",
+                  left: "0",
+                  top: "0",
+                  opacity: "1",
+                  transition: "0s",
+                },
+              }}
             >
               Binder
             </MuiNextLink>

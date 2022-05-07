@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
-import { Button } from "@mui/material";
+import React, { useContext } from "react";
+import { Button, Grid } from "@mui/material";
 import theme from "/styles/theme.js";
-import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import { Store } from "../utils/globalStore";
 import PokeLoader from "@components/PokeLoader";
