@@ -41,7 +41,7 @@ function ClippedDrawer({ navLinks }) {
   }
 
   const drawer = (
-    <div className="sideBar" style={{ marginTop: "1em" }}>
+    <div className="sideBar">
       <Toolbar>
         <IconButton onClick={handlePersistentDrawerToggle}>
           <ChevronRightIcon
