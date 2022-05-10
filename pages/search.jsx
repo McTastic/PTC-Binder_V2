@@ -29,6 +29,8 @@ export default function TextFieldHiddenLabel() {
   const {
     handleSubmit,
     control,
+    register,
+    getValues,
     reset,
     formState: { errors },
   } = useForm();
@@ -37,7 +39,6 @@ export default function TextFieldHiddenLabel() {
     data: {},
     error: "",
   });
-  // const searchCookie = JSON.parse(Cookies.get("searchCookie")) || "";
   const { state } = useContext(Store);
 
   const [results, setResults] = useState([]);
@@ -45,20 +46,27 @@ export default function TextFieldHiddenLabel() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchState, setSearchState] = useState("");
 
-  const submitForm = async ({ search }) => {
-    setSearchState({ search });
-    console.log(searchState);
-    Cookies.set("searchCookie", JSON.stringify(search));
+  // const pageLogic = (search) => {};
+
+  const submitForm = async ({ searchInput }) => {
     try {
       dispatch({ type: "FETCH_REQUEST" });
-      const { data } = await axios.get(`/api/search/${search}/${currentPage}`);
+      const { data } = await axios.get(
+        `/api/search/${searchInput}/${currentPage}`
+      );
       dispatch({ type: "FETCH_SUCCESS", payload: data });
       // console.log(data);
       reset({
-        data: "search",
+        data: "searchInput",
       });
       setResults({ ...data });
       // console.log(results);
+      setSearchState({ searchInput });
+      console.log(searchInput === searchState.searchInput);
+      console.log(searchState.searchInput, searchInput);
+      if (searchInput !== searchState.searchInput) {
+        setCurrentPage(1);
+      }
     } catch (err) {
       dispatch({ type: "FETCH_FAIL", payload: err });
       console.log(err);
@@ -67,6 +75,7 @@ export default function TextFieldHiddenLabel() {
 
   return (
     <>
+      {/* {console.log(searchState)} */}
       <Stack
         component="form"
         justifyContent="center"
@@ -87,15 +96,15 @@ export default function TextFieldHiddenLabel() {
         autoComplete="off"
       >
         <Controller
-          name="search"
+          name="searchInput"
           control={control}
           defaultValue=""
           render={({ field }) => (
             <TextField
               variant="outlined"
               fullWidth
-              // onChange={(e)=>setSearchState(field.onChange(e.target.value))}
-              id="search"
+              {...register("searchInput")}
+              id="searchInput"
               label="Search"
               inputProps={{ type: "text" }}
               {...field}
