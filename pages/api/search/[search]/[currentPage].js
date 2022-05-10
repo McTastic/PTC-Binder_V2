@@ -10,8 +10,8 @@ const handler = nc();
 handler.get(async (req, res) => {
   const userInput = req.query.search;
   let currentPage = req.query.currentPage;
-  console.log(currentPage);
-  console.log(userInput);
+  // console.log(currentPage);
+  // console.log(userInput);
 
   try {
     const result = await axios.get(
@@ -23,10 +23,9 @@ handler.get(async (req, res) => {
       }
     );
     // console.log(result);
-    console.log(currentPage);
     res.send(result.data);
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
 });
 
