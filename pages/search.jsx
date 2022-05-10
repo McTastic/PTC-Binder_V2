@@ -188,7 +188,6 @@ export default function TextFieldHiddenLabel() {
             Prev
           </Button>
           <Typography m="1em" fontSize="20px">
-            {console.log(data.pageSize/data.pageSize)}
             Page {currentPage} of {Math.ceil(data?.totalCount / data?.pageSize)}
           </Typography>
           <Button
