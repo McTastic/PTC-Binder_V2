@@ -11,7 +11,7 @@ import { Box, Typography } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import IconButton from "@mui/material/IconButton";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
-import Cookies from "js-cookie";
+import ReactPaginate from "react-paginate";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -49,10 +49,14 @@ export default function TextFieldHiddenLabel() {
   // const pageLogic = (search) => {};
 
   const submitForm = async ({ searchInput }) => {
+    const pageCount = currentPage;
+    if (searchInput !== searchState.searchInput) {
+      pageCount = 1;
+    }
     try {
       dispatch({ type: "FETCH_REQUEST" });
       const { data } = await axios.get(
-        `/api/search/${searchInput}/${currentPage}`
+        `/api/search/${searchInput}/${pageCount}`
       );
       dispatch({ type: "FETCH_SUCCESS", payload: data });
       // console.log(data);
