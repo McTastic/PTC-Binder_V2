@@ -11,7 +11,6 @@ import { Box, Typography } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import IconButton from "@mui/material/IconButton";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
-import ReactPaginate from "react-paginate";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -30,7 +29,6 @@ export default function TextFieldHiddenLabel() {
     handleSubmit,
     control,
     register,
-    getValues,
     reset,
     formState: { errors },
   } = useForm();
@@ -46,12 +44,11 @@ export default function TextFieldHiddenLabel() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchState, setSearchState] = useState("");
 
-  // const pageLogic = (search) => {};
-
   const submitForm = async ({ searchInput }) => {
     const pageCount = currentPage;
     if (searchInput !== searchState.searchInput) {
       pageCount = 1;
+      setCurrentPage(1);
     }
     try {
       dispatch({ type: "FETCH_REQUEST" });
@@ -66,11 +63,8 @@ export default function TextFieldHiddenLabel() {
       setResults({ ...data });
       // console.log(results);
       setSearchState({ searchInput });
-      console.log(searchInput === searchState.searchInput);
-      console.log(searchState.searchInput, searchInput);
-      if (searchInput !== searchState.searchInput) {
-        setCurrentPage(1);
-      }
+      // console.log(searchInput === searchState.searchInput);
+      // console.log(searchState.searchInput, searchInput);
     } catch (err) {
       dispatch({ type: "FETCH_FAIL", payload: err });
       console.log(err);
@@ -79,7 +73,6 @@ export default function TextFieldHiddenLabel() {
 
   return (
     <>
-      {/* {console.log(searchState)} */}
       <Stack
         component="form"
         justifyContent="center"
@@ -180,7 +173,7 @@ export default function TextFieldHiddenLabel() {
             </Grid>
           ))}
       </Grid>
-      {currentPage === 0 ? (
+      {!searchState ? (
         <Box />
       ) : (
         <Box display="flex" justifyContent="center">
@@ -195,7 +188,8 @@ export default function TextFieldHiddenLabel() {
             Prev
           </Button>
           <Typography m="1em" fontSize="20px">
-            Page {currentPage} of...
+            {console.log(data.pageSize/data.pageSize)}
+            Page {currentPage} of {Math.ceil(data?.totalCount / data?.pageSize)}
           </Typography>
           <Button
             style={{ backgroundColor: "red" }}
@@ -203,6 +197,7 @@ export default function TextFieldHiddenLabel() {
               setCurrentPage((currentPage += 1));
               submitForm(searchState);
             }}
+            disabled={true ? currentPage === Math.ceil(data?.totalCount / data?.pageSize) : false}
           >
             Next
           </Button>
