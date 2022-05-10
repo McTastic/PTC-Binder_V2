@@ -95,6 +95,7 @@ export default function TextFieldHiddenLabel() {
             <TextField
               variant="outlined"
               fullWidth
+              // onChange={(e)=>setSearchState(field.onChange(e.target.value))}
               id="search"
               label="Search"
               inputProps={{ type: "text" }}
