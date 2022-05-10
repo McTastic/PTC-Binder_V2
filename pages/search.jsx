@@ -7,11 +7,12 @@ import axios from "axios";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import theme from "/styles/theme.js";
-import IconButton from '@mui/material/IconButton';
-import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTone';
+import IconButton from "@mui/material/IconButton";
+import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
+import Cookies from "js-cookie";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -37,15 +38,21 @@ export default function TextFieldHiddenLabel() {
     data: {},
     error: "",
   });
+  // const searchCookie = JSON.parse(Cookies.get("searchCookie")) || "";
   const { state } = useContext(Store);
 
   const [results, setResults] = useState([]);
   const { modalControl } = state;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchState, setSearchState] = useState("")
 
   const submitForm = async ({ search }) => {
+    setSearchState({search})
+    console.log(searchState)
+    Cookies.set("searchCookie", JSON.stringify(search));
     try {
       dispatch({ type: "FETCH_REQUEST" });
-      const { data } = await axios.get(`/api/search/${search}`);
+      const { data } = await axios.get(`/api/search/${search}/${currentPage}`);
       dispatch({ type: "FETCH_SUCCESS", payload: data });
       // console.log(data);
       reset({
@@ -69,7 +76,7 @@ export default function TextFieldHiddenLabel() {
         flexDirection="row"
         onSubmit={handleSubmit(submitForm)}
         sx={{
-          width: {xs: "45ch",md:"75ch"},
+          width: { xs: "45ch", md: "75ch" },
           margin: "auto",
           "&:hover": {
             outline: "none",
@@ -96,7 +103,7 @@ export default function TextFieldHiddenLabel() {
                 mt: "2em",
                 backgroundColor: "rgba(60, 200, 255,.5)",
                 borderRadius: "1.625rem",
-                marginBottom:"2em",
+                marginBottom: "2em",
                 "& .MuiFormLabel-root": {
                   color: "white",
                 },
@@ -120,8 +127,10 @@ export default function TextFieldHiddenLabel() {
           )}
         ></Controller>
 
-        <IconButton  type="submit"  color="error">
-          <CatchingPokemonTwoToneIcon sx={{fontSize:"50px", position: "relative", bottom: "9px"}} />
+        <IconButton type="submit" color="error">
+          <CatchingPokemonTwoToneIcon
+            sx={{ fontSize: "50px", position: "relative", bottom: "9px" }}
+          />
         </IconButton>
       </Stack>
       <Grid container item>
@@ -158,6 +167,21 @@ export default function TextFieldHiddenLabel() {
             </Grid>
           ))}
       </Grid>
+      {currentPage===0 ?
+      <Box/>
+      :
+      <Box display="flex" justifyContent="center">
+        <Button style={{ backgroundColor: "red" }} onClick={()=>{setCurrentPage(currentPage -= 1);submitForm(searchState)}} disabled={true ? currentPage <= 1 : false}>
+          Prev
+        </Button>
+        <Typography m="1em" fontSize="20px">
+          Page {currentPage} of...
+        </Typography>
+        <Button style={{ backgroundColor: "red" }} onClick={()=>{setCurrentPage(currentPage += 1); submitForm(searchState)}}>
+          Next
+        </Button>
+      </Box>
+      }
       {modalControl && <PokeModal />}
     </>
   );
