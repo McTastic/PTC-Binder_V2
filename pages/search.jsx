@@ -11,6 +11,10 @@ import { Box, Typography } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import IconButton from "@mui/material/IconButton";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
+import PokeBallSVG from "../public/images/pokeball.svg";
+import Image from "next/image";
+import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -133,16 +137,30 @@ export default function TextFieldHiddenLabel() {
           )}
         ></Controller>
 
-        <IconButton type="submit" color="error">
-          <CatchingPokemonTwoToneIcon
+        <IconButton
+          type="submit"
+          color="error"
+          style={{ position: "relative", bottom: "8px" }}
+        >
+          {/* <CatchingPokemonTwoToneIcon
             sx={{ fontSize: "50px", position: "relative", bottom: "9px" }}
-          />
+          /> */}
+          <Image src={PokeBallSVG} height="50px" width="50px" />
         </IconButton>
       </Stack>
-      <Grid container item>
+      <Grid
+        container
+        xs={10}
+        md={10}
+        lg={8}
+        xl={4.5}
+        sx={{
+          ml: { xs: "2em", sm: "8em", md: "10em", lg: "23em", xl: "51em" },
+        }}
+      >
         {results?.data?.length > 0 &&
           results.data.map((card, i) => (
-            <Grid item key={i} ml={4}>
+            <Grid item key={i} xs={10} sm={6} md={4} lg={2.25}>
               {loading ? (
                 <Grid
                   item
@@ -176,29 +194,60 @@ export default function TextFieldHiddenLabel() {
       {!searchState ? (
         <Box />
       ) : (
-        <Box display="flex" justifyContent="center">
+        <Box
+          display="flex"
+          justifyContent="center"
+          mt="2em"
+          position="relative"
+          right="1em"
+        >
           <Button
-            style={{ backgroundColor: "red" }}
+            disableRipple
+            sx={{
+              backgroundColor: "none",
+
+              margin: { lg: "0 10em 0 10em" },
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+            }}
             onClick={() => {
               setCurrentPage((currentPage -= 1));
               submitForm(searchState);
             }}
             disabled={true ? currentPage <= 1 : false}
           >
-            Prev
+            {/* <Typography fontSize="20px">Prev</Typography> */}
+            <ArrowCircleLeftOutlinedIcon
+              sx={{ fontSize: "80px",transition:"all .5s", "&:hover": { transform: {md:"scale(1.15)", color: "yellow"} } }}
+            />
           </Button>
-          <Typography m="1em" fontSize="20px">
+          <Typography m="1em" sx={{ fontSize: { xs: "30px", md: "40px" } }}>
             Page {currentPage} of {Math.ceil(data?.totalCount / data?.pageSize)}
           </Typography>
           <Button
-            style={{ backgroundColor: "red" }}
+            disableRipple
+            sx={{
+              backgroundColor: "transparent",
+              margin: { lg: "0 10em 0 10em" },
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+            }}
             onClick={() => {
               setCurrentPage((currentPage += 1));
               submitForm(searchState);
             }}
-            disabled={true ? currentPage === Math.ceil(data?.totalCount / data?.pageSize) : false}
+            disabled={
+              true
+                ? currentPage === Math.ceil(data?.totalCount / data?.pageSize)
+                : false
+            }
           >
-            Next
+            {/* <Typography fontSize="20px">Next</Typography> */}
+            <ArrowCircleRightOutlinedIcon
+              sx={{ fontSize: "80px", transition:"all .5s", "&:hover": { transform: {md:"scale(1.15)", color:"yellow"} } }}
+            />
           </Button>
         </Box>
       )}

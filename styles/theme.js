@@ -12,6 +12,15 @@ let theme = createTheme({
       },
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 800,
+      md: 1200,
+      lg: 1920,
+      xl: 2500,
+    },
+  },
   palette: {
     text: {
       primary: "#fafafa",

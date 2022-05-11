@@ -36,6 +36,7 @@ export default function Home() {
               letterSpacing: "1px",
               marginTop:"1em",
               marginBottom:".25em",
+              width: {xl:"82%"},
             }}
           >
             Your digital<br/>
