@@ -1,13 +1,9 @@
 import React, { useContext, useState, useReducer } from "react";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Grid, Button, TextField, Stack } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import IconButton from "@mui/material/IconButton";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
@@ -219,7 +215,13 @@ export default function TextFieldHiddenLabel() {
           >
             {/* <Typography fontSize="20px">Prev</Typography> */}
             <ArrowCircleLeftOutlinedIcon
-              sx={{ fontSize: "80px",transition:"all .5s", "&:hover": { transform: {md:"scale(1.15)", color: "yellow"} } }}
+              sx={{
+                fontSize: "80px",
+                transition: "all .5s",
+                "&:hover": {
+                  transform: { md: "scale(1.15)", color: "yellow" },
+                },
+              }}
             />
           </Button>
           <Typography m="1em" sx={{ fontSize: { xs: "30px", md: "40px" } }}>
@@ -246,7 +248,13 @@ export default function TextFieldHiddenLabel() {
           >
             {/* <Typography fontSize="20px">Next</Typography> */}
             <ArrowCircleRightOutlinedIcon
-              sx={{ fontSize: "80px", transition:"all .5s", "&:hover": { transform: {md:"scale(1.15)", color:"yellow"} } }}
+              sx={{
+                fontSize: "80px",
+                transition: "all .5s",
+                "&:hover": {
+                  transform: { md: "scale(1.15)", color: "yellow" },
+                },
+              }}
             />
           </Button>
         </Box>

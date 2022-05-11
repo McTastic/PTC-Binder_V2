@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
 import { Backdrop, Box, Modal, Fade, Typography, Button } from "@mui/material";
-// import Box from "@mui/material/Box";
-// import Modal from "@mui/material/Modal";
-// import Fade from "@mui/material/Fade";
-// import Typography from "@mui/material/Typography";
-// import Button from "@mui/material/Button";
 import { Store } from "/utils/globalStore.js";
 import Image from "next/image";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -26,14 +22,37 @@ const style = {
 
 export default function TransitionsModal(props) {
   const { state, dispatch } = useContext(Store);
-  const { modalControl, modalData } = state;
+  const { modalControl, modalData, userInfo } = state;
   const modalCloseHandler = () => {
     dispatch({ type: "CLOSE_MODAL" });
     dispatch({ type: "SET_MODAL_DATA", payload: {} });
   };
   // console.log(modalData);
+  const addHandler = async () => {
+    try {
+      const { data } = await axios.post(
+        "/api/binder/add",
+        {
+          api_id: modalData.data.id,
+          image_url: modalData.data.images.large,
+          name: modalData.data.name,
+          card_type: modalData.data.types[0],
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
+      dispatch({ type: "ADD_TO_BINDER", payload: { data } });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
+      {console.log(modalData)}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -77,6 +96,24 @@ export default function TransitionsModal(props) {
             ) : (
               <Typography>Loading...</Typography>
             )}
+            <Button
+              variant="contained"
+              onClick={addHandler}
+              id={`${props.id}-button`}
+              sx={{
+                opacity: "0",
+                transition: "opacity .5s",
+                position: "relative",
+                top: "-2.95em",
+                left: "3.6em",
+              }}
+            >
+              add
+            </Button>
+
+            <Button onClick={addHandler}>
+              <Typography>Add</Typography>
+            </Button>
             <Button onClick={modalCloseHandler}>
               <Typography
                 sx={{
