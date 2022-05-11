@@ -1,9 +1,13 @@
 import React, { useContext, useState, useReducer } from "react";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
-import { Box, Typography, Grid, Button, TextField, Stack } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import IconButton from "@mui/material/IconButton";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
@@ -63,8 +67,6 @@ export default function TextFieldHiddenLabel() {
       setResults({ ...data });
       // console.log(results);
       setSearchState({ searchInput });
-      // console.log(searchInput === searchState.searchInput);
-      // console.log(searchState.searchInput, searchInput);
     } catch (err) {
       dispatch({ type: "FETCH_FAIL", payload: err });
       console.log(err);
@@ -73,7 +75,72 @@ export default function TextFieldHiddenLabel() {
 
   return (
     <>
+    {!searchState ? (
       <Stack
+        component="form"
+        justifyContent="center"
+        alignContent="center"
+        alignItems="center"
+        flexDirection="row"
+        position="relative"
+        top="20em"
+        onSubmit={handleSubmit(submitForm)}
+        sx={{
+          width: { xs: "45ch", md: "75ch" },
+          margin: "auto",
+          "&:hover": {
+            outline: "none",
+            borderColor: "none",
+          },
+        }}
+        spacing={2}
+        noValidate
+        autoComplete="off"
+      >
+        <Controller
+          name="searchInput"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              variant="outlined"
+              fullWidth
+              {...register("searchInput")}
+              id="searchInput"
+              label="Search"
+              inputProps={{ type: "text" }}
+              {...field}
+              sx={{
+                backgroundColor: "rgba(60, 200, 255,.5)",
+                borderRadius: "1.625rem",
+                marginBottom: "2em",
+                "& .MuiFormLabel-root": {
+                  color: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& > fieldset": {
+                    borderRadius: "1.675rem",
+                  },
+                },
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                  "& > fieldset": {
+                    borderColor: "light-blue",
+                  },
+                },
+                "& .MuiOutlinedInput-root:hover": {
+                  "& > fieldset": {
+                    borderColor: "blue",
+                  },
+                },
+              }}
+            ></TextField>
+          )}
+        ></Controller>
+        <IconButton type="submit" sx={{ position: "relative", bottom: "25px" }}>
+          <Image src={PokeBallSVG} height="50px" width="50px" />
+        </IconButton>
+      </Stack>
+      ) : (<Stack
         component="form"
         justifyContent="center"
         alignContent="center"
@@ -106,7 +173,6 @@ export default function TextFieldHiddenLabel() {
               inputProps={{ type: "text" }}
               {...field}
               sx={{
-                mt: "2em",
                 backgroundColor: "rgba(60, 200, 255,.5)",
                 borderRadius: "1.625rem",
                 marginBottom: "2em",
@@ -132,18 +198,11 @@ export default function TextFieldHiddenLabel() {
             ></TextField>
           )}
         ></Controller>
-
-        <IconButton
-          type="submit"
-          color="error"
-          style={{ position: "relative", bottom: "8px" }}
-        >
-          {/* <CatchingPokemonTwoToneIcon
-            sx={{ fontSize: "50px", position: "relative", bottom: "9px" }}
-          /> */}
+        <IconButton type="submit" sx={{ position: "relative", bottom: "25px" }}>
           <Image src={PokeBallSVG} height="50px" width="50px" />
         </IconButton>
       </Stack>
+      )}
       <Grid
         container
         xs={10}
