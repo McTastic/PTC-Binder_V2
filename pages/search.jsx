@@ -257,22 +257,22 @@ export default function TextFieldHiddenLabel() {
       {noResultsState && (
         <Box
           sx={{
-            display:"flex",
-            flexDirection:"column",
-            alignItems:"center",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
             mt: "6em",
           }}
         >
           <Typography
-          className="noResultHeader"
+            className="noResultHeader"
             sx={{
-              fontSize: {xs:"40px",md:"60px",lg:"80px"},
+              fontSize: { xs: "40px", md: "60px", lg: "80px" },
               fontFamily: "Georgia",
               textAlign: "center",
-              mb: ".5em"
+              mb: ".5em",
             }}
           >
-            We couldn't find anything!
+            We couldn&apos;t find anything!
           </Typography>
           <Typography
             variant="p"
@@ -280,13 +280,20 @@ export default function TextFieldHiddenLabel() {
               fontSize: "24px",
               fontFamily: "Georgia",
               textAlign: "center",
-              width: {xs:"75%",md:"45%",lg:"30%"},
-              fontWeight:"1000"
+              width: { xs: "75%", md: "45%", lg: "30%" },
+              fontWeight: "1000",
             }}
           >
-            No results were found for "{searchState.searchInput}". Please try
-            searching again. You can find a full list of Pokemon{" "}
-            <a target="_blank" style={{color:"yellow"}}href="https://www.pokemon.com/us/pokedex/">here</a>
+            No results were found for &quot;{searchState.searchInput}&quot;.
+            Please try searching again. You can find a full list of Pokemon{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "yellow" }}
+              href="https://www.pokemon.com/us/pokedex/"
+            >
+              here
+            </a>
           </Typography>
         </Box>
       )}
