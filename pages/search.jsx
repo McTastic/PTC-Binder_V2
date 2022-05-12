@@ -15,7 +15,6 @@ import PokeBallSVG from "../public/images/pokeball.svg";
 import Image from "next/image";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import { fontFamily } from "@mui/system";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -76,148 +75,150 @@ export default function TextFieldHiddenLabel() {
 
   return (
     <>
-    {!searchState ? (
-    <Box sx={{
-      display: "flex", 
-      justifyContent:"center", 
-      mt: "2em",
-      fontSize:"100px",
-      fontWeight:"100",
-      textAlign:"center",
-      textShadow:"2px 2px 2px black"
-      }}
-      >
-        Search for any Card!
-      </Box>
-    ): (<Box/>
-    )}
-    {!searchState ? (
-      <Stack
-        component="form"
-        justifyContent="center"
-        alignContent="center"
-        alignItems="center"
-        flexDirection="row"
-        position="relative"
-        top="8em"
-        onSubmit={handleSubmit(submitForm)}
-        sx={{
-          width: { xs: "45ch", md: "75ch" },
-          margin: "auto",
-          "&:hover": {
-            outline: "none",
-            borderColor: "none",
-          },
-        }}
-        spacing={2}
-        noValidate
-        autoComplete="off"
-      >
-        <Controller
-          name="searchInput"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <TextField
-              variant="outlined"
-              fullWidth
-              {...register("searchInput")}
-              id="searchInput"
-              label="Search"
-              inputProps={{ type: "text" }}
-              {...field}
-              sx={{
-                backgroundColor: "rgba(60, 200, 255,.5)",
-                borderRadius: "1.625rem",
-                marginBottom: "2em",
-                "& .MuiFormLabel-root": {
-                  color: "white",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& > fieldset": {
-                    borderRadius: "1.675rem",
+      {!searchState ? (
+        <Stack
+          component="form"
+          justifyContent="center"
+          alignContent="center"
+          alignItems="center"
+          flexDirection="row"
+          position="relative"
+          top="20em"
+          onSubmit={handleSubmit(submitForm)}
+          sx={{
+            width: { xs: "45ch", md: "75ch" },
+            margin: "auto",
+            "&:hover": {
+              outline: "none",
+              borderColor: "none",
+            },
+          }}
+          spacing={2}
+          noValidate
+          autoComplete="off"
+        >
+          <Controller
+            name="searchInput"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <TextField
+                variant="outlined"
+                fullWidth
+                {...register("searchInput")}
+                id="searchInput"
+                label="Search"
+                inputProps={{ type: "text" }}
+                {...field}
+                sx={{
+                  backgroundColor: "rgba(60, 200, 255,.5)",
+                  borderRadius: "1.625rem",
+                  marginBottom: "2em",
+                  "& .MuiFormLabel-root": {
+                    color: "white",
                   },
-                },
-                "& .MuiOutlinedInput-root.Mui-focused": {
-                  "& > fieldset": {
-                    borderColor: "light-blue",
+                  "& .MuiOutlinedInput-root": {
+                    "& > fieldset": {
+                      borderRadius: "1.675rem",
+                    },
                   },
-                },
-                "& .MuiOutlinedInput-root:hover": {
-                  "& > fieldset": {
-                    borderColor: "blue",
+                  "& .MuiOutlinedInput-root.Mui-focused": {
+                    "& > fieldset": {
+                      borderColor: "light-blue",
+                    },
                   },
-                },
-              }}
-            ></TextField>
-          )}
-        ></Controller>
-        <IconButton type="submit" sx={{ position: "relative", bottom: "25px" }}>
-          <Image src={PokeBallSVG} height="50px" width="50px" />
-        </IconButton>
-      </Stack>
-      ) : (<Stack
-        component="form"
-        justifyContent="center"
-        alignContent="center"
-        alignItems="center"
-        flexDirection="row"
-        onSubmit={handleSubmit(submitForm)}
-        sx={{
-          width: { xs: "45ch", md: "75ch" },
-          margin: "auto",
-          "&:hover": {
-            outline: "none",
-            borderColor: "none",
-          },
-        }}
-        spacing={2}
-        noValidate
-        autoComplete="off"
-      >
-        <Controller
-          name="searchInput"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <TextField
-              variant="outlined"
-              fullWidth
-              {...register("searchInput")}
-              id="searchInput"
-              label="Search"
-              inputProps={{ type: "text" }}
-              {...field}
-              sx={{
-                backgroundColor: "rgba(60, 200, 255,.5)",
-                borderRadius: "1.625rem",
-                marginBottom: "2em",
-                "& .MuiFormLabel-root": {
-                  color: "white",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& > fieldset": {
-                    borderRadius: "1.675rem",
+                  "& .MuiOutlinedInput-root:hover": {
+                    "& > fieldset": {
+                      borderColor: "blue",
+                    },
                   },
-                },
-                "& .MuiOutlinedInput-root.Mui-focused": {
-                  "& > fieldset": {
-                    borderColor: "light-blue",
+                }}
+              ></TextField>
+            )}
+          ></Controller>
+          <IconButton
+            type="submit"
+            sx={{ position: "relative", bottom: "25px" }}
+          >
+            <Image
+              src={PokeBallSVG}
+              alt="pokeball icon"
+              height="50px"
+              width="50px"
+            />
+          </IconButton>
+        </Stack>
+      ) : (
+        <Stack
+          component="form"
+          justifyContent="center"
+          alignContent="center"
+          alignItems="center"
+          flexDirection="row"
+          onSubmit={handleSubmit(submitForm)}
+          sx={{
+            width: { xs: "45ch", md: "75ch" },
+            margin: "auto",
+            "&:hover": {
+              outline: "none",
+              borderColor: "none",
+            },
+          }}
+          spacing={2}
+          noValidate
+          autoComplete="off"
+        >
+          <Controller
+            name="searchInput"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <TextField
+                variant="outlined"
+                fullWidth
+                {...register("searchInput")}
+                id="searchInput"
+                label="Search"
+                inputProps={{ type: "text" }}
+                {...field}
+                sx={{
+                  backgroundColor: "rgba(60, 200, 255,.5)",
+                  borderRadius: "1.625rem",
+                  marginBottom: "2em",
+                  "& .MuiFormLabel-root": {
+                    color: "white",
                   },
-                },
-                "& .MuiOutlinedInput-root:hover": {
-                  "& > fieldset": {
-                    borderColor: "blue",
+                  "& .MuiOutlinedInput-root": {
+                    "& > fieldset": {
+                      borderRadius: "1.675rem",
+                    },
                   },
-                },
-              }}
-            ></TextField>
-          )}
-        ></Controller>
-        <IconButton type="submit" sx={{ position: "relative", bottom: "25px" }}>
-          <Image src={PokeBallSVG} height="50px" width="50px" />
-        </IconButton>
-      </Stack>
+                  "& .MuiOutlinedInput-root.Mui-focused": {
+                    "& > fieldset": {
+                      borderColor: "light-blue",
+                    },
+                  },
+                  "& .MuiOutlinedInput-root:hover": {
+                    "& > fieldset": {
+                      borderColor: "blue",
+                    },
+                  },
+                }}
+              ></TextField>
+            )}
+          ></Controller>
+          <IconButton
+            type="submit"
+            sx={{ position: "relative", bottom: "25px" }}
+          >
+            <Image
+              src={PokeBallSVG}
+              alt="pokeball icon"
+              height="50px"
+              width="50px"
+            />
+          </IconButton>
+        </Stack>
       )}
       <Grid
         container

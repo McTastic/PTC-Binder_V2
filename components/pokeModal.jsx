@@ -96,21 +96,6 @@ export default function TransitionsModal(props) {
             ) : (
               <Typography>Loading...</Typography>
             )}
-            <Button
-              variant="contained"
-              onClick={addHandler}
-              id={`${props.id}-button`}
-              sx={{
-                opacity: "0",
-                transition: "opacity .5s",
-                position: "relative",
-                top: "-2.95em",
-                left: "3.6em",
-              }}
-            >
-              add
-            </Button>
-
             <Button onClick={addHandler}>
               <Typography>Add</Typography>
             </Button>
