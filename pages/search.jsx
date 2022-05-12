@@ -134,6 +134,9 @@ export default function TextFieldHiddenLabel() {
                   marginBottom: "2em",
                   "& .MuiFormLabel-root": {
                     color: "white",
+                    "&.Mui-focused": {
+                      color: "white",
+                    },
                   },
                   "& .MuiOutlinedInput-root": {
                     "& > fieldset": {
@@ -143,6 +146,7 @@ export default function TextFieldHiddenLabel() {
                   "& .MuiOutlinedInput-root.Mui-focused": {
                     "& > fieldset": {
                       borderColor: "light-blue",
+                      color: "white",
                     },
                   },
                   "& .MuiOutlinedInput-root:hover": {
@@ -240,6 +244,7 @@ export default function TextFieldHiddenLabel() {
       )}
       <Grid
         container
+        item
         xs={10}
         md={10}
         lg={8}

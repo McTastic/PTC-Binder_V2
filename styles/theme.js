@@ -25,7 +25,7 @@ let theme = createTheme({
     text: {
       primary: "#fafafa",
       secondary: "#E0E0E0",
-      red:"#FF0000",
+      red: "#FF0000",
     },
     background: {
       default: "Putting here to remove default value",
@@ -58,11 +58,9 @@ let theme = createTheme({
       fairy: "rgb(244,189,201)",
     },
   },
-  typography:{
-    fontFamily:[
-      "Barlow Condensed","sans-serif"
-    ].join(",")
-  }
+  typography: {
+    fontFamily: ["Barlow Condensed", "sans-serif"].join(","),
+  },
 });
 
 theme = responsiveFontSizes(theme);
