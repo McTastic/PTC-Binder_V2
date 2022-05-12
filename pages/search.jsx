@@ -7,7 +7,7 @@ import axios from "axios";
 import { Store } from "/utils/globalStore";
 import { Controller, useForm } from "react-hook-form";
 import ResultCard from "@components/ResultCard";
-import { Box, Typography } from "@mui/material";
+import { Box, TextareaAutosize, Typography } from "@mui/material";
 import PokeModal from "@components/pokeModal";
 import IconButton from "@mui/material/IconButton";
 import CatchingPokemonTwoToneIcon from "@mui/icons-material/CatchingPokemonTwoTone";
@@ -15,7 +15,7 @@ import PokeBallSVG from "../public/images/pokeball.svg";
 import Image from "next/image";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import { fontFamily } from "@mui/system";
+import { fontFamily, textAlign } from "@mui/system";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -48,6 +48,7 @@ export default function TextFieldHiddenLabel() {
   const { modalControl } = state;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchState, setSearchState] = useState("");
+  const [noResultsState, setNoResultsState] = useState(false);
 
   const submitForm = async ({ searchInput }) => {
     const pageCount = currentPage;
@@ -65,6 +66,11 @@ export default function TextFieldHiddenLabel() {
       reset({
         data: "searchInput",
       });
+      if (Math.ceil(data?.totalCount / data?.pageSize) === 0) {
+        setNoResultsState(true);
+      } else {
+        setNoResultsState(false);
+      }
       setResults({ ...data });
       // console.log(results);
       setSearchState({ searchInput });
@@ -76,6 +82,12 @@ export default function TextFieldHiddenLabel() {
 
   return (
     <>
+      {/* {noResultsState ? <Box sx={{fontSize:"30px",mt:"10em", textAlign:"center"}}>
+        <h3>No results found for "{searchState.searchInput}"</h3>
+      </Box> 
+        : 
+        <Box />
+        } */}
       {!searchState ? (
         <Box
           sx={{
@@ -88,7 +100,7 @@ export default function TextFieldHiddenLabel() {
             textShadow: "2px 2px 2px black",
           }}
         >
-          Search for any Card!
+          Search for a Pokemon!
         </Box>
       ) : (
         <Box />
@@ -97,15 +109,14 @@ export default function TextFieldHiddenLabel() {
         <Stack
           component="form"
           justifyContent="center"
-          alignContent="center"
           alignItems="center"
           flexDirection="row"
           position="relative"
           onSubmit={handleSubmit(submitForm)}
           sx={{
-            width: { xs: "45ch", md: "75ch" },
+            width: { xs: "45ch", md: "85ch" },
             margin: "auto",
-            top: { xs: "3em", md: "8em" },
+            top: { xs: "3em", md: "6em" },
             "&:hover": {
               outline: "none",
               borderColor: "none",
@@ -131,9 +142,10 @@ export default function TextFieldHiddenLabel() {
                 sx={{
                   backgroundColor: "rgba(60, 200, 255,.5)",
                   borderRadius: "1.625rem",
-                  marginBottom: "2em",
                   "& .MuiFormLabel-root": {
                     color: "white",
+                    fontSize: "18px",
+                    letterSpacing: "1px",
                     "&.Mui-focused": {
                       color: "white",
                     },
@@ -160,7 +172,7 @@ export default function TextFieldHiddenLabel() {
           ></Controller>
           <IconButton
             type="submit"
-            sx={{ position: "relative", bottom: "25px" }}
+            sx={{ position: "relative", bottom: "10px" }}
           >
             <Image
               src={PokeBallSVG}
@@ -241,6 +253,39 @@ export default function TextFieldHiddenLabel() {
             />
           </IconButton>
         </Stack>
+      )}
+      {noResultsState && (
+        <Box
+          sx={{
+            display:"flex",
+            flexDirection:"column",
+            alignItems:"center",
+            mt: "6em",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "60px",
+              fontFamily: "Georgia",
+              textAlign: "center",
+            }}
+          >
+            We couldn't find anything!
+          </h2>
+          <p
+            style={{
+              fontSize: "24px",
+              fontFamily: "Georgia",
+              textAlign: "center",
+              width: "30%",
+              fontWeight:"1000"
+            }}
+          >
+            No results were found for "{searchState.searchInput}". Please try
+            searching again. You can find a full list of Pokemon{" "}
+            <a target="_blank" style={{color:"yellow"}}href="https://www.pokemon.com/us/pokedex/">here</a>
+          </p>
+        </Box>
       )}
       <Grid
         container
@@ -286,7 +331,7 @@ export default function TextFieldHiddenLabel() {
             </Grid>
           ))}
       </Grid>
-      {!searchState ? (
+      {!searchState || noResultsState ? (
         <Box />
       ) : (
         <Box
@@ -312,7 +357,6 @@ export default function TextFieldHiddenLabel() {
             }}
             disabled={true ? currentPage <= 1 : false}
           >
-            {/* <Typography fontSize="20px">Prev</Typography> */}
             <ArrowCircleLeftOutlinedIcon
               sx={{
                 fontSize: "80px",
