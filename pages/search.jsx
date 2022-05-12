@@ -284,7 +284,7 @@ export default function TextFieldHiddenLabel() {
               fontWeight:"1000"
             }}
           >
-            No results were found for "{searchState.searchInput}". Please try
+            No results were found for <q>{searchState.searchInput}</q>. Please try
             searching again. You can find a full list of Pokemon{" "}
             <a target="_blank" style={{color:"yellow"}}href="https://www.pokemon.com/us/pokedex/">here</a>
           </Typography>
