@@ -31,12 +31,14 @@ export default function Home() {
             PTC Binder
           </Typography>
           <Typography
-            variant="h1"
             sx={{
+              fontSize:{xs:"80px",xl:"125px"},
               letterSpacing: "1px",
+              lineHeight:"1.25",
               marginTop:"1em",
               marginBottom:".25em",
-              width: {xl:"82%"},
+              textShadow:"2px 2px 8px black",
+              width: {xl:"85%"},
             }}
           >
             Your digital<br/>

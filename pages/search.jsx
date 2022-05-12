@@ -15,6 +15,7 @@ import PokeBallSVG from "../public/images/pokeball.svg";
 import Image from "next/image";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import { fontFamily } from "@mui/system";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -76,6 +77,21 @@ export default function TextFieldHiddenLabel() {
   return (
     <>
     {!searchState ? (
+    <Box sx={{
+      display: "flex", 
+      justifyContent:"center", 
+      mt: "2em",
+      fontSize:"100px",
+      fontWeight:"100",
+      textAlign:"center",
+      textShadow:"2px 2px 2px black"
+      }}
+      >
+        Search for any Card!
+      </Box>
+    ): (<Box/>
+    )}
+    {!searchState ? (
       <Stack
         component="form"
         justifyContent="center"
@@ -83,7 +99,7 @@ export default function TextFieldHiddenLabel() {
         alignItems="center"
         flexDirection="row"
         position="relative"
-        top="20em"
+        top="8em"
         onSubmit={handleSubmit(submitForm)}
         sx={{
           width: { xs: "45ch", md: "75ch" },
