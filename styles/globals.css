@@ -32,3 +32,6 @@ a {
   border-top-left-radius: 3%;
   border-bottom-right-radius: 3%;
 }
+.nothing{
+  color: rgba(255, 255, 255, 0.467)
+}

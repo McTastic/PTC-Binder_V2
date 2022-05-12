@@ -263,28 +263,31 @@ export default function TextFieldHiddenLabel() {
             mt: "6em",
           }}
         >
-          <h2
-            style={{
-              fontSize: "60px",
+          <Typography
+          className="noResultHeader"
+            sx={{
+              fontSize: {xs:"40px",md:"60px",lg:"80px"},
               fontFamily: "Georgia",
               textAlign: "center",
+              mb: ".5em"
             }}
           >
             We couldn't find anything!
-          </h2>
-          <p
-            style={{
+          </Typography>
+          <Typography
+            variant="p"
+            sx={{
               fontSize: "24px",
               fontFamily: "Georgia",
               textAlign: "center",
-              width: "30%",
+              width: {xs:"75%",md:"45%",lg:"30%"},
               fontWeight:"1000"
             }}
           >
             No results were found for "{searchState.searchInput}". Please try
             searching again. You can find a full list of Pokemon{" "}
             <a target="_blank" style={{color:"yellow"}}href="https://www.pokemon.com/us/pokedex/">here</a>
-          </p>
+          </Typography>
         </Box>
       )}
       <Grid
