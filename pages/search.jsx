@@ -75,6 +75,7 @@ export default function TextFieldHiddenLabel() {
 
   return (
     <>
+<<<<<<< HEAD
       {!searchState ? (
         <Stack
           component="form"
@@ -116,6 +117,68 @@ export default function TextFieldHiddenLabel() {
                   marginBottom: "2em",
                   "& .MuiFormLabel-root": {
                     color: "white",
+=======
+    {!searchState ? (
+    <Box sx={{
+      display: "flex", 
+      justifyContent:"center", 
+      mt: {xs:"1em",md:"2em"},
+      fontSize: {xs: "50px",md:"100px"},
+      fontWeight:"100",
+      textAlign:"center",
+      textShadow:"2px 2px 2px black"
+      }}
+      >
+        Search for any Card!
+      </Box>
+    ): (<Box/>
+    )}
+    {!searchState ? (
+      <Stack
+        component="form"
+        justifyContent="center"
+        alignContent="center"
+        alignItems="center"
+        flexDirection="row"
+        position="relative"
+        onSubmit={handleSubmit(submitForm)}
+        sx={{
+          width: { xs: "45ch", md: "75ch" },
+          margin: "auto",
+          top: {xs: "3em", md: "8em"},
+          "&:hover": {
+            outline: "none",
+            borderColor: "none",
+          },
+        }}
+        spacing={2}
+        noValidate
+        autoComplete="off"
+      >
+        <Controller
+          name="searchInput"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              variant="outlined"
+              fullWidth
+              {...register("searchInput")}
+              id="searchInput"
+              label="Search"
+              inputProps={{ type: "text" }}
+              {...field}
+              sx={{
+                backgroundColor: "rgba(60, 200, 255,.5)",
+                borderRadius: "1.625rem",
+                marginBottom: "2em",
+                "& .MuiFormLabel-root": {
+                  color: "white",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& > fieldset": {
+                    borderRadius: "1.675rem",
+>>>>>>> c194ac58966854ba425ee4cd269cb1e4140caf88
                   },
                   "& .MuiOutlinedInput-root": {
                     "& > fieldset": {
