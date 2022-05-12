@@ -284,15 +284,6 @@ export default function TextFieldHiddenLabel() {
               fontWeight: "1000",
             }}
           >
-<<<<<<< HEAD
-            No results were found for &quot;{searchState.searchInput}&quot;.
-            Please try searching again. You can find a full list of Pokemon{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              style={{ color: "yellow" }}
-              href="https://www.pokemon.com/us/pokedex/"
-=======
             No results were found for <q>{searchState.searchInput}</q>. Please
             try searching again. You can find a full list of Pokemon
             <a
@@ -300,7 +291,6 @@ export default function TextFieldHiddenLabel() {
               style={{ color: "yellow" }}
               href="https://www.pokemon.com/us/pokedex/"
               rel="noreferrer"
->>>>>>> 85f2b441298837b3498dd06a7c686a1089e24dc5
             >
               here
             </a>
