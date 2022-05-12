@@ -21,7 +21,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Roboto+Condensed:ital,wght@1,700&display=swap"
             rel="stylesheet"
           ></link>
-          <link href="//db.onlinewebfonts.com/c/93ab7a3aa45e61e72b9d5b8df57f2cee?family=DecoturaW01" rel="stylesheet" type="text/css"/>
 
         </Head>
         <body>

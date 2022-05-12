@@ -14,13 +14,12 @@ export default function About() {
       xs={10}
       md={6}
       lg={6}
-      xl={6}
-      align="center"
+      xl={8}
       sx={{
         display: "flex",
         justifyContent: "space-evenly",
         marginTop:{lg:"3em"},
-        ml: { xs: "2em", sm: "15em", md: "20em", lg: "30em" },
+        ml: { xs: "2em", sm: "15em", md: "20em", lg: "30em",xl:"25em" },
       }}
     >
       <Grid 
@@ -31,7 +30,6 @@ export default function About() {
       align="center"
       >
         <Box
-        align="center"
           sx={{
             backgroundColor: "rgba(0, 0, 0, .25)",
             backdropFilter:"blur(6px)",
@@ -43,7 +41,7 @@ export default function About() {
           height={200}
           width={200}
           sx={{
-            boxShadow: "10px -5px 4px white, -10px 5px 4px red",
+            boxShadow: "6px -6px 15px black, -6px 6px 15px black, 20px -15px 4px white, -20px 15px 4px red",
             marginBottom: "2em",
           }}
         >
@@ -75,7 +73,7 @@ export default function About() {
               display: "flex",
               flexDirection: "column",
               marginRight:"2em",
-              fontSize: {xs:"30px",lg:"16px"}
+              fontSize: {xs:"30px",lg:"20px"}
             }}
           >
             <MuiNextLink
@@ -122,9 +120,17 @@ export default function About() {
               marginTop:{xs:".25em",lg:"0"}
             }}
           >
-            <LinkedInIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
-            <GitHubIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}}/>
-            <LanguageSharpIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}}/>
+            <LinkedInIcon sx={{
+              fontSize:{xs:"40px",lg:"30px"},
+              marginBottom:{xs:".1em",lg:"0"}    
+              }} 
+              />
+            <GitHubIcon sx={{fontSize:{xs:"40px",lg:"30px"},}}/>
+            <LanguageSharpIcon sx={{
+              fontSize:{xs:"40px",lg:"30px"},
+              marginTop:{xs:".1em",lg:"0"}    
+              }}
+              />
           </Box>
         </Box>
         </Box>
@@ -181,7 +187,7 @@ export default function About() {
                 display: "flex",
                 flexDirection: "column",
                 marginRight:"2em",
-                fontSize: {xs:"30px",lg:"16px"}
+                fontSize: {xs:"30px",lg:"20px"}
               }}
             >
               <MuiNextLink
@@ -228,9 +234,16 @@ export default function About() {
                 marginTop:{xs:".25em",lg:"0"}
               }}
             >
-              <LinkedInIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
-              <GitHubIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
-              <LanguageSharpIcon sx={{fontSize:{xs:"6vh",lg:"2.25vh"}}} />
+              <LinkedInIcon sx={{
+                fontSize:{xs:"40px",lg:"30px"},
+                marginBottom:{xs:".1em",lg:"0"}    
+                }} 
+                />
+              <GitHubIcon sx={{fontSize:{xs:"40px",lg:"30px"}}} />
+              <LanguageSharpIcon sx={{
+                fontSize:{xs:"40px",lg:"30px"},
+                marginTop:{xs:".1em",lg:"0"}     
+            }} />
             </Box>
           </Box>
         </Box>

@@ -80,8 +80,8 @@ export default function TextFieldHiddenLabel() {
     <Box sx={{
       display: "flex", 
       justifyContent:"center", 
-      mt: "2em",
-      fontSize:"100px",
+      mt: {xs:"1em",md:"2em"},
+      fontSize: {xs: "50px",md:"100px"},
       fontWeight:"100",
       textAlign:"center",
       textShadow:"2px 2px 2px black"
@@ -99,11 +99,11 @@ export default function TextFieldHiddenLabel() {
         alignItems="center"
         flexDirection="row"
         position="relative"
-        top="8em"
         onSubmit={handleSubmit(submitForm)}
         sx={{
           width: { xs: "45ch", md: "75ch" },
           margin: "auto",
+          top: {xs: "3em", md: "8em"},
           "&:hover": {
             outline: "none",
             borderColor: "none",
