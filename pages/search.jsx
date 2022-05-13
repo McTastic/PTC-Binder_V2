@@ -285,7 +285,7 @@ export default function TextFieldHiddenLabel() {
             }}
           >
             No results were found for <q>{searchState.searchInput}</q>. Please
-            try searching again. You can find a full list of Pokemon
+            try searching again. You can find a full list of Pokemon&nbsp;
             <a
               target="_blank"
               style={{ color: "yellow" }}
