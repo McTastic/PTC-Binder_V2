@@ -1,4 +1,4 @@
-# PodCentral
+# PTC Binder V2
 
 [Repository Link](https://github.com/McTastic/PTC-Binder_V2)
 
