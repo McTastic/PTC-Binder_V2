@@ -269,7 +269,7 @@ export default function TextFieldHiddenLabel() {
               fontSize: { xs: "40px", md: "60px", lg: "80px" },
               fontFamily: "Georgia",
               textAlign: "center",
-              mb: ".5em",
+              mb: ".52em",
             }}
           >
             We couldn&apos;t find anything!
@@ -285,7 +285,7 @@ export default function TextFieldHiddenLabel() {
             }}
           >
             No results were found for <q>{searchState.searchInput}</q>. Please
-            try searching again. You can find a full list of Pokemon
+            try searching again. You can find a full list of Pokemon&nbsp;
             <a
               target="_blank"
               style={{ color: "yellow" }}
