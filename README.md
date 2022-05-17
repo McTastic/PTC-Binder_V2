@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PodCentral
 
-## Getting Started
+[Repository Link](https://github.com/McTastic/PTC-Binder_V2)
 
-First, run the development server:
+[Deployment Link](https://ptc-binder-v2-4kml8079p-team-mc.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Description](#Description)
+- [Usage](#Usage)
+- [License](#License)
+- [Technologies](#Technologies)
+- [Questions](#Questions)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Description
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+PTC Binder is a full stack Application that allows users to add and keep track of Pokemon cards in their collection. Users can search for and add cards to their collection from the search page. We have utilized the NextJS framework, a MongoDB server for out user data on the backend, and MUI's component library for styling.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Usage
 
-## Learn More
+Demo of Usage
+![Demo of Usage](/public/images/addCard.gif)
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Technologies
 
-## Deploy on Vercel
+- React
+- NextJS
+- JavaScript
+- MUI
+- CSS
+- Node.js
+- MongoDB
+- Mongoose
+- JSCookie
+- BCrypt
+- Axios
+- Swipper
+- Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Questions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Ryan McCarthy](https://github.com/rmmccar92/) [:envelope:](mailto:rmmccar92@gmail.com)
+- [Sean McCarthy](https://github.com/McTastic) [:envelope:](mailto:mctastic2121@gmail.com)

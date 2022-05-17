@@ -6,23 +6,5 @@
 .swiperImage {
     /* color: white  */
 }
-.swiperSlide p {
-  position: relative;
-  top: 10em;
-  font-size: 18px;
-  width: 75%;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-  background: linear-gradient(#48c6ef  ,#c2e9fb)
-  /* border: double white 5px; */
-}
-.thing {
-  color: rgb(8, 54, 160);
-}
 
-/* @media screen and (max-width: 600px) {
-    .swiperSlide{
-        display: flex;
-        flex-direction: column;
-    }
-} */
+
