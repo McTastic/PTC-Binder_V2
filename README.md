@@ -43,5 +43,5 @@ Demo of Usage
 
 ## Questions
 
-[Ryan McCarthy](https://github.com/rmmccar92/) [:envelope:](mailto:rmmccar92@gmail.com)
+- [Ryan McCarthy](https://github.com/rmmccar92/) [:envelope:](mailto:rmmccar92@gmail.com)
 - [Sean McCarthy](https://github.com/McTastic) [:envelope:](mailto:mctastic2121@gmail.com)
